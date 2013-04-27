@@ -20,6 +20,6 @@ ZONE =  {
         }
 
 ENEMY_PROPERTY =    {
-                    'flying': ['fly','dragon']
+                    'flying': ['fly']
                     }
 KEYBOARD = key.KeyStateHandler()
