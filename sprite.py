@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import cocos
 import pyglet
+import behaviour
 
 class Sprite(cocos.sprite.Sprite):
 
@@ -18,6 +19,10 @@ class Character(Sprite):
     def __init__(self,image,position=(0,0),hp=[0,0],mp=[0,0]):
 
         Sprite.__init__(self,image,position)
+
+
+        self.map_position = [0,0]
+        self.current_map = None
 
         self.hp = hp
         self.mp = mp
