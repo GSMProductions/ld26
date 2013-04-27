@@ -4,7 +4,7 @@ import cocos
 import pyglet
 import random
 
-from sprite import Character
+from sprite import Character, Sprite
 from data import ZONE, ENEMY_PROPERTY
 
 class FightScene(cocos.scene.Scene):
@@ -24,7 +24,15 @@ class FightScene(cocos.scene.Scene):
         self.heros = heros
 
         pos = (650,180)
+        first = True
+
         for hero in heros:
+
+            if first:
+                first = False
+                self.active = hero
+                self.n_active = 0
+
             self.layer['battle'].add(hero)
             
             hero.position = pos
@@ -52,10 +60,10 @@ class FightScene(cocos.scene.Scene):
 
         #Ennemies
 
-        enemies = ZONE[zone][random.randint(0,len(ZONE[zone])-1)]
-
-        for index in range(len(enemies)):
-            enemies[index] = Character(enemies[index])
+        str_enemies = ZONE[zone][random.randint(0,len(ZONE[zone])-1)]
+        enemies = []
+        for index in range(len(str_enemies)):
+            enemies.append(Character(str_enemies[index]))
         
         self.enemies = enemies
 
@@ -75,8 +83,32 @@ class FightScene(cocos.scene.Scene):
 
             self.layer['battle'].add(enemy)
 
-    def nextHero(self):
-        pass
+        #arrow
+
+        self.active_arrow = Sprite
+
+    def next(self,index=None):
+
+        #selection
+        if index != None:
+            self.n_active = index
+        else:
+            self.n_active += 1
+
+        if self.n_active >= len(self.heros):
+            #ennemies
+            n = self.n_active - len(self.heros)
+            if n > len(self.ennemies):
+                self.n_active = 0
+                self.active = self.heros[0]
+            else:
+                self.active = self.enemies[n]
+        else:
+            self.active = self.heros[self.n_active]
+
+
+
+
 
 class Bar:
 

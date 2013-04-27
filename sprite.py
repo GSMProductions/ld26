@@ -23,13 +23,13 @@ class Character(Sprite):
         self.name = name
 
         try:
-            image = pyglet.image.load('img/chara/'+name+'.png')
+            image = pyglet.image.load('img/chara/' + str(name) + '.png')
             self.map_image = image
         except IOError, e:
-            image = pyglet.image.load('img/chara/'+name+'-m.png')
+            image = pyglet.image.load('img/chara/' + str(name) + '-m.png')
             self.map_image = image
             try:
-                self.fight_image = pyglet.image.load('img/chara/'+name+'-f.png')
+                self.fight_image = pyglet.image.load('img/chara/'+str(name)+'-f.png')
             except IOError, e:
                 pass
 
@@ -49,6 +49,10 @@ class Character(Sprite):
     def map_mode(self):
 
         self.image = map_image
+
+    def __repr__(self):
+
+        return self.name
 
 
 
