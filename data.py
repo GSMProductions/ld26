@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 
-TITLE = "Ludum Dare 26. Minimalism"
+TITLE = "Outside The Box"
 
 SCREEN_SIZE = 800,600
