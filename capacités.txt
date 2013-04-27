@@ -1,0 +1,5 @@
+-Soin
+-Attaque physique
+-Attaque magique
+-Fuite
+-Voler
