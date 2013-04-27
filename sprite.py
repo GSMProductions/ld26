@@ -19,6 +19,7 @@ class Character(Sprite):
 
         self.fight_image = None
         self.map_image = None
+        self.name = name
 
         try:
             image = pyglet.image.load('img/chara/'+name+'.png')

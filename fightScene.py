@@ -2,12 +2,14 @@
 
 import cocos
 import pyglet
+import random
 
-from sprite import Sprite
+from sprite import Character
+from data import ZONE, ENEMY_PROPERTY
 
 class FightScene(cocos.scene.Scene):
 
-    def __init__(self,env,heros=[]):
+    def __init__(self,zone,heros=[]):
 
         cocos.scene.Scene.__init__(self)
 
@@ -28,7 +30,7 @@ class FightScene(cocos.scene.Scene):
             hero.position = pos
             hero.battle_mode()
 
-            pos = pos[0] + 55, pos[1] 
+            pos = pos[0] - 55, pos[1] 
 
 
         # GUI
@@ -38,16 +40,40 @@ class FightScene(cocos.scene.Scene):
 
         # BG
 
-        if env == 'prairie':
+        if zone == 'prairie':
             image = pyglet.image.load('img/GUI/bg_prairie.png')
             sprite = cocos.sprite.Sprite(image, anchor=(0,0))
             self.add(sprite,z=0)
 
-        elif env == 'forest':
+        elif zone == 'forest':
             image = pyglet.image.load('img/GUI/bg_forest.png')
             sprite = cocos.sprite.Sprite(image, anchor=(0,0))
             self.add(sprite,z=0)
 
+        #Ennemies
+
+        enemies = ZONE[zone][random.randint(0,len(ZONE[zone])-1)]
+
+        for index in range(len(enemies)):
+            enemies[index] = Character(enemies[index])
+        
+        self.enemies = enemies
+
+        pos = (350,250)
+
+        for enemy in enemies:
+            dx, dy = 0,0
+
+            for key,value in ENEMY_PROPERTY.items():
+                if enemy.name in value:
+                     if key == 'flying':
+                        dy += 70
+
+
+            enemy.position = pos[0] + dx, pos[1] + dy
+            pos = pos[0] + 80, pos[1]
+
+            self.layer['battle'].add(enemy)
 
 class Bar:
 
