@@ -3,6 +3,7 @@ import cocos
 
 import data
 
+
 class Map(cocos.scene.Scene):
 
     def __init__(self, name):
