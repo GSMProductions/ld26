@@ -26,6 +26,7 @@ class FightScene(cocos.scene.Scene):
             self.layer['battle'].add(hero)
             
             hero.position = pos
+            hero.battle_mode()
 
             pos = pos[0] + 55, pos[1] 
 

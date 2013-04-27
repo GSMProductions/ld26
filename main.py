@@ -12,13 +12,13 @@ def main():
     #instancification de la fenêtre
     cocos.director.director.init(width=SCREEN_SIZE[0], height=SCREEN_SIZE[1], caption=TITLE)
 
-    heros = [Character('img/chara/nod-f.png',(0,0),[20,20],[20,20]),Character('img/chara/nel-f.png',(0,0),[20,20],[20,20])]
+    heros = [Character('nod',(0,0),[20,20],[20,20]),Character('nel',(0,0),[20,20],[20,20])]
 
     dummy_scene = FightScene('prairie',heros)
 
     logo = pyglet.image.load('img/GUI/icone.png')
     cocos.director.director.window.set_icon(logo)
-    
+
     cocos.director.director.run(dummy_scene)
 
 if __name__ == "__main__":

@@ -15,12 +15,34 @@ class Sprite(cocos.sprite.Sprite):
 
 class Character(Sprite):
 
-    def __init__(self,image,position=(0,0),hp=[0,0],mp=[0,0]):
+    def __init__(self,name,position=(0,0),hp=[0,0],mp=[0,0]):
+
+        self.fight_image = None
+        self.map_image = None
+
+        try:
+            image = pyglet.image.load('img/chara/'+name+'.png')
+            self.map_image = image
+        except IOError, e:
+            image = pyglet.image.load('img/chara/'+name+'-m.png')
+            self.map_image = image
+            try:
+                self.fight_image = pyglet.image.load('img/chara/'+name+'-f.png')
+            except IOError, e:
+                pass
 
         Sprite.__init__(self,image,position)
 
         self.hp = hp
         self.mp = mp
+
+    def battle_mode(self):
+
+        self.image = self.fight_image
+
+    def map_mode(self):
+
+        self.image = map_image
 
 
 
