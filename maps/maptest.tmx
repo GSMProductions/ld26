@@ -15,13 +15,15 @@
   <tile id="3">
    <properties>
     <property name="door" value="True"/>
+    <property name="door_destination" value="2 2"/>
+    <property name="door_map" value="village"/>
     <property name="passable" value="True"/>
    </properties>
   </tile>
  </tileset>
  <layer name="Tile Layer 1" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJztlksSwyAMQ+nk/nfuvk3AkmWsMl2wSMaAn+UP1xjjOmS9fnz9ObyWmiN61jW+fcjkupIDOWtli/Ioa52JoVJfNo6f+xw4WNvVtysHypXxEan7jB53+9R6RO3RGl/FSK1HdE/F/IjOA3aGPJ3VPc/ZuRc9w/mNGe05bA/rYsn2zuo4R+1neqhzSjn3IhwVMa7K010czHxy5VD8d+bI9konjqwmGQ5Fvq/uRftCRkcFSxcHyjCLv2I2KesDuVtdjwoORRwdOBQsilyo5NjFs/N9xcQEZXfiyOjsysFyM7Hp9r2CQ1HvLhyz/Ygvq7Mq66PirYRo68hRlVeMD7PePsuNXRxMT7+zi9bYzjcOmzN3GrF9r3MWRN8fTnrM7maWG0e3Htn5jdh15VW2Zl041DE5gQPNgW4/VBwnrDcAxA3Z
+   eJztlksSwyAMQ+mk9z9zD1AClixjNdMFi2QM+Fn+cI0xroes14+vP4fXUnNEz7rGtw+ZXFdyIGftbFEeZa0zMVTqy3C/J/scOFjb3bcrB8qV8RGp+4wes31qPaL2aI3vYqTWI7qnYn5E5wE7Q+7O6p7n7NyLnuH8xoz2HLaHdbFke2d1nKP2Kz3UOaWcexGOihhX5ekpDmY+uXIo/jtzZHulE0dWkwyHIt9396J9IaOjgqWLA2VYxV8xm5T1gdytrkcFhyKODhwKFkUuVHKc4jn5vmJigrI7cWR0duVguZnYdPtewaGodxeO1X7El91ZlfVR8VZCtHXkqMorxodVb1/lxikOpqfP7KI1dvKNw+bMTCO273XOguj7w0mP1d3McuPo1iM7vxG7rrzK1qwLhzomT+BAc6DbDxXHE9YHZPAN3A==
   </data>
  </layer>
 </map>

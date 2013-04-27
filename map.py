@@ -1,5 +1,6 @@
 
 import cocos
+import cocos.scenes
 
 import data
 
@@ -23,7 +24,10 @@ class Map(cocos.scene.Scene):
         cocos.scene.Scene.__init__(self, self.scroller)
 
 
-    def spawnPlayer(self, player, position):
+    def spawnPlayer(self, player, position, transition=True):
+
+        if transition:
+            cocos.director.director.replace(cocos.scenes.FadeTransition( self, duration=2 ) )
 
         self.char_layer.add(player)
 

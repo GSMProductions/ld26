@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import cocos
+import cocos.scenes
 import pyglet
 
-from data import TITLE, SCREEN_SIZE, KEYBOARD
+from data import TITLE, SCREEN_SIZE, KEYBOARD, MAPS
 from fightScene import FightScene
 from sprite import Character
 from menu import Menu
@@ -20,11 +21,15 @@ def test_map():
     player = Character('nod1',(0,0),[20,20],[20,20])
     player.do(MoveCharacter())
 
-    dummy_scene = Map('maptest')
-    dummy_scene.spawnPlayer(player, (26,26) )
+
+
+    MAPS['village'] = Map('maptest')
+
+    dummy_scene = MAPS['village']
+    dummy_scene.spawnPlayer(player, (26,26))
 
     cocos.director.director.window.push_handlers(KEYBOARD)
-    cocos.director.director.run(dummy_scene)
+    #cocos.director.director.run(cocos.scenes.FadeTransition(dummy_scene, duration=5))
 
 def callback(dt):
     pyglet.gl.glClearColor(0.85, 0.85, 0.85, 1)

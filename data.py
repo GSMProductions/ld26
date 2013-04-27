@@ -24,3 +24,4 @@ ENEMY_PROPERTY =    {
                     }
 KEYBOARD = key.KeyStateHandler()
 
+MAPS = {}
