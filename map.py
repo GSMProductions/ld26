@@ -1,6 +1,8 @@
 
 import cocos
 
+import data
+
 class Map(cocos.scene.Scene):
 
     def __init__(self, name):
@@ -15,3 +17,9 @@ class Map(cocos.scene.Scene):
         self.scroller.add(self.char_layer)
 
         cocos.scene.Scene.__init__(self, self.scroller)
+
+
+    def spawnPlayer(self, player, position):
+
+        self.scroller.set_focus(position[0]*data.TILE_SIZE, position[1]*data.TILE_SIZE)
+
