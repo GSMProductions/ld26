@@ -42,6 +42,11 @@
     <property name="passable" value="True"/>
    </properties>
   </tile>
+  <tile id="8">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
   <tile id="9">
    <properties>
     <property name="passable" value="True"/>
