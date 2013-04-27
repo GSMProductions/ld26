@@ -23,3 +23,4 @@ ENEMY_PROPERTY =    {
                     'flying': ['fly']
                     }
 KEYBOARD = key.KeyStateHandler()
+
