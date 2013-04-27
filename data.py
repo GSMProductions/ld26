@@ -3,3 +3,5 @@
 TITLE = "Outside The Box"
 
 SCREEN_SIZE = 800,600
+
+TILE_SIZE = 32
