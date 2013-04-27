@@ -10,7 +10,7 @@ from menu import Menu
 
 def test_combat():
 
-    heros = [Character('nod',(0,0),[20,20],[20,20]),Character('nel',(0,0),[20,20],[20,20])]
+    heros = [Character('nod1',(0,0),[20,20],[20,20]),Character('nel1',(0,0),[20,20],[20,20])]
     dummy_scene = FightScene('prairie',heros)
     cocos.director.director.push(dummy_scene)
 
