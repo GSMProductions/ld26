@@ -3,10 +3,12 @@
 import cocos
 import pyglet
 
-from data import TITLE, SCREEN_SIZE
+from data import TITLE, SCREEN_SIZE, KEYBOARD
 from fightScene import FightScene
 from sprite import Character
 from menu import Menu
+from map import Map
+from behaviour import MoveCharacter
 
 def test_combat():
 
@@ -15,7 +17,14 @@ def test_combat():
     cocos.director.director.push(dummy_scene)
 
 def test_map():
-    pass
+    player = Character('nod1',(0,0),[20,20],[20,20])
+    player.do(MoveCharacter())
+
+    dummy_scene = Map('maptest')
+    dummy_scene.spawnPlayer(player, (26,26) )
+
+    cocos.director.director.window.push_handlers(KEYBOARD)
+    cocos.director.director.run(dummy_scene)
 
 def callback(dt):
     pyglet.gl.glClearColor(0.85, 0.85, 0.85, 1)
