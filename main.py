@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import cocos
+import pyglet
 
 from data import TITLE, SCREEN_SIZE
 from fightScene import FightScene
@@ -15,6 +16,9 @@ def main():
 
     dummy_scene = FightScene('prairie',heros)
 
+    logo = pyglet.image.load('img/GUI/icone.png')
+    cocos.director.director.window.set_icon(logo)
+    
     cocos.director.director.run(dummy_scene)
 
 if __name__ == "__main__":
