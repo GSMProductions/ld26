@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tileset_village" tilewidth="32" tileheight="32">
+  <image source="tileset_village.png" width="640" height="320"/>
+  <tile id="20">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="ground1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt17ERgCAQRUGGXrX/EixBBUf+HBtscAkD9yJ6a60DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAT46bGT12psf8/s5BI2esfm86PbLokUWPLHpk0SPLaAs99NjBFz3Qoyo9ssz00EaP6vTIMvMf1EOP6vTIokcWPbI86bH6jgAA8NYFix7u9w==
+  </data>
+ </layer>
+ <layer name="ground2" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2AlKw0AUBuBR8AgqeAP3E7jewPUGxXqEup3Byyh4O19JiuOYUDt1A78PfmgghDL/JC8kJQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+ot3f/gO8k/exEFlsU2MUuWlzm/3uOqZb3sdyZKXNvAaR6yyDL7jmf5D3sR7Zjmyk+e6TsXL99fE5eR9PkefIS5r/PtFHnbyPpchB5DE198lOap41E/l8KVPSR528j9XIWeQ8chG5TPr4aXkfd5H7yEPPufm8L1PSR52+992uvZ/P+7XIVnp7rpX0Uafvfbdr7+9FjiL7qZkzh+3xccd19VGn7313MzX7P9/7J6mZK6fp45wp6aNO3kfXenet9bQ5M6aPOrN8vxq2yb97DItM6KPOpI+rNH29Z6GPOt/1fVcfdfQBQI1X5rIvCA==
+  </data>
+ </layer>
+ <layer name="foreground" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztz0EKgCAQQFHvVllk9z+PExQM0rYW8R58cHQ2lgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA75uiJdqv1miLWrrL72dzVNNch/32sH+fj2++BfxQB2v3CD4=
+  </data>
+ </layer>
+</map>

@@ -1,5 +1,6 @@
 
 import cocos
+import cocos.scenes
 
 import data
 
@@ -12,7 +13,7 @@ class Map(cocos.scene.Scene):
 
         self.scroller = cocos.layer.ScrollingManager()
         self.char_layer = cocos.layer.ScrollableLayer()
-        self.map_layer = cocos.tiles.load('maps/'+self.name+'.tmx')["Tile Layer 1"]
+        self.map_layer = cocos.tiles.load('maps/'+self.name+'.tmx')["ground1"]
 
         self.scroller.add(self.map_layer)
         self.scroller.add(self.char_layer)
@@ -23,7 +24,10 @@ class Map(cocos.scene.Scene):
         cocos.scene.Scene.__init__(self, self.scroller)
 
 
-    def spawnPlayer(self, player, position):
+    def spawnPlayer(self, player, position, transition=True):
+
+        if transition:
+            cocos.director.director.replace(cocos.scenes.FadeTransition( self, duration=2 ) )
 
         self.char_layer.add(player)
 
