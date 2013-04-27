@@ -17,6 +17,9 @@ def test_combat():
 def test_map():
     pass
 
+def callback(dt):
+    pyglet.gl.glClearColor(0.85, 0.85, 0.85, 1)
+
 def main():
 
     #instancification de la fenêtre
@@ -27,12 +30,22 @@ def main():
     logo = pyglet.image.load('img/GUI/icone.png')
     cocos.director.director.window.set_icon(logo)
 
+    pyglet.resource.path.append('font')
+    pyglet.resource.reindex()
+    pyglet.resource.add_font('Statix.ttf')
+
     main_command =  [
                     ('Battle Test',test_combat,[]),
                     ('Map Test',test_map,[])
                     ]
 
     main_scene = cocos.scene.Scene()
+    main_scene.schedule(callback)
+
+    #Title
+    sprite = cocos.sprite.Sprite('img/GUI/titre.png',(400,450))
+    main_scene.add(sprite)
+
     menu =  Menu(main_command)
     main_scene.add(menu)
     cocos.director.director.run(main_scene)

@@ -7,9 +7,11 @@ class Menu(cocos.menu.Menu):
 
         cocos.menu.Menu.__init__(self)
 
-        self.font_item['font_name'] = 'Statix'            
+        self.font_item['font_name'] = 'Statix' 
+        self.font_item['color'] = (89,89,89,255)     
         self.font_item['font_size'] = 50
-        self.font_item_selected['font_name'] = 'Statix' 
+        self.font_item_selected['font_name'] = 'Statix'
+        self.font_item_selected['color'] = (141,199,63,255) 
         self.font_item_selected['font_size'] = 50  
         self.menu_valign = cocos.menu.BOTTOM
         self.menu_halign = cocos.menu.CENTER
