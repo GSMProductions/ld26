@@ -39,6 +39,9 @@ class Character(Sprite):
         self.map_position = [0,0]
         self.current_map = None
 
+        self.battle_timer = 0.0
+        self.battle_threshold = 5.0
+
         self.hp = hp
         self.mp = mp
 

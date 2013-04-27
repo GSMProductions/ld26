@@ -9,7 +9,7 @@ from fightScene import FightScene
 from sprite import Character
 from menu import Menu
 from map import Map
-from behaviour import MoveCharacter
+from behaviour import MoveCharacter, CheckForBattle
 
 def test_combat():
 
@@ -20,10 +20,12 @@ def test_combat():
 def test_map():
     player = Character('nod1',(0,0),[20,20],[20,20])
     player.do(MoveCharacter())
+    player.do(CheckForBattle())
 
 
 
     MAPS['village'] = Map('maptest')
+    MAPS['maptest'] = Map('maptest')
 
     dummy_scene = MAPS['village']
     dummy_scene.spawnPlayer(player, (26,26))
@@ -37,7 +39,7 @@ def callback(dt):
 def main():
 
     #instancification de la fenêtre
-    cocos.director.director.init(width=SCREEN_SIZE[0], height=SCREEN_SIZE[1], caption=TITLE)
+    cocos.director.director.init(width=SCREEN_SIZE[0], height=SCREEN_SIZE[1], caption=TITLE, do_not_scale=True)
 
     
 
