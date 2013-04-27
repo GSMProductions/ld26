@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from pyglet.window import key
+import pyglet
 
 
 TITLE = "Outside The Box"
@@ -25,3 +26,23 @@ ENEMY_PROPERTY =    {
 KEYBOARD = key.KeyStateHandler()
 
 MAPS = {}
+
+
+def mapKey(key):
+
+    if key == pyglet.window.key.SPACE:
+            key = pyglet.window.key.ENTER
+
+    elif key == pyglet.window.key.D:
+            key = pyglet.window.key.RIGHT
+
+    elif  key == pyglet.window.key.Q or key == pyglet.window.key.A:
+            key = pyglet.window.key.LEFT
+
+    elif key == pyglet.window.key.Z or key == pyglet.window.key.W:
+            key = pyglet.window.key.UP
+
+    elif key == pyglet.window.key.S:
+            key = pyglet.window.key.DOWN
+
+    return key

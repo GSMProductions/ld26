@@ -5,7 +5,8 @@ import pyglet
 import random
 
 from sprite import Character, Sprite
-from data import ZONE, ENEMY_PROPERTY
+from data import ZONE, ENEMY_PROPERTY, mapKey
+
 
 class FightScene(cocos.scene.Scene):
 
@@ -93,12 +94,8 @@ class FightScene(cocos.scene.Scene):
         self.add(self.active_arrow)
         self.active_arrow.visible = False
 
-        cocos.director.director.window.push_handlers(self)
-
         self.next(0)
 
-    def on_key_press(self,key,modifiers):
-        self.next()
 
     def next(self,index=None):
 
@@ -188,8 +185,6 @@ class Bar:
         
 
 
-
-
 class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
     def __init__(self,heros=[]):
@@ -210,6 +205,73 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.mpbar2 = Bar((451,68),336,self.heros[1].mp,self)
 
         self.schedule(self.callback)
+
+        self.active = 0
+
+        command_l = ['fight','skill','items']
+
+        self.commands = []
+        self.commands.append([])
+        self.commands.append([])
+        
+
+        pos = (420,13)
+        color = (36,36,36,255)
+        selected_color = (197,197,197,255)
+
+
+        for cmd in command_l:
+            label = cocos.text.Label(text=cmd,position = pos, font_name = 'Statix', color= color , font_size = 20, anchor_x = 'left')
+            self.add(label,z=2)
+            self.commands[1].append(label)
+        
+            pos = pos[0]+ 60, pos[1]
+
+        pos = (210,13)
+
+        for cmd in command_l:
+            label = cocos.text.Label(text=cmd,position = pos, font_name = 'Statix', color= color , font_size = 20, anchor_x = 'left')
+            self.add(label,z=2)
+            self.commands[0].append(label)
+        
+            pos = pos[0]+ 60, pos[1]
+
+        self.n_command = 0
+        self.next_command(0)
+
+    def next_command(self,n=1):
+
+        color = (36,36,36,255)
+        selected_color = (197,197,197,255)
+
+        self.n_command += n
+
+        if self.n_command >= len(self.commands[self.active]):
+            self.n_command = 0
+
+        elif self.n_command < 0:
+            self.n_command = len(self.commands[self.active]) -1
+
+
+        for cmd in self.commands[0]+self.commands[1]:
+
+            cmd.element.color = color
+
+        self.commands[self.active][self.n_command].element.color = selected_color
+
+        cocos.director.director.window.push_handlers(self)
+
+
+    def on_key_release(self,key,modifiers):
+
+        key = mapKey(key)
+
+        if key == pyglet.window.key.LEFT:
+            self.next_command(-1)
+
+        if key == pyglet.window.key.RIGHT:
+            self.next_command(1)
+
 
     def callback(self,dt):
 
