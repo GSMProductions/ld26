@@ -13,7 +13,7 @@ def main():
 
     heros = [Character('img/chara/nod-f.png',(0,0),[20,20],[20,20]),Character('img/chara/nel-f.png',(0,0),[20,20],[20,20])]
 
-    dummy_scene = FightScene(heros)
+    dummy_scene = FightScene('prairie',heros)
 
     cocos.director.director.run(dummy_scene)
 

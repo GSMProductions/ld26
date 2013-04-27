@@ -7,7 +7,7 @@ from sprite import Sprite
 
 class FightScene(cocos.scene.Scene):
 
-    def __init__(self,heros=[]):
+    def __init__(self,env,heros=[]):
 
         cocos.scene.Scene.__init__(self)
 
@@ -16,7 +16,7 @@ class FightScene(cocos.scene.Scene):
         # battle zone
 
         self.layer['battle'] = cocos.layer.base_layers.Layer()
-        self.add(self.layer['battle'])
+        self.add(self.layer['battle'],z=1)
 
 
         self.heros = heros
@@ -33,7 +33,19 @@ class FightScene(cocos.scene.Scene):
         # GUI
 
         self.layer['gui'] = guiFifhtLayer(self.heros)
-        self.add(self.layer['gui'])
+        self.add(self.layer['gui'],z=2)
+
+        # BG
+
+        if env == 'prairie':
+            image = pyglet.image.load('img/GUI/bg_prairie.png')
+            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
+            self.add(sprite,z=0)
+
+        elif env == 'forest':
+            image = pyglet.image.load('img/GUI/bg_forest.png')
+            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
+            self.add(sprite,z=0)
 
 
 class Bar:
