@@ -30,6 +30,6 @@ class Map(cocos.scene.Scene):
         player.current_map = self
 
         player.map_position = [position[0], position[1]]
-        player.position = (position[0]*data.TILE_SIZE, position[1]*data.TILE_SIZE)
+        player.position = (position[0]*data.TILE_SIZE + data.TILE_SIZE/2, position[1]*data.TILE_SIZE+2)
         self.scroller.set_focus(position[0]*data.TILE_SIZE, position[1]*data.TILE_SIZE)
 
