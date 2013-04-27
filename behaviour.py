@@ -33,7 +33,18 @@ class MoveCharacter(cocos.actions.Move):
             elif self.target.velocity[1] > 0:
                 y += 16
 
-            next_cell = self.target.current_map.map_layer.get_at_pixel(x,y)
+            cell = self.target.current_map.map_layer.get_at_pixel(x,y)
+            next_cell = None
+
+            if cell is not None:
+                if 'passable' in cell and cell['passable'] == 'True':
+                    next_cell = cell
+
+            cell = self.target.current_map.map_layer2.get_at_pixel(x,y)
+
+            if cell is not None and cell.tile is not None:
+                if not ('passable' in cell and cell['passable'] == 'True'):
+                    next_cell = None            
 
 
             if next_cell is not None and 'passable' in next_cell and next_cell['passable'] == 'True':

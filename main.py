@@ -24,7 +24,7 @@ def test_map():
 
 
 
-    MAPS['village'] = Map('maptest')
+    MAPS['village'] = Map('village')
     MAPS['maptest'] = Map('maptest')
 
     dummy_scene = MAPS['village']
