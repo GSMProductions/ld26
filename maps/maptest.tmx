@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="maptest" tilewidth="32" tileheight="32">
+  <image source="testing.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztlksSwyAMQ+nk/nfuvk3AkmWsMl2wSMaAn+UP1xjjOmS9fnz9ObyWmiN61jW+fcjkupIDOWtli/Ioa52JoVJfNo6f+xw4WNvVtysHypXxEan7jB53+9R6RO3RGl/FSK1HdE/F/IjOA3aGPJ3VPc/ZuRc9w/mNGe05bA/rYsn2zuo4R+1neqhzSjn3IhwVMa7K010czHxy5VD8d+bI9konjqwmGQ5Fvq/uRftCRkcFSxcHyjCLv2I2KesDuVtdjwoORRwdOBQsilyo5NjFs/N9xcQEZXfiyOjsysFyM7Hp9r2CQ1HvLhyz/Ygvq7Mq66PirYRo68hRlVeMD7PePsuNXRxMT7+zi9bYzjcOmzN3GrF9r3MWRN8fTnrM7maWG0e3Htn5jdh15VW2Zl041DE5gQPNgW4/VBwnrDcAxA3Z
+  </data>
+ </layer>
+</map>
