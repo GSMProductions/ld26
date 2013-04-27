@@ -13,6 +13,17 @@ class Sprite(cocos.sprite.Sprite):
  
 
 
-    def clone(self):
+class Character(Sprite):
 
-        return Sprite(self.image,self.position)
+    def __init__(self,image,position=(0,0),hp=[0,0],mp=[0,0]):
+
+        Sprite.__init__(self,image,position)
+
+        self.hp = hp
+        self.mp = mp
+
+
+
+
+
+
