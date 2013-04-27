@@ -3,3 +3,5 @@
 -Attaque magique
 -Fuite
 -Voler
+-Augmenter la force
+-Augmenter la défense
