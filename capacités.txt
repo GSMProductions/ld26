@@ -1,0 +1,10 @@
+-Soin
+-Attaque physique
+-Attaque magique
+-> triangles (feu)
+-> rond (eau)
+-> carré (terre)
+-Fuite
+-Voler
+-Augmenter la force
+-Augmenter la défense
