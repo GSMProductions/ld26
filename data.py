@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from pyglet.window import key
+
 
 TITLE = "Outside The Box"
 
@@ -20,3 +22,4 @@ ZONE =  {
 ENEMY_PROPERTY =    {
                     'flying': ['fly','dragon']
                     }
+KEYBOARD = key.KeyStateHandler()
