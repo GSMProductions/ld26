@@ -68,6 +68,7 @@ class FightScene(cocos.scene.Scene):
         self.enemies = enemies
 
         pos = (350,250)
+        mvt = None
 
         for enemy in enemies:
             dx, dy = 0,0
@@ -76,16 +77,28 @@ class FightScene(cocos.scene.Scene):
                 if enemy.name in value:
                      if key == 'flying':
                         dy += 70
-
+                        mvt = UpAndDown(10,10)
 
             enemy.position = pos[0] + dx, pos[1] + dy
+            if mvt != None:
+                enemy.do(mvt)
+
             pos = pos[0] + 80, pos[1]
 
             self.layer['battle'].add(enemy)
 
         #arrow
 
-        self.active_arrow = Sprite
+        self.active_arrow = Sprite('img/GUI/arrow_current_character.png')
+        self.add(self.active_arrow)
+        self.active_arrow.visible = False
+
+        cocos.director.director.window.push_handlers(self)
+
+        self.next(0)
+
+    def on_key_press(self,key,modifiers):
+        self.next()
 
     def next(self,index=None):
 
@@ -98,7 +111,7 @@ class FightScene(cocos.scene.Scene):
         if self.n_active >= len(self.heros):
             #ennemies
             n = self.n_active - len(self.heros)
-            if n > len(self.ennemies):
+            if n >= len(self.enemies):
                 self.n_active = 0
                 self.active = self.heros[0]
             else:
@@ -106,7 +119,40 @@ class FightScene(cocos.scene.Scene):
         else:
             self.active = self.heros[self.n_active]
 
+        pos = self.active.position
 
+        pos = pos[0], pos[1] + self.active.image.height + 15
+
+        self.active_arrow.visible = True
+        self.active_arrow.position = pos
+
+
+
+class UpAndDown(cocos.actions.move_actions.Move):
+
+    def init(self,*args,**kwargs):
+
+        cocos.actions.move_actions.Move.init(self)
+        self.speed = args[0]
+        self.height = args[1]
+        
+
+    def start(self):
+        cocos.actions.move_actions.Move.start(self)
+
+        y = self.target.position[1]
+
+        self.begin = y - self.height/2
+        self.end = y + self.height/2
+
+        self.target.velocity = 0,self.speed
+
+
+    def step(self,dt):
+
+        cocos.actions.move_actions.Move.step(self,dt)
+        if self.target.position[1] <= self.begin or self.target.position[1] >= self.end:
+            self.target.velocity = self.target.velocity[0], self.target.velocity[1] * -1
 
 
 
