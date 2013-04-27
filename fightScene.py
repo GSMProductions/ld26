@@ -75,6 +75,9 @@ class FightScene(cocos.scene.Scene):
 
             self.layer['battle'].add(enemy)
 
+    def nextHero(self):
+        pass
+
 class Bar:
 
     def __init__(self,start,width,skill,parent,):
