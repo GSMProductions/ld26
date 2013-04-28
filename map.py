@@ -4,7 +4,7 @@ import cocos.scenes
 
 import data
 
-
+    
 class Map(cocos.scene.Scene):
 
     def __init__(self, name):
@@ -17,30 +17,38 @@ class Map(cocos.scene.Scene):
         self.map_layer2 = cocos.tiles.load('maps/'+self.name+'.tmx')["ground2"]
         self.map_layer3 = cocos.tiles.load('maps/'+self.name+'.tmx')["foreground"]
 
-        self.scroller.add(self.map_layer)
-        self.scroller.add(self.map_layer2)
+        self.scroller.add(self.map_layer, z = 0)
 
-        self.scroller.add(self.char_layer)
+        self.scroller.add(self.map_layer2, z = 1)
 
-        self.scroller.add(self.map_layer3, z = 2)
+        self.scroller.add(self.char_layer, z = 2)
+
+        self.scroller.add(self.map_layer3, z = 3)
 
 
         #self.player = None
 
+        self.npcs = {}
 
         cocos.scene.Scene.__init__(self, self.scroller)
 
+
+    def placeCharacter(self, character, position):
+
+        self.char_layer.add(character)
+        character.current_map = self
+        character.map_position = [position[0], position[1]]
+        character.position = (position[0]*data.TILE_SIZE + data.TILE_SIZE/2, position[1]*data.TILE_SIZE+2)        
+
+        if character.name[0:3] != "nod":
+            self.npcs[character.name] = character
 
     def spawnPlayer(self, player, position, transition=True):
 
         if transition:
             cocos.director.director.replace(cocos.scenes.FadeTransition( self, duration=2 ) )
 
-        self.char_layer.add(player)
+        self.placeCharacter(player, position)
 
-        player.current_map = self
-
-        player.map_position = [position[0], position[1]]
-        player.position = (position[0]*data.TILE_SIZE + data.TILE_SIZE/2, position[1]*data.TILE_SIZE+2)
         self.scroller.set_focus(position[0]*data.TILE_SIZE, position[1]*data.TILE_SIZE)
 
