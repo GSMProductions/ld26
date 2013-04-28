@@ -150,10 +150,10 @@ class UpAndDown(cocos.actions.move_actions.Move):
 
         cocos.actions.move_actions.Move.step(self,dt)
         if self.target.position[1] <= self.begin:
-            self.target.velocity = self.target.velocity[0], self.target.velocity[1] * -1
+            self.target.velocity = 0,self.speed
 
         if self.target.position[1] >= self.end:
-            self.target.velocity = self.target.velocity[0], self.target.velocity[1]
+            self.target.velocity = 0,self.speed * -1
 
 
 
@@ -212,7 +212,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.schedule(self.callback)
 
-        self.active = 0
+        self.active = 1
 
         command_l = ['fight','skill','items']
 
@@ -456,9 +456,6 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             self.choice_arrow.position = pos
 
 
-
-
-
     def callback(self,dt):
         v1 = False
         v2 = False
@@ -474,8 +471,47 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.hpbar2.update(v2)
         self.mpbar2.update(v2)
 
+        ok =  True
+
+        for att in self.attacks:
+            if len(att.actions) > 0:
+                ok = False
+            else:
+                att.kill()
+                self.attacks.remove(att)
+
+        if ok:
+            pass
+
+
     def run_action(self):
         self.menu_level = 3
+        origin = self.parent.active
+
+        if self.action == 'triangle':
+            pos = self.target.position
+            pos = pos[0] -10,  pos[1] - 100
+            time = 0.4
+
+            for n in range(3):
+                fire = Sprite('img/GUI/fire.png',position = pos)
+                self.add(fire,z=7)
+                self.attacks.append(fire)
+                
+
+                to = self.target.position
+                to = pos[0], to[1] + 2*self.target.image.height/3
+                action = cocos.actions.interval_actions.MoveTo(to, time)
+                fire.do(action)
+
+                pos = pos[0] + 15, pos[1]
+                time += 0.1
+
+
+
+
+            
+
         
         
         
