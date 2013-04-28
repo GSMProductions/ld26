@@ -39,7 +39,7 @@ class FightScene(cocos.scene.Scene):
             hero.position = pos
             hero.battle_mode()
 
-            pos = pos[0] - 55, pos[1] 
+            pos = pos[0] - 55, pos[1]
 
 
         # GUI
@@ -83,6 +83,7 @@ class FightScene(cocos.scene.Scene):
             enemy.position = pos[0] + dx, pos[1] + dy
             if mvt != None:
                 enemy.do(mvt)
+            mvt=None
 
             pos = pos[0] + 80, pos[1]
 
@@ -148,8 +149,11 @@ class UpAndDown(cocos.actions.move_actions.Move):
     def step(self,dt):
 
         cocos.actions.move_actions.Move.step(self,dt)
-        if self.target.position[1] <= self.begin or self.target.position[1] >= self.end:
+        if self.target.position[1] <= self.begin:
             self.target.velocity = self.target.velocity[0], self.target.velocity[1] * -1
+
+        if self.target.position[1] >= self.end:
+            self.target.velocity = self.target.velocity[0], self.target.velocity[1]
 
 
 
@@ -238,6 +242,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.n_command = 0
         self.next_command(0)
+        cocos.director.director.window.push_handlers(self)
 
     def next_command(self,n=1):
 
@@ -259,7 +264,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.commands[self.active][self.n_command].element.color = selected_color
 
-        cocos.director.director.window.push_handlers(self)
+        
 
 
     def on_key_release(self,key,modifiers):
