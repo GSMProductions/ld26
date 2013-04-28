@@ -28,17 +28,17 @@ KEYBOARD = key.KeyStateHandler()
 MAPS = {}
 
 NOD_SKILLS =    {
-                1: 'TRIANGLE MAGIC',
-                2: 'SQUARE MAGIC',
-                3: 'CIRCLE MAGIC',
-                4: 'LINE MAGIC'
+                2: 'Heal',
+                4: 'Circle',
+                6: 'Halfsquares',
+                8: 'Life'
                 }
 
 NEL_SKILLS =    {
-                1: 'TEST MAGIC',
-                2: 'SQUARE MAGIC',
-                3: 'CIRCLE MAGIC',
-                4: 'LINE MAGIC'
+                2: 'Triangle',
+                4: 'Square',
+                6: 'Heal',
+                8: 'Life'
                 }
 
 def mapKey(key):
