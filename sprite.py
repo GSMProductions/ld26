@@ -25,6 +25,8 @@ class Character(Sprite):
         self.name = name
         self.box_image = None
 
+        self.dead_image =  None
+
         try:
             image = pyglet.image.load('img/chara/' + str(name) + '.png')
             self.map_image = image
@@ -34,12 +36,17 @@ class Character(Sprite):
             try:
                 self.fight_image = pyglet.image.load('img/chara/'+str(name)+'-f.png')
             except IOError, e:
-                pass
+                self.fight_image = self.map_image
 
             try:
                 self.box_image = pyglet.image.load('img/chara/'+str(name)+'-b.png')
             except IOError, e:
                 pass
+
+            try:
+                self.dead_image = pyglet.image.load('img/chara/'+str(name)+'-mort-f.png')
+            except IOError, e:
+                self.dead_image = self.map_image
 
         Sprite.__init__(self,image,position)
 
@@ -50,11 +57,50 @@ class Character(Sprite):
         self.battle_timer = 0.0
         self.battle_threshold = 5.0
 
-        self.hp = hp
+        self.hpl = hp
+        self.hp = self.hpl[0]
+
         self.mp = mp
 
         self.level = lvl
         self.mapCode(code)
+
+    def hp():
+       
+        #doc
+        doc = "healt point"
+        
+        #getter
+        def fget(self):
+
+            hp = self.hpl[0]
+
+            return hp
+        
+        #setter
+        def fset(self, hp):
+            
+            self.hpl[0] = min(hp, self.hpl[1])
+            if self.hpl[0] <= 0:
+                
+                self.image = self.dead_image
+
+            else:
+                self.image = self.fight_image
+
+        #deleter
+        def fdel(self):
+            pass
+
+        return locals()
+
+    hp = property(**hp())
+
+
+    def is_dead(self,):
+        if self.hp <= 0:
+            return True
+        return False
 
     def mapCode(self,code):
 
