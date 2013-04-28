@@ -5,7 +5,7 @@
  </tileset>
  <layer name="ground1" width="40" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1EsOwiAUhWFmJHUJpbgFdQ1qV+Ii3L1MSEgD0tLL7dGcwZ80aWi+8rLGGJvkwbLmd3xHW0q+ow300YcaffTRRx99mNFHH3300YcZff/v+2Z8gfveID7UdaZPztfLeAmdM10r45yS7xk6ZbpVxg1KvntozvRo8K01atyLe3wa9+Ien0YlH4p5i2+r1Qk0dpybQaCx89rQ15YD9sV9LeWLZ2VKnltd0Sbpy5V6p0J+8U/Lb/T0rclX3kv5Pmh619g=
+   eJzt2UsKwjAUheE4kEpcQtO4BXUNPlbiIly2E8cGpHIJN22oSXMGZ/CDIC2fnLYD2xljOpEHS9rspr1nyvcC8Gg+RJf0tTbQRx9q9NFHH330YUYfffTRRx9m9P3vmzI+QHzbxH9DTxDfG2DLKR/qdSh9qY1RfLU2PoYOSqeZ41zkq7XxLbRXOs8cZxVfjY0vobvSdYEvd+M1nouaL3fjNZ6LKR/KfZzyaZu3MOf6ZLtMpytQb77vZGq8X7AF6itvQ9+yHLDvd10X8o33yiA+L3WNtpI+LekdEvnoN8XnqOnLyc98X8r3AWqr3Z8=
   </data>
  </layer>
  <layer name="ground2" width="40" height="50">

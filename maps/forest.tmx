@@ -5,7 +5,7 @@
  </tileset>
  <layer name="ground1" width="40" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt0ccNAjEABVHviS62O4qgTDJckchQAJmhgg0yrC1G8rt9SyO7DCGUDQ0xwhgTTDHDHAssI26atn2sscEWO+xxwBEnnCNu2vRdcMUNdzzwxAuh4BTxNm366lrVUHXnm32SJEmSfquXQENVX8qNKbfl8n6xGvuJ9w3++H+77si5r+uG3PtSbky5zT77JEnK0Rs6KSza
+   eJzt10sKwjAURuF0IBUX0d25CJfpWycOBN86cFLw7ckC1D5uNOAP/WZpODTllmbOuaykLnroY4AhRhhjgqnhmrJt3gJLrLDGBlvssMfBcE2VvhPOuOCKG+54wCVcid2aKn1FzQv4dE/IPhERERER+a4cjcD/IXWkaEbed4yg412fP99ZBC2v+rzcYK92wL7UYK9OwL5Y30GrZxeyr6X5Uqsv9u+HxWwJ2ffrBvX9b1/Ms09ERKSqJ6RbMrk=
   </data>
  </layer>
  <layer name="ground2" width="40" height="50">
@@ -15,7 +15,7 @@
  </layer>
  <layer name="foreground" width="40" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1rENwCAMBEBWYIhM6yGyatoUgVRATO4kN66+sKUvhezq6gAvjsY+pqYAAGCkuA3szp3Ds3N1APgZPwcAfFGvo2TpLxcKhAVq
+   eJzt1zEOgCAMBVCu4CE8rHAHvaoOLpqgLlBJ3ku6MDR/aWhTYnRTdIAXc+W9dE0BADC+fNQSHaKinLVGB4EO3DLc5egAH7X+Q7bG/YErMwcA/NHTjjLK/rID+ewHow==
   </data>
  </layer>
 </map>
