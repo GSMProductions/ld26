@@ -54,15 +54,21 @@ class Character(Sprite):
 
         if code == 'NEL':
             self.skills =  []
-            for n in NEL_SKILLS:
+            ne_s = NEL_SKILLS.items()
+            ne_s.sort()
+
+            for n,v in ne_s:
                 if n <= self.level:
-                    self.skills.append(NEL_SKILLS[n])
+                    self.skills.append(v)
 
         if code == 'NOD':
             self.skills =  []
-            for n in NOD_SKILLS:
+            no_s = NOD_SKILLS.items()
+            no_s.sort()
+
+            for n,v in no_s:
                 if n <= self.level:
-                    self.skills.append(NOD_SKILLS[n])
+                    self.skills.append(v)
 
     def battle_mode(self):
 
