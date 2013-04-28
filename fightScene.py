@@ -536,7 +536,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             self.add(heal,z=7)
 
             self.attacks.append(heal)
-            rot = cocos.actions.interval_actions.RotateBy(-360,0.8.)
+            rot = cocos.actions.interval_actions.RotateBy(-360,0.8)
             sc = cocos.actions.interval_actions.ScaleBy(0.1,0.8)
             action = rot|sc
 
