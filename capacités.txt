@@ -1,16 +1,16 @@
 CAPACITES
 
--Soin
--Vie
--Attaque physique
--Attaque magique
--> triangles (feu)
--> rond (eau)
--> carré (terre)
--> deux triangles (foudre)
--Fuite
--Augmenter la force
--Augmenter la défense
+-Soin = Heal
+-Vie = Life
+-Attaque physique = Hit
+-Attaque magique = Magic
+-> triangles (feu) = Triangle
+-> rond (eau) = Round
+-> carré (terre) = Square
+-> deux triangles (foudre) = Halfsquares
+-Fuite = Escape
+-Augmenter la force = Force +
+-Augmenter la défense = Defense +
 
 MAGIE
 

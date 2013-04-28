@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tileset_grassland" tilewidth="32" tileheight="32">
+  <image source="tileset_grassland.png" width="640" height="320"/>
+ </tileset>
+ <layer name="ground1" width="40" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztziEBAAAIA7BrQrx/TEqAm5hfkxQAAAAAAACezQE/Pz+/z98C/jnfwQ==
+  </data>
+ </layer>
+ <layer name="ground2" width="40" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztl1lOwzAQhs1yAWhZLlBSFqnvIBBSnxECKsL2AlwFOANwBkCCEwASy7GYER4xHbwksR2KlF/6pTT12J9nJoqj1LCmwB1tvG6BL8CX4Cv1Wy2HeVyux3dYLF4vsN8f4E/DGlwdNj9dX4NvwLeG8ZmFR8bRGJswF9MeNqXMebgD34MfPOM5TybiOB+x4O+2vidz6eLL1HBensEv4FfHeLkPGcf5iAXjugWY5HqyVrR+5hhv45HzcD2Cn0ryUe54rXJl7x2eZ18P8j1hXd/A7yXYWozF1DsmRtmr8pkw9W6VuqLayl4ryqtUJv539WCoumo4F3313cuZvrbJ9izRPZo3huSz66otqW+IydlcttyHqAwfie8N+ej9Q/diSu69zP75+ydF/jYNHpSIl3l09W4sTVaIid1zLlXhq1O7ylx3tKv2ueO/uuTKba82CrtcfJg/yTgDXheeF2P2o9H5+cjENgseF56zcKbmI0YXm+SMzVjk2UbGMQ9bKkYfH/WbL3epGF18RWpq80QNfIvgpRJMy+AN7ZUa+HLNSGvaWIkrFlNRPnk24KzcKbhILr5j8EnCtYvIV9+U2lP2cwF5xxGfmi/0XJX6fBqDLyVjKB9yjTIfnq1Gub49lfaMWpXvQNXz7VaFD9mQK3VtUbbvooHmOAQfqZ/3BL/3l99Go/692fCF6b/zrQZ6LTHfVuD824HxDV+YGr4wNXxh8vGdgs8CfK7n+QIOJnIR
+  </data>
+ </layer>
+ <layer name="foreground" width="40" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAYH0AAAQ==
+  </data>
+ </layer>
+</map>
