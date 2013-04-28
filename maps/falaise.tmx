@@ -13,9 +13,9 @@
    eJzt0FkKwjAQgOHpAdwuUHA7gtsR3C4u4g0qRT2If6CFMESdlPRByMD30pZ/koqkmUEhMsQIY0yKRGFvpjRnmGOBZQ87VjTX2GCLXcSOC66G7/Y0DzjihLNxh+vfUduPFDVt3ynFdpeYqVTfqRP29fl9t577ZfP8iVfHfuj/fKPvVAWe6feW7qc7+ecL7enS/+WhpO5nWZb9szfwTlOt
   </data>
  </layer>
- <layer name="ground2" width="25" height="25" visible="0">
+ <layer name="foreground" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20ON6AAAHgzCcQAAQ==
+   eJxjYBgFo2AUjILBAYwH2gFQ4EOmPg+qumIUDDWgPNAOGOKAH48ctfIWKG97U8mswQAA5zgB2Q==
   </data>
  </layer>
 </map>
