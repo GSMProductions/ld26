@@ -212,7 +212,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.schedule(self.callback)
 
-        self.active = 1
+        self.active = 0
 
         command_l = ['fight','skill','items']
 
@@ -291,6 +291,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.add(self.choice_arrow,z=6)
         self.choice_arrow.visible = False
         self.n_choice = 0
+        self.action_ok =  False
 
 
         cocos.director.director.window.push_handlers(self)
@@ -480,12 +481,16 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 att.kill()
                 self.attacks.remove(att)
 
-        if ok:
-            pass
-
+        if ok and self.action_ok:
+            self.action_ok = False
+            self.parent.next()
+            if self.parent.n_active < 2:
+                self.active = self.parent.n_active
+                self.menu_level = 0
 
     def run_action(self):
         self.menu_level = 3
+        self.action_ok = True
         origin = self.parent.active
 
         if self.action == 'triangle':
@@ -506,6 +511,21 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
                 pos = pos[0] + 15, pos[1]
                 time += 0.1
+
+        if self.action == 'circle':
+            pos = self.target.position
+            pos = pos[0], pos[1] + self.target.image.height/2
+
+            img = pyglet.image.load('img/GUI/water.png')
+            water = cocos.sprite.Sprite(img,position = pos,anchor = (img.width/2,img.height/2))
+            self.add(water,z=7)
+
+            self.attacks.append(water)
+            rot = cocos.actions.interval_actions.RotateBy(360,1.)
+            sc = cocos.actions.interval_actions.ScaleBy(0.1,1)
+            action = rot|sc
+
+            water.do(action)
 
 
 
