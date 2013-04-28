@@ -182,8 +182,7 @@ class Bar:
         w = int(self.width * pc)
 
         line.end = line.start[0] + w , line.start[1]
-
-        line.visible=visible
+        line.visible = visible
 
     def update(self,visible=True):
         for line in self.lines:
@@ -222,11 +221,36 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.sub_menu =     [
                             cocos.sprite.Sprite('img/GUI/sub_menu.png',position=(5,5),anchor=(0,0)),
-                            cocos.sprite.Sprite('img/GUI/sub_menu.png',position=(400,5),anchor=(0,0))
+                            cocos.sprite.Sprite('img/GUI/sub_menu.png',position=(404,5),anchor=(0,0))
                             ]
+
+        self.sub_list = []
+        self.sub_list.append([])
+        self.sub_list.append([])
         
+        pos1 = (20,110)
+        pos2 = (420,110)
+
+        color = (36,36,36,255)
+
+        for skill in range(4):
+            label1 = cocos.text.Label(text='',position = pos1, font_name = 'Statix', color= color , font_size = 20, anchor_x = 'left')
+            label2 = cocos.text.Label(text='',position = pos2, font_name = 'Statix', color= color , font_size = 20, anchor_x = 'left')
+
+            label1.visible = False
+            label2.visible = False
+
+            pos1 = pos1[0], pos1[1] - 30
+            pos2 = pos2[0], pos2[1] - 30
+
+            self.add(label1, z=6)
+            self.add(label2, z=6)
+
+            self.sub_list[0].append(label1)
+            self.sub_list[1].append(label2)
+
         self.menu_level = 0
-        self.bar_visible = True
+        self.bar_visible = -1
 
         for menu in self.sub_menu:
             self.add(menu,z=5)
@@ -256,6 +280,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.n_command = 0
         self.next_command(0)
+
         cocos.director.director.window.push_handlers(self)
 
     def next_command(self,n=1):
@@ -278,7 +303,25 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.commands[self.active][self.n_command].element.color = selected_color
 
-        
+    def next_slot(self,n=1):
+
+        color = (36,36,36,255)
+        selected_color = (197,197,197,255)
+
+        self.n_slot += n
+
+        if self.n_slot >= len(self.sub_list[self.active]):
+            self.n_slot = 0
+
+        elif self.n_slot < 0:
+            self.n_slot = len(self.sub_list[self.active]) -1
+
+
+        for cmd in self.sub_list[self.active]:
+
+            cmd.element.color = color
+
+        self.sub_list[self.active][self.n_slot].element.color = selected_color
 
 
     def on_key_release(self,key,modifiers):
@@ -297,7 +340,15 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.setMenuLevel(1)
 
         elif self.menu_level == 1:
-            self.setMenuLevel(0)
+
+            if key == pyglet.window.key.UP:
+                self.next_slot(-1)
+
+            if key == pyglet.window.key.DOWN:
+                self.next_slot(1)
+
+            if key == pyglet.window.key.ENTER:
+                pass
 
     def setMenuLevel(self,level):
 
@@ -306,17 +357,46 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         if self.menu_level == 0:
             for menu in self.sub_menu:
                 menu.visible = False
-            self.bar_visible = True
+            self.bar_visible = -1
+
+            for l in self.sub_list:
+                for label in l:
+                    label.visible = False
 
         elif self.menu_level == 1:
-            for menu in self.sub_menu:
+            self.n_slot = 0
+            if self.n_command == 1 or self.n_command == 1:
+                menu = self.sub_menu[self.active]
                 menu.visible = True
-            self.bar_visible = False
+                self.bar_visible = self.active
+
+                for label in self.sub_list[self.active]:
+                    label.visible = True
+
+                if self.n_command == 1:
+                    list_skill = self.heros[self.active].skills
+     
+
+                    for index in range(len(list_skill)):
+                        self.sub_list[self.active][index].element.text = list_skill[index]
+                self.next_slot(0)
+            else:
+                self.menu_level = 0
+
 
     def callback(self,dt):
-        self.hpbar1.update(self.bar_visible)
-        self.mpbar1.update(self.bar_visible)
-        self.hpbar2.update(self.bar_visible)
-        self.mpbar2.update(self.bar_visible)
+        v1 = False
+        v2 = False
+
+        if self.bar_visible == 1 or self.bar_visible == -1:
+            v1 = True
+
+        if self.bar_visible == 0 or self.bar_visible == -1:
+            v2 = True
+
+        self.hpbar1.update(v1)
+        self.mpbar1.update(v1)
+        self.hpbar2.update(v2)
+        self.mpbar2.update(v2)
 
         
