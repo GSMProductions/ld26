@@ -3,19 +3,14 @@
  <tileset firstgid="1" name="tileset_grassland" tilewidth="32" tileheight="32">
   <image source="tileset_grassland.png" width="640" height="640"/>
  </tileset>
- <layer name="ciel" width="25" height="25">
-  <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20ON6AAAHgzCcQAAQ==
-  </data>
- </layer>
  <layer name="nuage" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJztz1sOgkAMheGy/9UJymUBcmcBFER/Ep9QYkg6D5KezJfMQ6cnI3KOXBAjwRU3pMiQozCYuaNEhRoNWnToMRjMjFBMmN/3Bc/1kxEn+px5HJzRLx26ea/i9mwTer91j8jvLou+EAm52+PxeP4tL/RjxQs=
+   eJzt0rcNgEAQBdGj//iKoAiKwEMBeCgAz8RICI8IVtqXjTb6WimlxW+YH7AO0Ae7LTYcuPDgI0CICPEDTYIUGXIUKFGhRvNA06JDjwEjJsxQBmfcb/qVvY2s+zPO7vHt/0IIIa5bAHk0km4=
   </data>
  </layer>
  <layer name="ground1" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF1AKngPgMjc2/B8QPaGw+CMsxUN8vd9HMB+EHVDQf3f3I+ByNzZeDij8G4idkmo8tfPBhdD/dxSKGLk+Mubj8hOw+bPaQYz4h/AgNU9v8UTyKR/EoHsoYANSxUBU=
+   eJzt0FkKwjAQgOHpAdwuUHA7gtsR3C4u4g0qRT2If6CFMESdlPRByMD30pZ/koqkmUEhMsQIY0yKRGFvpjRnmGOBZQ87VjTX2GCLXcSOC66G7/Y0DzjihLNxh+vfUduPFDVt3ynFdpeYqVTfqRP29fl9t577ZfP8iVfHfuj/fKPvVAWe6feW7qc7+ecL7enS/+WhpO5nWZb9szfwTlOt
   </data>
  </layer>
  <layer name="ground2" width="25" height="25" visible="0">
