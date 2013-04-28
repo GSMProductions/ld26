@@ -99,6 +99,17 @@ class FightScene(cocos.scene.Scene):
         self.layer['gui'] = guiFifhtLayer(self.heros,self.enemies)
         self.add(self.layer['gui'],z=2)
 
+        self.bgm = pyglet.media.load("bgm/ld26battle.ogg", streaming=False)
+        self.bgm_player = pyglet.media.Player()
+        self.bgm_player.queue(self.bgm)
+        self.bgm_player.eos_action = self.bgm_player.EOS_LOOP
+
+    def on_enter(self):
+        self.bgm_player.play()
+
+    def on_exit(self):
+        self.bgm_player.pause()
+
 
     def next(self,index=None):
 
