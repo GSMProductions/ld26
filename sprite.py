@@ -35,6 +35,7 @@ class Character(Sprite):
             self.map_image = image
             try:
                 self.fight_image = pyglet.image.load('img/chara/'+str(name)+'-f.png')
+
             except IOError, e:
                 self.fight_image = self.map_image
 
@@ -123,7 +124,7 @@ class Character(Sprite):
                     self.skills.append(v)
 
     def battle_mode(self):
-
+        
         self.image = self.fight_image
 
     def map_mode(self):
