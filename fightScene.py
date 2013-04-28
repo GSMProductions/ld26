@@ -527,7 +527,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
             water.do(action)
 
-        if self.action == 'heal':
+        elif self.action == 'heal':
             pos = self.target.position
             pos = pos[0], pos[1] + self.target.image.height/2
 
@@ -541,6 +541,36 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             action = rot|sc
 
             heal.do(action)
+
+        elif self.action == 'halfsquares':
+
+            pos = self.target.position
+            pos = pos[0],  pos[1] + 300
+            time = 0.2
+
+            for n in range(6):
+                s = 1
+                if n%2 == 0:
+                    s = -1
+
+                p = pos[0] + (10 * s), pos[1
+                ]
+                eclair = Sprite('img/GUI/eclair.png',position = p)
+                self.add(eclair,z=7)
+                self.attacks.append(eclair)
+                
+
+                to = self.target.position
+                to = pos[0], to[1] + self.target.image.height/3
+
+                action = cocos.actions.interval_actions.MoveTo(to, time)
+                eclair.do(action)
+
+                pos = pos[0] , pos[1] - 15
+                time += 0.1
+
+
+
 
 
 
