@@ -13,7 +13,7 @@ from behaviour import MoveCharacter, CheckForBattle
 
 def test_combat():
 
-    heros = [Character('nod1',(0,0),[20,20],[20,20]),Character('nel1',(0,0),[20,20],[20,20])]
+    heros = [Character('nod1',(0,0),[20,20],[20,20],4,'NOD'),Character('nel1',(0,0),[20,20],[20,20],4,'NEL')]
     dummy_scene = FightScene('prairie',heros)
     cocos.director.director.push(dummy_scene)
 

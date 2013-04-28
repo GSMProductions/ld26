@@ -27,6 +27,19 @@ KEYBOARD = key.KeyStateHandler()
 
 MAPS = {}
 
+NOD_SKILLS =    {
+                1: 'TRIANGLE MAGIC',
+                2: 'SQUARE MAGIC',
+                3: 'CIRCLE MAGIC',
+                4: 'LINE MAGIC'
+                }
+
+NEL_SKILLS =    {
+                1: 'TEST MAGIC',
+                2: 'SQUARE MAGIC',
+                3: 'CIRCLE MAGIC',
+                4: 'LINE MAGIC'
+                }
 
 def mapKey(key):
 
@@ -46,3 +59,4 @@ def mapKey(key):
             key = pyglet.window.key.DOWN
 
     return key
+

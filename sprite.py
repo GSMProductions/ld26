@@ -3,6 +3,8 @@ import cocos
 import pyglet
 import behaviour
 
+from data import NEL_SKILLS,NOD_SKILLS
+
 class Sprite(cocos.sprite.Sprite):
 
     def __init__(self,image,position=(0,0)):
@@ -16,7 +18,7 @@ class Sprite(cocos.sprite.Sprite):
 
 class Character(Sprite):
 
-    def __init__(self,name,position=(0,0),hp=[0,0],mp=[0,0]):
+    def __init__(self,name,position=(0,0),hp=[0,0],mp=[0,0],lvl=0,code=''):
 
         self.fight_image = None
         self.map_image = None
@@ -44,6 +46,23 @@ class Character(Sprite):
 
         self.hp = hp
         self.mp = mp
+
+        self.level = lvl
+        self.mapCode(code)
+
+    def mapCode(self,code):
+
+        if code == 'NEL':
+            self.skills =  []
+            for n in NEL_SKILLS:
+                if n <= self.level:
+                    self.skills.append(NEL_SKILLS[n])
+
+        if code == 'NOD':
+            self.skills =  []
+            for n in NOD_SKILLS:
+                if n <= self.level:
+                    self.skills.append(NOD_SKILLS[n])
 
     def battle_mode(self):
 
