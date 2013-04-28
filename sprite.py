@@ -23,6 +23,7 @@ class Character(Sprite):
         self.fight_image = None
         self.map_image = None
         self.name = name
+        self.box_image = None
 
         try:
             image = pyglet.image.load('img/chara/' + str(name) + '.png')
@@ -32,6 +33,11 @@ class Character(Sprite):
             self.map_image = image
             try:
                 self.fight_image = pyglet.image.load('img/chara/'+str(name)+'-f.png')
+            except IOError, e:
+                pass
+
+            try:
+                self.box_image = pyglet.image.load('img/chara/'+str(name)+'-b.png')
             except IOError, e:
                 pass
 
