@@ -60,4 +60,14 @@ class MoveCharacter(cocos.actions.Move):
                 # Nice to have : slider le long des murs
                 self.target.velocity = (0,0)
 
+
+            player_rect = self.target.get_rect()
+            player_rect.x += self.target.velocity[0]*dt
+            player_rect.y += self.target.velocity[1]*dt
+
+            for npc in self.target.current_map.npcs:
+                if player_rect.intersects(self.target.current_map.npcs[npc].get_rect()):
+                    print "TALKY!"
+                    self.target.velocity = (0,0)
+
         super(MoveCharacter, self).step(dt)

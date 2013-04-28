@@ -17,6 +17,12 @@ def test_combat():
     dummy_scene = FightScene('prairie',heros)
     cocos.director.director.push(dummy_scene)
 
+def placeNPCs():
+
+    MAPS['village'].placeCharacter(Character('nuss', (0,0), [0,0], [0,0]), (35,35))
+
+
+
 def test_map():
     player = Character('nod1',(0,0),[20,20],[20,20])
     player.do(MoveCharacter())
@@ -27,8 +33,11 @@ def test_map():
     MAPS['village'] = Map('village')
     MAPS['maptest'] = Map('maptest')
 
+    placeNPCs()
+
+
     dummy_scene = MAPS['village']
-    dummy_scene.spawnPlayer(player, (26,26))
+    dummy_scene.spawnPlayer(player, (30,30))
 
     cocos.director.director.window.push_handlers(KEYBOARD)
     #cocos.director.director.run(cocos.scenes.FadeTransition(dummy_scene, duration=5))
