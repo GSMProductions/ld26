@@ -1,0 +1,114 @@
+#First villager;;;
+Villageois_A;1;Villager;Hello Nod. Today is a big day for your friends. You should be proud of them.
+#Second villager;;;
+Villageois_B;1;Villager;You're looking for Nus and Nad? They must already be near the grand ceremony hall at this hour.
+Villageois_B;2;Villager;Don't disturb them too long, they should be concentrating.
+#Nod meets Nel in the village;;;
+Nod_Nel_A;1;Nod;Nel, hi! Did you find Nus and Nad?
+Nod_Nel_A;2;Nel;Nope, let's go look for them. I bet they must be scared as hell, those two sissies. 
+#Friends dialog before ceremony;;;
+N_friends_A;1;Nel;So, how's it going in there!
+N_friends_A;2;Nus;Maaaaaan, I'm so stressed out!! They keep telling us cryptic stuff, we don't get any of it.
+N_friends_A;3;Nel;Nus. You never get any of anything.
+N_friends_A;4;Nus;Yeah, right. But this time's different, the old guy is really creeping us out!!
+N_friends_A;5;Nod;You mean, N the Wise?
+N_friends_A;6;Nad;Yes. He's talking about how we'll be changed after the ceremony.
+N_friends_A;7;Nad;How everything will seem different to us.
+N_friends_A;8;Nus;And we don't even freaking know what they will do to us in that hall!
+N_friends_A;9;Nus;Man, I sooo don't want to go in there.
+N_friends_A;10;Nad;Actually...
+N_friends_A;11;Nod & Nel;What?
+N_friends_A;12;Nad;N the Wise said not to tell you, but...
+N_friends_A;13;Nad;he said we would not get to fool around with you anymore.
+N_friends_A;14;Nel;Come on Nad, don't make that face, it's not like it's the first time the
+N_friends_A;15;Nel;old man tries to threaten us or scare us into being the perfect little villagers.
+N_friends_A;16;Nad;I know, but... he said we would not event WANT to do it anymore.
+N_friends_A;17;Nus;But that's just impossible right? I mean, we're friends,
+N_friends_A;18;Nus;we hangout together. We always do! How could that change?
+N_friends_A;19;Nod;Hmm.. That's probably just another pathetic attempt to assert his authority.
+N_friends_A;20;Nel;Nod, we should get going, I think the Wise's coming.
+N_friends_A;21;Nod;Right, see you after the ceremony! In the park, the usual spot. You'll tell us everything then.
+#N the wise enters the building;;;
+N_friends_Wise_A;1;N the Wise;Nod, Nel, outside, now. They need to prepare, and you need to find yourselves a better occupation.
+N_friends_Wise_A;2;N the Wise;Make yourself useful somewhere, for a change.
+#Nod & Ned outside the building;;;
+Nod_Nel_B;1;Nel;Hahaha, they really are.
+Nod_Nel_B;2;Nod;What?
+Nod_Nel_B;3;Nel;Sissies.
+Nod_Nel_B;4;Nod;I hope you're right. To be honest I always thought something about
+Nod_Nel_B;5;Nod;this whole first birthday ceremony was weird.
+Nod_Nel_B;6;Nel;Well, they'll figure it out soon enough, I think it just began.
+Nod_Nel_B;7;Nel;Let's join the crowd to see when they'll get out of the hall.
+#Nod & Ned after ceremony;;;
+Nod_Nel_C;1;Nel;Ah, here they come! NUUUUUS, NAAAAAD, wouuuuuuh!
+Nod_Nel_C;2;Nod;Haha, Nel, stop. I can actually feel the glares coming our way.
+Nod_Nel_C;3;Nel;WOOOOUUUUuu... They're not even looking at us, those bastards!
+Nod_Nel_C;4;Nod;Well, everyone is applauding, if you haven't noticed.
+Nod_Nel_C;5;Nod;Wait... Somehting's seems off...
+Nod_Nel_C;6;Nod;They look exactly the same !
+Nod_Nel_C;7;Nel;Damn, you're right. Hahaha! That's what's all about this freakin' ceremony, a goddam haircut??
+Nod_Nel_C;8;Nod;No, dummy, it's more than that. They really changed, they look kind of... older.
+Nod_Nel_C;9;Nel;We should head to the park anyway. We'll get our answers when
+Nod_Nel_C;10;Nel;they'll join us after they finish parading.
+#Nod, Ned & N the Wise at the park;;;
+Nod_Nel_Wise_A;1;Nel;Oh hell. Look what's coming our way...
+Nod_Nel_Wise_A;2;N the Wise;I knew I would find you here. You little up-to-no-goods always met in this park.
+Nod_Nel_Wise_A;3;N the Wise;This time you'll have to wait a long time if you think your "friends" will come and join you.
+Nod_Nel_Wise_A;4;Nel;And why is that exactly, old man?
+Nod_Nel_Wise_A;5;N the Wise;Show me some respect, young fool!
+Nod_Nel_Wise_A;6;N the Wise;They will not come because today's ceremony was a success. Go and talk to them, you'll see.
+Nod_Nel_Wise_A;7;N the Wise;But rejoice, childs. You won't have to wait long before the day of your ceremony.
+Nod_Nel_Wise_A;8;N the Wise;After all, your birthday is only one week away.
+#N the wise leaves the screen;;;
+Nod_Nel_C;1;Nel;GOD, I hate him !!! That guy's so full of himself !
+Nod_Nel_C;2;Nod;Yeah... even more than usual. What if he was telling the truth ?
+Nod_Nel_C;3;Nel;We just have to go meet Nus and Nad and prove him wrong !
+#Nel & Nod meet new Nad & Nus;;;
+N_friends_B;1;Nod;Hey ! Nad ! Nus !
+N_friends_B;2;Nad;What is it ? You do not have to scream, we heard you.
+N_friends_B;3;Nel;Wow, man, chill. We were waiting for you, at the park, remember ?
+N_friends_B;4;Nad;Oh, yes. But we do not have time anymore to play with childs like you.
+N_friends_B;5;Nel;What the ??
+N_friends_B;6;Nod;Nus, why didn't you come either ?
+N_friends_B;7;Nus;Nad is right. We have better things to attend to.
+N_friends_B;8;Nel;But... we're friends, like, the very best of friends, remember ?
+N_friends_B;9;Nad;Not anymore. We do not have time for friends.
+N_friends_B;10;Nus;Yes, we have responsabilities as adults now. Please do not interrupt us with your foolishness again.
+;;;
+;;Nel;I can't believe what I just heard !
+;;Nod;They really did change... and not only on the outside.
+;;Nel;You really think that ceremony kind of brainwashed them ?
+;;Nod;You heard the Wise. No wonder he is proud of this tradition.
+;;Nod;They said they were ''adults'' now...
+;;Nel;Yeah, they sure sounded like all the other grown-ups... Do you think we...
+;;Nod;We'll become like them if we go along with the ceremony ? I'm not sure but
+;;Nod;now that I think of all the older villagers... If it comes down to becoming exactly like them
+;;Nod;and forget my friends and all that I used to be, I'd rather not risk it.
+;;Nel;And how do you suppose we could avoid this ? Ah, man, this is driving me mad !
+;;Nod;Let's calm down and think...
+;;Nel;Look at this place, there no way around this crap as long as we're alone against them !
+;;Nod;You're right. That's why I think we should make a run for it.
+;;Nel;Just... go ? Like that ? With potentially deadly monsters out there and all kind of dangers ?
+;;Nod;I guess.
+;;Nel;Alllright ! I'm in !
+;;Nod;Nel, wait. Going through the main gate is not an option, we have to go unnoticed.
+;;Nel;Right, right... Oh, I think there's a whole in the west wall large enough for us to slip away.
+;;Nod;You realize we cannot tell Nus and Nad, do you ? It's too late for them..
+;;Nel;I know, I know... Let's go before we see them again... maybe one day we'll come back and
+;;Nel;they'll have changed ?
+;;Nod;Maybe... I hope so...
+;;;
+;;Nel;Hey, dude, are you ok ??
+;;Dude;I.. I can't move... Who.. are you ?
+;;Nod;We're from N. And you, what were you doing here on your own ?
+;;Dude;I am... from D. It was.. was the day of my coming of age ceremony and..
+;;Nel;Wait a minute !! Your old guys did that too in your village ??
+;;Nod;Actually, we escaped our village because of that. They were trying to change us into their clones.
+;;Dude;Then... You are... aarrgh.. the same as me.... I heard about... a place where we can all be different..
+;;Dude;and be accepted for what we are... I was hea...headed there... But I.. wi..will never make it...
+;;Dude;Maybe... you..will be.. able to...
+;;Nod;Can you tell us where this place is ?
+;;Nod;I was tol..told.. to cross.. the for.. forest.. It's... str..straight..accross...
+;;Nel;Come on man ! Stay with us ! We'll find a way to cure you, you'll come with us !!
+;;Nel;No.. you..must.. go with... too la.. for me... find..it..aah.......
+;;Nod;He's... he's gone...
