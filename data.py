@@ -45,7 +45,7 @@ NEL_SKILLS =    {
 
 FRIEND_SKILL = ['heal', 'life']
 
-#SOUND_SELECT =   pyglet.media.load('move-select.ogg',streaming=False)
+#SOUND_SELECT =   pyglet.media.load('move-select.wav',streaming=False)
 
 def mapKey(key):
 
