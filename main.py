@@ -11,10 +11,10 @@ from menu import Menu
 from map import Map
 from behaviour import MoveCharacter, CheckForBattle
 
-def test_combat():
+def test_combat(zone):
 
     heros = [Character('nod1',(0,0),[20,20],[20,20],10,'NOD'),Character('nel1',(0,0),[0,20],[20,20],10,'NEL')]
-    dummy_scene = FightScene('prairie',heros)
+    dummy_scene = FightScene(zone,heros)
     cocos.director.director.push(dummy_scene)
 
 def placeNPCs():
@@ -60,7 +60,8 @@ def main():
     pyglet.resource.add_font('Statix.ttf')
 
     main_command =  [
-                    ('Battle Test',test_combat,[]),
+                    ('Battle (Prairie)',test_combat,['prairie']),
+                    ('Battle (Forest)',test_combat,['forest']),
                     ('Map Test',test_map,[])
                     ]
 
