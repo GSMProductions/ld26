@@ -24,9 +24,9 @@ class FightScene(cocos.scene.Scene):
 
         self.heros = heros
 
-        pos = (650,180)
+        pos = (700,180)
         first = True
-
+        heros.reverse()
         for hero in heros:
 
             if first:
@@ -38,10 +38,11 @@ class FightScene(cocos.scene.Scene):
             
             hero.position = pos
             hero.battle_mode()
+            hero.hp = hero.hpl[0] # force l'animation de mort
 
-            pos = pos[0] - 55, pos[1]
+            pos = pos[0] - 90, pos[1]
 
-
+        heros.reverse()
         # BG
 
         if zone == 'prairie':
@@ -204,10 +205,10 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.heros = heros
         self.enemies = enemies
 
-        self.hpbar1 = Bar((14,93),336,self.heros[0].hp,self)
+        self.hpbar1 = Bar((14,93),336,self.heros[0].hpl,self)
         self.mpbar1 = Bar((14,68),336,self.heros[0].mp,self)
 
-        self.hpbar2 = Bar((451,93),336,self.heros[1].hp,self)
+        self.hpbar2 = Bar((451,93),336,self.heros[1].hpl,self)
         self.mpbar2 = Bar((451,68),336,self.heros[1].mp,self)
 
         self.schedule(self.callback)
@@ -568,6 +569,33 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
                 pos = pos[0] , pos[1] - 15
                 time += 0.1
+
+        elif self.action == 'life':
+
+            pos = self.target.position
+            pos = pos[0] ,  pos[1]
+            time = 0.2
+
+            for n in range(6):
+
+
+                p = pos[0] , pos[1] + (5 * n%3)
+
+                vie = Sprite('img/GUI/vie.png',position = p)
+                self.add(vie,z=7)
+                self.attacks.append(vie)
+                
+
+                to = self.target.position
+                to = pos[0], to[1] + self.target.image.height + 100
+
+                action = cocos.actions.interval_actions.MoveTo(to, time)
+                vie.do(action)
+
+                pos = pos[0] + 5 , pos[1]
+                time += 0.05 * n%2
+
+                self.target.hp = 5
 
 
 
