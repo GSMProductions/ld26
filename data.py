@@ -17,6 +17,7 @@ ZONE =  {
                             ['dragon']
                         ],
         'forest':       [
+                            ['dragon']
                         ]  
         }
 
