@@ -9,7 +9,6 @@ CAPACITES
 -> carré (terre)
 -> deux triangles (foudre)
 -Fuite
--Voler
 -Augmenter la force
 -Augmenter la défense
 
@@ -42,3 +41,9 @@ Nod
 8- Vie
 9- +cote
 10- +cote
+
+OBJETS
+-Potion (+HP)
+-Sang de dragon (vie)
+-Miel (+MP)
+-Pierre (lance une attaque physique ++)
