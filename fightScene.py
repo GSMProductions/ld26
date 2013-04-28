@@ -5,7 +5,7 @@ import pyglet
 import random
 
 from sprite import Character, Sprite
-from data import ZONE, ENEMY_PROPERTY, mapKey
+from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey
 
 
 class FightScene(cocos.scene.Scene):
@@ -41,11 +41,6 @@ class FightScene(cocos.scene.Scene):
 
             pos = pos[0] - 55, pos[1]
 
-
-        # GUI
-
-        self.layer['gui'] = guiFifhtLayer(self.heros)
-        self.add(self.layer['gui'],z=2)
 
         # BG
 
@@ -96,6 +91,11 @@ class FightScene(cocos.scene.Scene):
         self.active_arrow.visible = False
 
         self.next(0)
+
+        # GUI
+
+        self.layer['gui'] = guiFifhtLayer(self.heros,self.enemies)
+        self.add(self.layer['gui'],z=2)
 
 
     def next(self,index=None):
@@ -150,10 +150,10 @@ class UpAndDown(cocos.actions.move_actions.Move):
 
         cocos.actions.move_actions.Move.step(self,dt)
         if self.target.position[1] <= self.begin:
-            self.target.velocity = self.target.velocity[0], self.target.velocity[1] * -1
+            self.target.velocity = 0,self.speed
 
         if self.target.position[1] >= self.end:
-            self.target.velocity = self.target.velocity[0], self.target.velocity[1]
+            self.target.velocity = 0,self.speed * -1
 
 
 
@@ -192,7 +192,7 @@ class Bar:
 
 class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
-    def __init__(self,heros=[]):
+    def __init__(self,heros=[],enemies=[]):
 
         cocos.layer.base_layers.Layer.__init__(self)
         image = pyglet.image.load('img/GUI/fight_gui.png')
@@ -202,6 +202,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         colorBar = (31,31,31,255)
 
         self.heros = heros
+        self.enemies = enemies
 
         self.hpbar1 = Bar((14,93),336,self.heros[0].hp,self)
         self.mpbar1 = Bar((14,68),336,self.heros[0].mp,self)
@@ -211,7 +212,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.schedule(self.callback)
 
-        self.active = 0
+        self.active = 1
 
         command_l = ['fight','skill','items']
 
@@ -281,6 +282,17 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.n_command = 0
         self.next_command(0)
 
+
+        # pour les attaques
+        self.attacks = []
+        self.action = ''
+        self.target =  None
+        self.choice_arrow = Sprite('img/GUI/arrow_friend.png')
+        self.add(self.choice_arrow,z=6)
+        self.choice_arrow.visible = False
+        self.n_choice = 0
+
+
         cocos.director.director.window.push_handlers(self)
 
     def next_command(self,n=1):
@@ -348,24 +360,55 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.next_slot(1)
 
             if key == pyglet.window.key.ENTER:
-                pass
+                self.action = self.sub_list[self.active][self.n_slot].element.text.lower()
+
+                self.choice_arrow.kill()
+                if self.action in FRIEND_SKILL:
+                    self.choice_arrow = Sprite('img/GUI/arrow_friend.png')
+                else:
+                    self.choice_arrow = Sprite('img/GUI/arrow_enemy.png')
+                self.add(self.choice_arrow,z=6)
+
+                self.setMenuLevel(2)
+
+        elif self.menu_level == 2:
+
+            if key == pyglet.window.key.LEFT:
+                self.next_choice(-1)
+
+            if key == pyglet.window.key.RIGHT:
+                self.next_choice(1)
+
+            if key == pyglet.window.key.ENTER:
+                if self.action in FRIEND_SKILL:
+                    self.target = self.heros[self.n_choice]
+                else:
+                    self.target = self.enemies[self.n_choice]
+                self.run_action()
+
 
     def setMenuLevel(self,level):
 
         self.menu_level =  level
 
+
         if self.menu_level == 0:
             for menu in self.sub_menu:
                 menu.visible = False
             self.bar_visible = -1
+            self.parent.active_arrow.visible = True
 
             for l in self.sub_list:
                 for label in l:
                     label.visible = False
 
+            self.choice_arrow.visible = False
+
         elif self.menu_level == 1:
             self.n_slot = 0
+            self.parent.active_arrow.visible = True
             if self.n_command == 1 or self.n_command == 1:
+                self.choice_arrow.visible = False
                 menu = self.sub_menu[self.active]
                 menu.visible = True
                 self.bar_visible = self.active
@@ -383,6 +426,35 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             else:
                 self.menu_level = 0
 
+        elif self.menu_level == 2:
+            self.choice_arrow.visible = True
+            self.parent.active_arrow.visible = False
+            self.n_choice = 0
+            self.next_choice()
+
+    def next_choice(self,n=0):
+
+        self.n_choice += n
+        if self.action in FRIEND_SKILL:
+            end = len(self.heros) - 1
+        else:
+            end = len(self.enemies) -1
+
+        if self.n_choice < 0:
+            self.n_choice = end
+
+        if self.n_choice > end:
+            self.n_choice = 0
+
+        if self.action in FRIEND_SKILL:
+            pos = self.heros[self.n_choice].position
+            pos = pos[0], pos[1] + self.heros[self.n_choice].image.height + 20
+            self.choice_arrow.position = pos
+        else:
+            pos = self.enemies[self.n_choice].position
+            pos = pos[0], pos[1] + self.enemies[self.n_choice].image.height + 20
+            self.choice_arrow.position = pos
+
 
     def callback(self,dt):
         v1 = False
@@ -398,5 +470,52 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.mpbar1.update(v1)
         self.hpbar2.update(v2)
         self.mpbar2.update(v2)
+
+        ok =  True
+
+        for att in self.attacks:
+            if len(att.actions) > 0:
+                ok = False
+            else:
+                att.kill()
+                self.attacks.remove(att)
+
+        if ok:
+            pass
+
+
+    def run_action(self):
+        self.menu_level = 3
+        origin = self.parent.active
+
+        if self.action == 'triangle':
+            pos = self.target.position
+            pos = pos[0] -10,  pos[1] - 100
+            time = 0.4
+
+            for n in range(3):
+                fire = Sprite('img/GUI/fire.png',position = pos)
+                self.add(fire,z=7)
+                self.attacks.append(fire)
+                
+
+                to = self.target.position
+                to = pos[0], to[1] + 2*self.target.image.height/3
+                action = cocos.actions.interval_actions.MoveTo(to, time)
+                fire.do(action)
+
+                pos = pos[0] + 15, pos[1]
+                time += 0.1
+
+
+
+
+            
+
+        
+        
+        
+
+
 
         

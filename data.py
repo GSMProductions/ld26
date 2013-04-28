@@ -41,6 +41,8 @@ NEL_SKILLS =    {
                 8: 'Life'
                 }
 
+FRIEND_SKILL = ['heal', 'life']
+
 def mapKey(key):
 
     if key == pyglet.window.key.SPACE:
@@ -59,4 +61,5 @@ def mapKey(key):
             key = pyglet.window.key.DOWN
 
     return key
+
 
