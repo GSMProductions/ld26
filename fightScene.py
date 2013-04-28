@@ -125,6 +125,9 @@ class FightScene(cocos.scene.Scene):
         self.active_arrow.visible = True
         self.active_arrow.position = pos
 
+        if self.active.is_dead():
+            self.next()
+
 
 
 class UpAndDown(cocos.actions.move_actions.Move):
@@ -487,7 +490,8 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             self.parent.next()
             if self.parent.n_active < 2:
                 self.active = self.parent.n_active
-                self.menu_level = 0
+                self.setMenuLevel(0)
+                self.next_command(0)
 
     def run_action(self):
         self.menu_level = 3
