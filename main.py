@@ -56,6 +56,7 @@ def main():
     cocos.director.director.window.set_icon(logo)
 
     pyglet.resource.path.append('font')
+    pyglet.resource.path.append('sounds')
     pyglet.resource.reindex()
     pyglet.resource.add_font('Statix.ttf')
 

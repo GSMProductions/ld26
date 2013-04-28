@@ -64,7 +64,7 @@ class FightScene(cocos.scene.Scene):
         
         self.enemies = enemies
 
-        pos = (350,250)
+        pos = (200,250)
         mvt = None
 
         for enemy in enemies:
@@ -80,10 +80,11 @@ class FightScene(cocos.scene.Scene):
             if mvt != None:
                 enemy.do(mvt)
             mvt=None
-
-            pos = pos[0] + 80, pos[1]
+            enemy.battle_mode()
+            pos = pos[0] + enemy.image.width + 20 , pos[1]
 
             self.layer['battle'].add(enemy)
+            
 
         #arrow
 
@@ -398,6 +399,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
 
         if self.menu_level == 0:
+            self.n_command = 0
             for menu in self.sub_menu:
                 menu.visible = False
             self.bar_visible = -1
@@ -492,6 +494,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.active = self.parent.n_active
                 self.setMenuLevel(0)
                 self.next_command(0)
+            else:
+                self.next_command(0)
+                self.next_command(4)
 
     def run_action(self):
         self.menu_level = 3
@@ -547,6 +552,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
             heal.do(action)
 
+            if not self.target.is_dead():
+                self.target.hp += 10
+
         elif self.action == 'halfsquares':
 
             pos = self.target.position
@@ -599,7 +607,33 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 pos = pos[0] + 5 , pos[1]
                 time += 0.05 * n%2
 
-                self.target.hp = 5
+                if self.target.is_dead:
+                    self.target.hp = 5
+
+        elif self.action == 'square':
+            pos = self.target.position
+            pos = pos[0] ,  pos[1]
+            time = 0.2
+
+            for n in range(6):
+
+
+                p = pos[0] , pos[1] + (10 * n%3)
+
+                earth = Sprite('img/GUI/earth.png',position = p)
+                self.add(earth,z=7)
+                self.attacks.append(earth)
+                
+
+                to = self.target.position
+                to = pos[0], to[1] + self.target.image.height + 60
+
+                action = cocos.actions.interval_actions.MoveTo(to, time + n%2 * 0.2)
+                earth.do(action)
+                pos = pos[0] + 5 , pos[1]
+
+                #time += 0.05 * n%2
+
 
 
 
