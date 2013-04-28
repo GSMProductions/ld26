@@ -4,7 +4,11 @@
 -> triangles (feu)
 -> rond (eau)
 -> carré (terre)
+-> deux triangles (foudre)
 -Fuite
 -Voler
 -Augmenter la force
 -Augmenter la défense
+
+
+foudre tue eau tue feu tue terre (tue foudre, etc)
