@@ -1,4 +1,7 @@
+CAPACITES
+
 -Soin
+-Vie
 -Attaque physique
 -Attaque magique
 -> triangles (feu)
@@ -10,5 +13,32 @@
 -Augmenter la force
 -Augmenter la défense
 
+MAGIE
 
 foudre tue eau tue feu tue terre (tue foudre, etc)
+
+LEVELS
+
+Nel
+1- Attaque
+2- Soin
+3- +cote
+4- Magie Eau
+5- +cote
+6- Magie Foudre
+7- +cote
+8- Vie
+9- +cote
+10- +cote
+
+Nod
+1- Attaque
+2- Magie Feu
+3- +cote
+4- Magie Terre
+5- +cote
+6- Soin
+7- +cote
+8- Vie
+9- +cote
+10- +cote
