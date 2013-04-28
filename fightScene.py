@@ -177,15 +177,17 @@ class Bar:
             
             parent.add(line,z=10)
 
-    def update_line(self,line):
+    def update_line(self,line,visible=True):
         pc = float(self.skill[0])/self.skill[1]
         w = int(self.width * pc)
 
         line.end = line.start[0] + w , line.start[1]
 
-    def update(self):
+        line.visible=visible
+
+    def update(self,visible=True):
         for line in self.lines:
-            self.update_line(line)
+            self.update_line(line,visible)
         
 
 
@@ -217,7 +219,19 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.commands = []
         self.commands.append([])
         self.commands.append([])
+
+        self.sub_menu =     [
+                            cocos.sprite.Sprite('img/GUI/sub_menu.png',position=(5,5),anchor=(0,0)),
+                            cocos.sprite.Sprite('img/GUI/sub_menu.png',position=(400,5),anchor=(0,0))
+                            ]
         
+        self.menu_level = 0
+        self.bar_visible = True
+
+        for menu in self.sub_menu:
+            self.add(menu,z=5)
+            menu.visible = False
+
 
         pos = (420,13)
         color = (36,36,36,255)
@@ -271,18 +285,38 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         key = mapKey(key)
 
-        if key == pyglet.window.key.LEFT:
-            self.next_command(-1)
+        if self.menu_level == 0:
 
-        if key == pyglet.window.key.RIGHT:
-            self.next_command(1)
+            if key == pyglet.window.key.LEFT:
+                self.next_command(-1)
 
+            if key == pyglet.window.key.RIGHT:
+                self.next_command(1)
+
+            if key == pyglet.window.key.ENTER:
+                self.setMenuLevel(1)
+
+        elif self.menu_level == 1:
+            self.setMenuLevel(0)
+
+    def setMenuLevel(self,level):
+
+        self.menu_level =  level
+
+        if self.menu_level == 0:
+            for menu in self.sub_menu:
+                menu.visible = False
+            self.bar_visible = True
+
+        elif self.menu_level == 1:
+            for menu in self.sub_menu:
+                menu.visible = True
+            self.bar_visible = False
 
     def callback(self,dt):
-
-        self.hpbar1.update()
-        self.mpbar1.update()
-        self.hpbar2.update()
-        self.mpbar2.update()
+        self.hpbar1.update(self.bar_visible)
+        self.mpbar1.update(self.bar_visible)
+        self.hpbar2.update(self.bar_visible)
+        self.mpbar2.update(self.bar_visible)
 
         
