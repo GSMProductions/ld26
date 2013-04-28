@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="19" tilewidth="32" tileheight="32" backgroundcolor="#000000">
+ <tileset firstgid="1" name="tileset_village" tilewidth="32" tileheight="32">
+  <image source="tileset_village.png" width="640" height="320"/>
+  <tile id="112">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="113">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="114">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="115">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="132">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="133">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="134">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="135">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="ground1" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BoAw4q44G2g4sAHrVj1I7BmnZpacdQBwBGegah
+  </data>
+ </layer>
+ <layer name="ground2" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgxFoA7EOEOsCsRaFbG0cdtgD8RIgdgRiOyB2oIBtj8OOYCAOAeJQIA6ikB2Mw45MHOLkAGqaRS4oBOIiHLiYSnaU4JHrQGKXAnE5Gh61A7sdnUDcjYR7SLCjFYjbcOB2EswZBYMXAABlMyV4
+  </data>
+ </layer>
+ <layer name="foreground" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKBB5kD7YBRMApoCAA1WwBq
+  </data>
+ </layer>
+</map>
