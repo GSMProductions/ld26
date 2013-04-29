@@ -188,7 +188,7 @@ MAPCHARA = {
     'inside_house_gen_4':[
             ],
     'inside_house_gen_2':[
-            ('villagerb1', (5,45))
+            ('villagerb1', (5,8))
              ],
     'grassland':[
             ('dude1', (17,47))
