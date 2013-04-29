@@ -61,6 +61,7 @@ LEVELS = {
                   'squares':0,
                   'halfsquares':0,
                   'life':0,
+                  'color':1,
                   },
             2: {
                   'nextlevel':20,
@@ -73,6 +74,7 @@ LEVELS = {
                   'squares':0,
                   'halfsquares':0,
                   'life':0,
+                  'color':2,
                   },
             3: {
                   'nextlevel':25,
@@ -85,6 +87,7 @@ LEVELS = {
                   'squares':0,
                   'halfsquares':0,
                   'life':0,
+                  'color':2,
                   },
             4: {
                   'nextlevel':30,
@@ -97,6 +100,7 @@ LEVELS = {
                   'squares':30,
                   'halfsquares':0,
                   'life':0,
+                  'color':3,
                   },
             5: {
                   'nextlevel':35,
@@ -109,6 +113,7 @@ LEVELS = {
                   'squares':40,
                   'halfsquares':0,
                   'life':0,
+                  'color':3,
                   },
             6: {
                   'nextlevel':40,
@@ -121,6 +126,7 @@ LEVELS = {
                   'squares':48,
                   'halfsquares':60,
                   'life':0,
+                  'color':4,
                   },
             7: {
                   'nextlevel':45,
@@ -133,6 +139,7 @@ LEVELS = {
                   'squares':56,
                   'halfsquares':71,
                   'life':0,
+                  'color':4,
                   },
             8: {
                   'nextlevel':50,
@@ -145,6 +152,7 @@ LEVELS = {
                   'squares':66,
                   'halfsquares':83,
                   'life':46,
+                  'color':4,
                   },
             9: {
                   'nextlevel':55,
@@ -157,6 +165,7 @@ LEVELS = {
                   'squares':77,
                   'halfsquares':96,
                   'life':56,
+                  'color':5,
                   },
             10: {
                   'nextlevel':None,
@@ -169,6 +178,7 @@ LEVELS = {
                   'squares':88,
                   'halfsquares':110,
                   'life':70,
+                  'color':5,
                   }
   }
 
