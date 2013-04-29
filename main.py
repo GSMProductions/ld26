@@ -25,13 +25,18 @@ def placeNPCs():
 
 def test_map():
     player = Character('nod1',(0,0),[20,20],[20,20])
+    player.map_mode()
     player.do(MoveCharacter())
     player.do(CheckForBattle())
 
 
 
     MAPS['village'] = Map('village')
-    MAPS['maptest'] = Map('maptest')
+    MAPS['inside_house_gen'] = Map('inside_house_gen')
+    MAPS['inside_house_nod'] = Map('inside_house_nod')
+    MAPS['grassland'] = Map('grassland')
+    MAPS['forest'] = Map('forest')
+    MAPS['falaise'] = Map('falaise')
 
     placeNPCs()
 
