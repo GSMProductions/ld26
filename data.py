@@ -117,6 +117,10 @@ MAPITEM = {
     'inside_house_gen_2':[
             ('dragon blood', (21,43))
             ],
+    'inside_house_gen_3':[
+            ],
+    'inside_house_gen_4':[
+            ],
     'grassland':[
             ('honey', (26,23)),
             ('potion', (37,32)),
@@ -178,6 +182,10 @@ MAPCHARA = {
             ],
     'inside_house_gen_1':[
             ],
+    'inside_house_gen_3':[
+            ],
+    'inside_house_gen_4':[
+            ],
     'inside_house_gen_2':[
             ('villagerb1', (5,45))
              ],
@@ -196,6 +204,8 @@ BGM = {
     'inside_house_nod':'ld26villageindoor.ogg',
     'inside_house_gen_1':'ld26villageindoor.ogg',
     'inside_house_gen_2':'ld26villageindoor.ogg',
+    'inside_house_gen_3':'ld26villageindoor.ogg',
+    'inside_house_gen_4':'ld26villageindoor.ogg',
     'grassland':'ld26villageindoor.ogg',
     'forest':'ld26villageindoor.ogg',
     'falaise':'ld26villageindoor.ogg'

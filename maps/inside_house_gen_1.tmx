@@ -2,6 +2,29 @@
 <map version="1.0" orientation="orthogonal" width="25" height="19" tilewidth="32" tileheight="32" backgroundcolor="#000000">
  <tileset firstgid="1" name="tileset_village" tilewidth="32" tileheight="32">
   <image source="tileset_village.png" width="640" height="320"/>
+  <tile id="6">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="7 38"/>
+    <property name="door_map" value="village"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
   <tile id="112">
    <properties>
     <property name="passable" value="True"/>
@@ -45,17 +68,17 @@
  </tileset>
  <layer name="ground1" width="25" height="19">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BoAy4qY0rtYMeBR+0YGDvoEeejdtDejqEOAIrYB4k=
+   eJyTY2BgkBvFo5hGmIvKmFI72HHgUTsGxg56xPmoHbS3g9iyYKDLo4HEANRgJ68=
   </data>
  </layer>
  <layer name="ground2" width="25" height="19">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFgxFoA7EOEOsCsRaFbG0cdtgD8RIgdgRiOyB2oIBtj8OOYCAOAeJQIA6ikB2MO7gGFSgE4iI0XExlO0qwiHUMQTtagbgNDbdT2Y5RMAoGAwAAgKoXFQ==
+   eJztzckJgDAQheHctQYLcGnBaAsuRXh0QxtwQ8uwUN8hp0AgMgmI5PDBO8zwB4yxwHklghgSCIk7UjQ43JBDChlhc0WjhApqKIi7VDR8QxqB2mihk/TSDbUxwAiTMMNuoXHAKVwWGgusks1wQ4drfL+hwyP8/sED9WA9NA==
   </data>
  </layer>
  <layer name="foreground" width="25" height="19">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUgEAmFA8VUArE5VBcQSM7OoG4G4p7aGTHKBgFIwEAAIKTBNk=
+   eJxjYBgFo2AUjIJRMApGAS0BAAdsAAE=
   </data>
  </layer>
 </map>

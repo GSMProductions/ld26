@@ -345,6 +345,46 @@
     <property name="passable" value="True"/>
    </properties>
   </tile>
+  <tile id="186">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_gen_1"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="187">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_nod"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="188">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_gen_2"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="190">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_gen_3"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="191">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_gen_4"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
   <tile id="192">
    <properties>
     <property name="door" value="True"/>
@@ -361,7 +401,7 @@
  </layer>
  <layer name="ground2" width="48" height="57">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="foreground" width="48" height="57">
