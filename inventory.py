@@ -17,6 +17,8 @@ class Inventory(dict):
 
         if self.has_key(obj):
             self[obj] -= 1
+            if self[obj] <= 0:
+                self.pop(obj)
 
 
 
