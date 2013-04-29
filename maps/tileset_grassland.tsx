@@ -6,6 +6,11 @@
    <property name="passable" value="True"/>
   </properties>
  </tile>
+ <tile id="15">
+  <properties>
+   <property name="passable" value="True"/>
+  </properties>
+ </tile>
  <tile id="26">
   <properties>
    <property name="passable" value="True"/>

@@ -77,7 +77,8 @@ SPEAKERS = {
             'Nad': 'nad',
             'N the Wise': 'n_the_wise',
             'Nuss': 'nuss',
-            'Dude': 'type_mourant'
+            'Dude': 'type_mourant',
+            'Villager': 'villager'
            }
 
 
@@ -103,3 +104,88 @@ def mapKey(key):
     return key
 
 
+MAPITEM = {
+    'village':[
+            ],
+    'inside_house_nod':[
+            ('potion', (21,47))
+            ],
+    'inside_house_gen_1':[
+            ('potion', (8,48))
+            ],
+
+    'inside_house_gen_2':[
+            ('dragon blood', (21,43))
+            ],
+    'grassland':[
+            ('honey', (26,23)),
+            ('potion', (37,32)),
+            ('stone', (3,26)),
+            ('dragon blood', (1,52)),
+            ('honey', (22,43))
+            ],
+    'forest':[
+            ('honey', (37,28)),
+            ('stone', (16,30)),
+            ('dragon blood', (4,45)),
+            ('honey', (29,40))
+            ],
+    'falaise':[
+            ]
+    }
+
+MAPCHARA = {
+    'village1':[
+            ('villagera', (5,38)),
+            ('villagerb', (23,21)),
+            ('villagera', (30,44)),
+            ('villagerb', (6,20)),
+            ('villagerb', (24,21)),
+            ('villagerb', (25,21)),
+            ('villagerb', (43,28)),
+            ('villagera', (5,4)),
+            ('villagerb', (6,4))
+            ],
+    'village2':[
+            ('villagera', (22,20)),
+            ('villagera', (21,21)),
+            ('villagera', (28,18)),
+            ('villagerb', (23,17)),
+            ('villagerb', (18,19)),
+            ('villagera', (26,17)),
+            ('villagerb', (23,18)),
+            ('villagerb', (25,18)),
+            ('n_the_wise', (23,21)),
+            ('nad2', (24,21)),
+            ('nus2', (25,21)),
+            ('villagera', (5,4)),
+            ('villagerb', (6,4))
+            ],
+    'village4':[
+            ('villagera', (5,38)),
+            ('villagera', (23,21)),
+            ('villagera', (30,44)),
+            ('villagerb', (6,20)),
+            ('villagerb', (24,21)),
+            ('villagerb', (25,21)),
+            ('villagerb', (43,28))
+            ],
+    'inside_ceremony_hall':[
+            ('nad', (7,49)),
+            ('nus', (20,46))
+            ],
+    'inside_house_nod':[
+            ],
+    'inside_house_gen_1':[
+            ],
+    'inside_house_gen_2':[
+            ('villagerb', (5,45))
+             ],
+    'grassland':[
+            ('dude', (17,47))
+             ],
+    'forest':[
+            ],
+    'falaise':[
+            ]
+    }
