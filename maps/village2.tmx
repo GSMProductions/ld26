@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="48" height="57" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tileset_village" tilewidth="32" tileheight="32">
+  <image source="tileset_village.png" width="640" height="320"/>
+  <tile id="0">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Passable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="18 1"/>
+    <property name="door_map" value="grassland"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="passable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="32">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="46">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="55">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="56">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="58">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="66">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="67">
+   <properties>
+    <property name="passable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="68">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="69">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="70">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="71">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="72">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="73">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="74">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="75">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="76">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="77">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="78">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="86">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="87">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="88">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="89">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="90">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="91">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="92">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="93">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="94">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="95">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="96">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="97">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="98">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="100">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="101">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="120">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="121">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="122">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="123">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="124">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="125">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="126">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="127">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="128">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="186">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_gen_1"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="187">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_nod"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="188">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_gen_2"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="189">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="190">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_gen_3"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="191">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="11 3"/>
+    <property name="door_map" value="inside_house_gen_4"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="192">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="13 3"/>
+    <property name="door_map" value="inside_house_gen"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="ground1" width="48" height="57">
+  <data encoding="base64" compression="zlib">
+   eJzt1TEOgzAQRUF3EWeAs6WDc5CbJymQrEgRspHjJUzxCjdf42qnlNIkSZKkw9123tHjl9Sr+dX4UW9TqX/NegQwlfqHrDmAif888fOfyf/eXyqr2eDn5+ffqrXzx/H3rIU/v7/87fzf/sJ/Hf+R+8XPzx/fX7r5S3+L+Pmv3D2AQfrnnnsHocw=
+  </data>
+ </layer>
+ <layer name="ground2" width="48" height="57">
+  <data encoding="base64" compression="zlib">
+   eJzVmsly1DAQhsV2gsssLMU9mQFCuAYoUiFnloKCkATIsBRF5gJcWQ/AFQgvkTdgfTpaFXXlr05LanlhJoe/LNut9mdbarVl9Z1zx0AzYr8v9lmzUO6SerDfgbpOnJP+sc5QuWYnYs8aZmyGgS/mrxfuZaAwsu8B2CJfR9Tpu71MeDym2DPBZ90FW3yegwLfbDuMXHeo1OsbnvF+1gXSQ9KItBHKq6G8FsprQWzjtR62q2DHdfD8BtQbgd0I9qUPrIP26HMB+Cf9DKvIyj+eAlYU9wPJf4B0UJHkv0R6InS5JlPs2gcVW+7XVfmvKz5v1uQ/TjoRkbX9TJL/DOksaS5st0N5vgF+We9GC/y3SLdJd8L2byivNMAfu48YP/vR2oTFl1Vt8/s2cR40v8/4r5CugpanhP+ikd+36buglYr8kivGn4phGMdy8SfnJxUT6/BrMUyLYzl+6ecclKUvS8yTzwP5O8CvxTAtjuX4fbtfJC2F7TaU/Xa5kP9Q5Dl6/hlXnr89dnvzh6dwPhbL+Rg+Cwv/ychzlO1Hy2vq5jdjsZWK9ZWYD/Qj+bV2obWPJu+TxwhrzoCqym+1s4hjrDVnmDZ+1jvSe9KHgjrTxF9Fkl+LK1p8aZs/Nl7l+K1qmz82XjXFb31PVcXjt49Hhwv4T9cQ+i21l+Lxz8ejUwX8qXaRUht91hKP2uLH/odt2fotYZXGn5vH0GKD5EfmObc7vlbNn0v4c/MYWmyQ/JgTLLmdb69FuBdrflCFPzePocUGyf+D9JP0h/RbKf8C21z+qZ1P8efmMbTYIPm/kL6SvpNekF6SXpG2wvFvYJvLP7XzbfdfzMk+kj6RPofnwN/B2NbwPcv2Jc/L75c2+EuE71O7P3k+9f0i44+81lh5n5L/NelN0Fsoa/tcJxXr8ZvF8v2CfJovS/9lPYNrjsN+1fekKRZ/OPbJ9zB28f6r5QaSF/dT33A58Teexo+xr8pYg+8ixe+vZfkfJ/9X4jU0/iNup21sud1YUPL/pYSf/0P0Ev7k/8ocP85VcCxA/lx+UcIvGS3qZfhzeV8uv7Dya/8QLBpk+HP1sX/zvCCOOVb+Okrx58ZznhPHeUGeG58G/tx8kjZfg2PmpPmt80mxfmLll/8QZAxKxdY67X8zCPOATSELv4z/MgbF1pP0E/zPDXwl79ka/0s0TPA3rRR/ag4mJ56jmSR/E1po2N//1rWwved219T4tTb3weaB21lzw+tueM0O7/u1QmtQH8vephNs2HYk/OE6ofVQH9cirQufuP7oEXD6+NV18bhlyRW1NWq5Plp1TZiMtz5+zUau1wvHLesAS7msMUj603I+b3NU0QCupeW6XeVYldiY8hnzZ1mXqd23r8ftZdZQr7TdxXxKW8/zDzCtSEM=
+  </data>
+ </layer>
+ <layer name="foreground" width="48" height="57">
+  <data encoding="base64" compression="zlib">
+   eJzt2m0KgzAMgOHMC+3nDjB1bt7/PutgQtTQOnH98n0gWKi2pZSqJSLAflcXr288VdmK0UXvqfc93wXaXvajr53Rzu0fk4HdLi4aI1L2Hav/GllzWpJcxv9r39O4WdPIwXId4jgp35kAgLzwvkUt9FouhR5z7O+z0D8fe0NdQusrlzMMnENov2b/iYc5xtE4U4YP55EAcB53mefXPFTdIHbuTivzPKBPeZR1/o6+f2vuz9YAUL43Nq4aow==
+  </data>
+ </layer>
+</map>

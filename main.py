@@ -45,6 +45,8 @@ def start_game():
 
     MAPS['inside_house_nod'] = Map('inside_house_nod')
     MAPS['village'] = Map('village')
+    MAPS['village2'] = Map('village2')
+
     MAPS['inside_house_gen_1'] = Map('inside_house_gen_1')
     MAPS['inside_house_gen_2'] = Map('inside_house_gen_2')
     MAPS['inside_house_gen_3'] = Map('inside_house_gen_3')

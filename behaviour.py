@@ -115,10 +115,20 @@ class MoveCharacter(cocos.actions.Move):
             if TRIGGERS['village_state'] == 3 and self.target.current_map.name == 'inside_ceremony_hall':
                 thewise = Character('n_the_wise',(0,0))
                 self.target.current_map.placeCharacter(thewise, (13,2))
-                time.sleep(2)
                 thewise.do(cocos.actions.interval_actions.MoveBy((0,256),3))
                 self.target.current_map.displayDialog('N_friends_Wise_A')
                 TRIGGERS['village_state'] = 4
+
+
+
+            if TRIGGERS['village_state'] == 6:
+                self.target.current_map.displayDialog('Nod_Nel_C')
+                TRIGGERS['village_state'] = 7
+
+            if TRIGGERS['village_state'] == 5:
+                self.target.current_map = MAPS['village2']
+                self.target.current_map.spawnPlayer(self.target, (24,16))
+                TRIGGERS['village_state'] = 6
 
             if TRIGGERS['village_state'] == 4 and self.target.current_map.name == 'village':
                 self.target.current_map.displayDialog('Nod_Nel_B')
