@@ -2,6 +2,74 @@
 <map version="1.0" orientation="orthogonal" width="40" height="50" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tileset_grassland" tilewidth="32" tileheight="32">
   <image source="tileset_grassland.png" width="640" height="640"/>
+  <tile id="14">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="71">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="74">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="75">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="100">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="120">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="138">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="158">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="300">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="10 1"/>
+    <property name="door_map" value="falaise"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="ground1" width="40" height="50">
   <data encoding="base64" compression="zlib">
@@ -10,7 +78,7 @@
  </layer>
  <layer name="ground2" width="40" height="50">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="foreground" width="40" height="50">

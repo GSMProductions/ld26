@@ -129,7 +129,7 @@ class Character(Sprite):
 
     def map_mode(self):
 
-        self.image = map_image
+        self.image = self.map_image
 
     def __repr__(self):
 
