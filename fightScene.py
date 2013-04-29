@@ -5,6 +5,7 @@ import pyglet
 import random
 
 from sprite import Character, Sprite
+from credits import ImgScene
 from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey, SFX,INVENTORY
 from battle_data import MAGIC, ITEMS, LEVELS, MONSTERS
 
@@ -558,8 +559,19 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.menu_level =  level
 
+        if self.menu_level == -1:
+            self.n_command = 0
+            for menu in self.sub_menu:
+                menu.visible = False
+            self.bar_visible = -1
 
-        if self.menu_level == 0:
+            self.parent.active_arrow.visible = False
+
+            for l in self.sub_list:
+                for label in l:
+                    label.visible = False
+
+        elif self.menu_level == 0:
             self.n_command = 0
             for menu in self.sub_menu:
                 menu.visible = False
@@ -724,8 +736,21 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
     def enemy_attack(self):
         #choose target
 
+
+        if self.heros[0].is_dead() and self.heros[1].is_dead():
+            #mettre si l'ecran de game over
+            sc = ImgScene('img/GUI/game_over.png','ld26gameover')
+            sc = cocos.scenes.transitions.ZoomTransition(sc,duration=2)
+            cocos.director.director.replace(sc)
+            return
+
         n = random.randint(0,1)
         self.target = self.heros[n]
+
+        while self.target.is_dead():
+            n = random.randint(0,1)
+            self.target = self.heros[n]
+      
         self.action = 'fight-enemy'
         self.run_action()
 
@@ -1033,11 +1058,13 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             action = action + cocos.actions.base_actions.Reverse(action)
 
             self.origin.do(action)
+            self.dt = 0.5
 
         elif self.action == 'fight-enemy':
 
             action = cocos.actions.interval_actions.MoveBy((0,-10),0.2)
             action = action + cocos.actions.base_actions.Reverse(action)
             self.origin.do(action)
+            self.dt = 0.5
 
 
