@@ -39,14 +39,14 @@ MAPS = {}
 
 NOD_SKILLS =    {
                 2: 'Heal',
-                4: 'Circle',
+                4: 'Circles',
                 6: 'Halfsquares',
                 8: 'Life'
                 }
 
 NEL_SKILLS =    {
-                2: 'Triangle',
-                4: 'Square',
+                2: 'Triangles',
+                4: 'Squares',
                 6: 'Heal',
                 8: 'Life'
                 }
@@ -102,3 +102,100 @@ def mapKey(key):
     return key
 
 
+MAPITEM = {
+    'village':[
+            ],
+    'inside_house_nod':[
+            ('potion', (21,9))
+            ],
+    'inside_house_gen_1':[
+            ('potion', (8,8))
+            ],
+
+    'inside_house_gen_2':[
+            ('dragon blood', (21,13))
+            ],
+    'grassland':[
+            ('honey', (26,33)),
+            ('potion', (37,24)),
+            ('stone', (3,30)),
+            ('dragon blood', (1,4)),
+            ('honey', (22,13))
+            ],
+    'forest':[
+            ('honey', (37,28)),
+            ('stone', (16,26)),
+            ('dragon blood', (4,11)),
+            ('honey', (29,16))
+            ],
+    'falaise':[
+            ]
+    }
+
+MAPCHARA = {
+    'village1':[
+            ('villageois_a', (5,18)),
+            ('villageois_a', (23,35)),
+            ('villageois_a', (30,12)),
+            ('villageois_b', (6,36)),
+            ('villageois_b', (24,35)),
+            ('villageois_b', (25,35)),
+            ('villageois_b', (43,28)),
+            ('villageois_a', (5,52)),
+            ('villageois_b', (6,52))
+            ],
+    'village2':[
+            ('villageois_a', (5,18)),
+            ('villageois_a', (23,35)),
+            ('villageois_a', (30,12)),
+            ('villageois_b', (6,36)),
+            ('villageois_b', (43,28)),
+            ('villageois_a', (19,34)),
+            ('villageois_b', (19,33)),
+            ('villageois_b', (19,32)),
+            ('villageois_a', (5,52)),
+            ('villageois_b', (6,52))
+            ],
+    'village3':[
+            ('villageois_a', (22,36)),
+            ('villageois_a', (21,35)),
+            ('villageois_a', (28,38)),
+            ('villageois_b', (23,39)),
+            ('villageois_b', (18,37)),
+            ('villageois_a', (26,39)),
+            ('villageois_b', (23,38)),
+            ('villageois_b', (25,38)),
+            ('n_the_wise', (23,35)),
+            ('nad2', (24,35)),
+            ('nus2', (25,35)),
+            ('villageois_a', (5,52)),
+            ('villageois_b', (6,52))
+            ],
+    'village4':[
+            ('villageois_a', (5,18)),
+            ('villageois_a', (23,35)),
+            ('villageois_a', (30,12)),
+            ('villageois_b', (6,36)),
+            ('villageois_b', (24,35)),
+            ('villageois_b', (25,35)),
+            ('villageois_b', (43,28))
+            ],
+    'inside_ceremony_hall':[
+            ('nad', (7,7)),
+            ('nus', (20,10))
+            ],
+    'inside_house_nod':[
+            ],
+    'inside_house_gen_1':[
+            ],
+    'inside_house_gen_2':[
+            ('villageois_b', (5,11))
+             ],
+    'grassland':[
+            ('Dude', (17,9))
+             ],
+    'forest':[
+            ],
+    'falaise':[
+            ]
+    }

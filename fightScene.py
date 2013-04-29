@@ -6,6 +6,7 @@ import random
 
 from sprite import Character, Sprite
 from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey, SFX
+from battle_data import MAGIC, ITEMS, LEVELS, MONSTERS
 
 
 class FightScene(cocos.scene.Scene):
@@ -250,27 +251,49 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.sub_list = []
         self.sub_list.append([])
         self.sub_list.append([])
+
+        self.sub_list_add = []
+        self.sub_list_add .append([])
+        self.sub_list_add .append([])
         
         pos1 = (20,110)
         pos2 = (420,110)
+
+        posa1 = (200,110)
+        posa2 = (600,110)
 
         color = (36,36,36,255)
 
         for skill in range(4):
             label1 = cocos.text.Label(text='',position = pos1, font_name = 'Statix', color= color , font_size = 20, anchor_x = 'left')
             label2 = cocos.text.Label(text='',position = pos2, font_name = 'Statix', color= color , font_size = 20, anchor_x = 'left')
+            
+            labela1 = cocos.text.Label(text='',position = posa1, font_name = 'Statix', color= color , font_size = 20, anchor_x = 'left')
+            labela2 = cocos.text.Label(text='',position = posa2, font_name = 'Statix', color= color , font_size = 20, anchor_x = 'left')
 
             label1.visible = False
             label2.visible = False
 
+            labela1.visible = False
+            labela2.visible = False
+
             pos1 = pos1[0], pos1[1] - 30
             pos2 = pos2[0], pos2[1] - 30
+
+            posa1 = posa1[0], posa1[1] - 30
+            posa2 = posa2[0], posa2[1] - 30
 
             self.add(label1, z=6)
             self.add(label2, z=6)
 
+            self.add(labela1, z=6)
+            self.add(labela2, z=6)
+
             self.sub_list[0].append(label1)
             self.sub_list[1].append(label2)
+
+            self.sub_list_add[0].append(labela1)
+            self.sub_list_add[1].append(labela2)
 
         self.menu_level = 0
         self.bar_visible = -1
@@ -342,6 +365,8 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         color = (36,36,36,255)
         selected_color = (197,197,197,255)
+        color_invalid = (80,80,80,255)
+        selected_color_invalid = (153,153,153,255)
 
         self.n_slot += n
 
@@ -353,10 +378,19 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
 
         for cmd in self.sub_list[self.active]:
+            action = cmd.element.text.lower()
 
-            cmd.element.color = color
+            if self.heros[self.active].mp[0] < MAGIC[action]:
+                cmd.element.color = color_invalid
+            else:
+                cmd.element.color = color
 
-        self.sub_list[self.active][self.n_slot].element.color = selected_color
+        action = self.sub_list[self.active][self.n_slot].element.text.lower()
+
+        if self.heros[self.active].mp[0] < MAGIC[action]:
+            self.sub_list[self.active][self.n_slot].element.color = selected_color_invalid
+        else:
+            self.sub_list[self.active][self.n_slot].element.color = selected_color
 
 
     def on_key_press(self,key,modifiers):
@@ -394,6 +428,15 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.next_slot(1)
 
             if key == pyglet.window.key.ENTER:
+                
+                action = self.sub_list[self.active][self.n_slot].element.text.lower()
+
+                if self.n_command == 1:
+
+                    if self.heros[self.active].mp[0] < MAGIC[action]:
+                        SFX['error'].play()
+                        return
+
                 SFX['select'].play()
                 self.action = self.sub_list[self.active][self.n_slot].element.text.lower()
 
@@ -452,6 +495,10 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 for label in l:
                     label.visible = False
 
+            for l in self.sub_list_add:
+                for label in l:
+                    label.visible = False
+
             self.choice_arrow.visible = False
 
         elif self.menu_level == 1:
@@ -476,12 +523,16 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 for label in self.sub_list[self.active]:
                     label.visible = True
 
+                for label in self.sub_list_add[self.active]:
+                    label.visible = True
+
                 if self.n_command == 1:
                     list_skill = self.heros[self.active].skills
      
 
                     for index in range(len(list_skill)):
                         self.sub_list[self.active][index].element.text = list_skill[index]
+                        self.sub_list_add[self.active][index].element.text = str(MAGIC[list_skill[index].lower()]) + ' mp'
                 self.next_slot(0)
 
         elif self.menu_level == 2:
@@ -548,6 +599,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             else:
                 self.next_command(0)
                 self.next_command(4)
+
 
     def run_action(self):
         self.menu_level = 3
@@ -620,13 +672,11 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 if n%2 == 0:
                     s = -1
 
-                p = pos[0] + (10 * s), pos[1
-                ]
+                p = pos[0] + (10 * s), pos[1]
                 eclair = Sprite('img/GUI/eclair.png',position = p)
                 self.add(eclair,z=7)
                 self.attacks.append(eclair)
                 
-
                 to = self.target.position
                 to = pos[0], to[1] + self.target.image.height/3
 
@@ -699,19 +749,3 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             origin.do(action)
 
 
-
-
-
-
-
-
-
-            
-
-        
-        
-        
-
-
-
-        
