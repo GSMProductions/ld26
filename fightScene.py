@@ -597,6 +597,12 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 for label in self.sub_list_add[self.active]:
                     label.visible = True
 
+                for cmd in self.sub_list[self.active]:
+                    cmd.element.text = ''
+
+                for cmd in self.sub_list_add[self.active]:
+                    cmd.element.text = ''
+
                 if self.n_command == 1:
                     list_skill = self.heros[self.active].skills
      
