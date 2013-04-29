@@ -9,7 +9,7 @@ MONSTERS =  {
                         'circles':1,
                         'squares':0,
                         'halfsquares':0.3,
-                        }
+                        },
              'ogre':  {
                         'hp':35,
                         'xp':17,
@@ -18,7 +18,7 @@ MONSTERS =  {
                         'circles':1,
                         'squares':0.3,
                         'halfsquares':1,
-                        }
+                        },
              'kraken':  {
                         'hp':50,
                         'xp':37,
@@ -27,7 +27,7 @@ MONSTERS =  {
                         'circles':0.3,
                         'squares':1,
                         'halfsquares':1.5,
-                        }
+                        },
              'dragon':  {
                         'hp':100,
                         'xp':50,
@@ -36,7 +36,7 @@ MONSTERS =  {
                         'circles':1.5,
                         'squares':1,
                         'halfsquares':1,
-                        }
+                        },
              'boss':  {
                         'hp':300,
                         'xp':150,
@@ -61,7 +61,7 @@ LEVELS = {
                   'squares':0,
                   'halfsquares':0,
                   'life':0,
-                  }
+                  },
             2: {
                   'nextlevel':20,
                   'hp':17,
@@ -73,7 +73,7 @@ LEVELS = {
                   'squares':0,
                   'halfsquares':0,
                   'life':0,
-                  }
+                  },
             3: {
                   'nextlevel':25,
                   'hp':20,
@@ -85,7 +85,7 @@ LEVELS = {
                   'squares':0,
                   'halfsquares':0,
                   'life':0,
-                  }
+                  },
             4: {
                   'nextlevel':30,
                   'hp':25,
@@ -97,7 +97,7 @@ LEVELS = {
                   'squares':30,
                   'halfsquares':0,
                   'life':0,
-                  }
+                  },
             5: {
                   'nextlevel':35,
                   'hp':32,
@@ -109,7 +109,7 @@ LEVELS = {
                   'squares':40,
                   'halfsquares':0,
                   'life':0,
-                  }
+                  },
             6: {
                   'nextlevel':40,
                   'hp':41,
@@ -121,7 +121,7 @@ LEVELS = {
                   'squares':48,
                   'halfsquares':60,
                   'life':0,
-                  }
+                  },
             7: {
                   'nextlevel':45,
                   'hp':52,
@@ -133,7 +133,7 @@ LEVELS = {
                   'squares':56,
                   'halfsquares':71,
                   'life':0,
-                  }
+                  },
             8: {
                   'nextlevel':50,
                   'hp':66,
@@ -145,7 +145,7 @@ LEVELS = {
                   'squares':66,
                   'halfsquares':83,
                   'life':46,
-                  }
+                  },
             9: {
                   'nextlevel':55,
                   'hp':81,
@@ -157,7 +157,7 @@ LEVELS = {
                   'squares':77,
                   'halfsquares':96,
                   'life':56,
-                  }
+                  },
             10: {
                   'nextlevel':None,
                   'hp':99,
@@ -172,49 +172,38 @@ LEVELS = {
                   }
   }
 
-ITEMS {
+ITEMS = {
     'potion':  {
                 'healhp':10,
-                'healmp':None,
-                'healdeath':None,
-                'hit':None,
-                }
-    'dragonblood':  {
+                },
+    'dragon blood':  {
                 'healhp':15,
-                'healmp':None,
                 'healdeath':1,
-                'hit':None,
-                }
+                },
     'honey':  {
-                'healhp':None,
                 'healmp':10,
-                'healdeath':None,
-                'hit':None,
-                }
+                },
     'stone':  {
-                'healhp':None,
-                'healmp':None,
-                'healdeath':None,
                 'hit':5,
                 }
   }
 
-MAGIC {
+MAGIC = {
     'triangles':  {
                 'mp':5,
-                }
+                },
     'circles':  {
                 'mp':10,
-                }
+                },
     'squares':  {
                 'mp':10,
-                }
+                },
     'halfsquares':  {
                 'mp':15,
-                }
+                },
     'heal':  {
                 'mp':5,
-                }
+                },
     'life':  {
                 'mp':25,
                 }
