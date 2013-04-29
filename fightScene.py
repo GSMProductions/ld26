@@ -5,7 +5,7 @@ import pyglet
 import random
 
 from sprite import Character, Sprite
-from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey
+from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey, SFX
 
 
 class FightScene(cocos.scene.Scene):
@@ -360,23 +360,29 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         if self.menu_level == 0:
 
             if key == pyglet.window.key.LEFT:
+                SFX['move-select'].play()
                 self.next_command(-1)
 
             if key == pyglet.window.key.RIGHT:
+                SFX['move-select'].play()
                 self.next_command(1)
 
             if key == pyglet.window.key.ENTER:
+                SFX['select'].play()
                 self.setMenuLevel(1)
 
         elif self.menu_level == 1:
 
             if key == pyglet.window.key.UP:
+                SFX['move-select'].play()
                 self.next_slot(-1)
 
             if key == pyglet.window.key.DOWN:
+                SFX['move-select'].play()
                 self.next_slot(1)
 
             if key == pyglet.window.key.ENTER:
+                SFX['select'].play()
                 self.action = self.sub_list[self.active][self.n_slot].element.text.lower()
 
                 self.choice_arrow.kill()
@@ -391,12 +397,15 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         elif self.menu_level == 2:
 
             if key == pyglet.window.key.LEFT:
+                SFX['move-select'].play()
                 self.next_choice(-1)
 
             if key == pyglet.window.key.RIGHT:
+                SFX['move-select'].play()
                 self.next_choice(1)
 
             if key == pyglet.window.key.ENTER:
+                SFX['select'].play()
                 if self.action in FRIEND_SKILL:
                     self.target = self.heros[self.n_choice]
                 else:
@@ -528,6 +537,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 to = self.target.position
                 to = pos[0], to[1] + 2*self.target.image.height/3
                 action = cocos.actions.interval_actions.MoveTo(to, time)
+                SFX['triangles'].play()
                 fire.do(action)
 
                 pos = pos[0] + 15, pos[1]
@@ -546,6 +556,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             sc = cocos.actions.interval_actions.ScaleBy(0.1,1)
             action = rot|sc
 
+            SFX['circles'].play()
             water.do(action)
 
         elif self.action == 'heal':
@@ -561,6 +572,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             sc = cocos.actions.interval_actions.ScaleBy(0.1,0.8)
             action = rot|sc
 
+            SFX['heal'].play()
             heal.do(action)
 
             if not self.target.is_dead():
@@ -588,6 +600,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 to = pos[0], to[1] + self.target.image.height/3
 
                 action = cocos.actions.interval_actions.MoveTo(to, time)
+                SFX['halfsquares'].play()
                 eclair.do(action)
 
                 pos = pos[0] , pos[1] - 15
@@ -613,6 +626,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 to = pos[0], to[1] + self.target.image.height + 100
 
                 action = cocos.actions.interval_actions.MoveTo(to, time)
+                SFX['life'].play()
                 vie.do(action)
 
                 pos = pos[0] + 5 , pos[1]
@@ -640,6 +654,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 to = pos[0], to[1] + self.target.image.height + 60
 
                 action = cocos.actions.interval_actions.MoveTo(to, time + n%2 * 0.2)
+                SFX['squares'].play()
                 earth.do(action)
                 pos = pos[0] + 5 , pos[1]
 

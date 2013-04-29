@@ -45,7 +45,20 @@ NEL_SKILLS =    {
 
 FRIEND_SKILL = ['heal', 'life']
 
-#SOUND_SELECT =   pyglet.media.load('move-select.ogg',streaming=False)
+SFX =   {
+        'move-select':    pyglet.media.load('sounds/move-select.wav', streaming=False),
+        'select':         pyglet.media.load('sounds/select.wav', streaming=False),
+        'circles':        pyglet.media.load('sounds/circles.wav', streaming=False),
+        'death_monster':  pyglet.media.load('sounds/death_monster.wav', streaming=False),
+        'error':          pyglet.media.load('sounds/error.wav', streaming=False),
+        'halfsquares':    pyglet.media.load('sounds/halfsquares.wav', streaming=False),
+        'heal':           pyglet.media.load('sounds/heal.wav', streaming=False),
+        'hit_on_charac':  pyglet.media.load('sounds/hit_on_charac.wav', streaming=False),
+        'hit_on_enemies': pyglet.media.load('sounds/hit_on_enemies.wav', streaming=False),
+        'life':           pyglet.media.load('sounds/life.wav', streaming=False),
+        'squares':        pyglet.media.load('sounds/squares.wav', streaming=False),
+        'triangles':      pyglet.media.load('sounds/triangles.wav', streaming=False)
+        }
 
 def mapKey(key):
 
