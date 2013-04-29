@@ -424,8 +424,11 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             if action == '':
                 cmd.element.color = color
             else:
-                if self.heros[self.active].mp[0] < MAGIC[action]:
-                    cmd.element.color = color_invalid
+                if self.n_command == 1:
+                    if self.heros[self.active].mp[0] < MAGIC[action]:
+                        cmd.element.color = color_invalid
+                    else:
+                        cmd.element.color = color
                 else:
                     cmd.element.color = color
 
@@ -433,11 +436,17 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         if action == '':
             self.sub_list[self.active][self.n_slot].element.color = selected_color
+            if n != 0:
+                self.next_slot(n)
         else:
-            if self.heros[self.active].mp[0] < MAGIC[action]:
-                self.sub_list[self.active][self.n_slot].element.color = selected_color_invalid
+            if self.n_command == 1:
+                if self.heros[self.active].mp[0] < MAGIC[action]:
+                    self.sub_list[self.active][self.n_slot].element.color = selected_color_invalid
+                else:
+                    self.sub_list[self.active][self.n_slot].element.color = selected_color
             else:
                 self.sub_list[self.active][self.n_slot].element.color = selected_color
+            
 
 
     def on_key_press(self,key,modifiers):
@@ -812,6 +821,88 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 pos = pos[0] + 5 , pos[1]
 
                 #time += 0.05 * n%2
+
+        elif self.action == 'potion':
+            pos = self.target.position
+            pos = pos[0], pos[1] + self.target.image.height/2
+
+            img = pyglet.image.load('img/GUI/heal.png')
+            heal = cocos.sprite.Sprite(img,position = pos,anchor = (img.width/2,img.height/2))
+            self.add(heal,z=7)
+
+            self.attacks.append(heal)
+            rot = cocos.actions.interval_actions.RotateBy(-360,0.8)
+            sc = cocos.actions.interval_actions.ScaleBy(0.1,0.8)
+            action = rot|sc
+
+            SFX['heal'].play()
+            heal.do(action)
+
+            if not self.target.is_dead():
+                self.target.hp += 10
+
+        elif self.action == 'dragon blood':
+
+            pos = self.target.position
+            pos = pos[0] ,  pos[1]
+            time = 0.2
+
+            for n in range(6):
+
+
+                p = pos[0] , pos[1] + (5 * n%3)
+
+                vie = Sprite('img/GUI/vie.png',position = p)
+                self.add(vie,z=7)
+                self.attacks.append(vie)
+                
+
+                to = self.target.position
+                to = pos[0], to[1] + self.target.image.height + 100
+
+                action = cocos.actions.interval_actions.MoveTo(to, time)
+                SFX['life'].play()
+                vie.do(action)
+
+                pos = pos[0] + 5 , pos[1]
+                time += 0.05 * n%2
+
+                if self.target.is_dead:
+                    self.target.hp = 5
+
+        elif self.action == 'stone':
+
+            action = cocos.actions.interval_actions.MoveBy((-10,0),0.2)
+            action = action + cocos.actions.base_actions.Reverse(action)
+
+            origin.do(action)
+
+        elif self.action == 'honey':
+            pos = self.target.position
+            pos = pos[0] ,  pos[1]
+            time = 0.2
+
+            for n in range(6):
+
+
+                p = pos[0] , pos[1] + (5 * n%3)
+
+                mp = Sprite('img/GUI/mp.png',position = p)
+                self.add(mp,z=7)
+                self.attacks.append(mp)
+                
+
+                to = self.target.position
+                to = pos[0], to[1] + self.target.image.height + 50
+
+                sc = cocos.actions.interval_actions.ScaleBy(0.5,time)
+                action = cocos.actions.interval_actions.MoveTo(to, time)
+
+                SFX['mp'].play()
+                mp.do(action|sc)
+
+                pos = pos[0] + 5 , pos[1] + 5*n%3
+                time += 0.05
 
         elif self.action == 'fight-hero':
 
