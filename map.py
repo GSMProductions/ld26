@@ -63,7 +63,6 @@ class Map(cocos.scene.Scene):
     def on_key_press(self, key, modifiers):
 
         if mapKey(key) == pyglet.window.key.ENTER and self.dialog_layer.visible:
-            print len(self.current_dialog), self.current_dialog_counter
             if len(self.current_dialog) > self.current_dialog_counter + 2:
                 self.current_dialog_counter += 2
                 self.dialog_line1.element.text = self.current_dialog[self.current_dialog_counter]

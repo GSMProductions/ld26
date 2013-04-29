@@ -75,7 +75,8 @@ SPEAKERS = {
             'Nad': 'nad',
             'N the Wise': 'n_the_wise',
             'Nuss': 'nuss',
-            'Dude': 'type_mourant'
+            'Dude': 'type_mourant',
+            'Villager': 'villager'
            }
 
 
