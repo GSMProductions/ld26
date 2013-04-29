@@ -510,6 +510,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.setMenuLevel(2)
 
             if key == pyglet.window.key.ESCAPE:
+                SFX['escape'].play()
                 memo = self.n_command
                 self.setMenuLevel(0)
                 self.n_command = memo
@@ -533,6 +534,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.run_action()
 
             if key == pyglet.window.key.ESCAPE:
+                SFX['escape'].play()
                 if self.n_command == 0:
                     self.setMenuLevel(0)
                 else:
