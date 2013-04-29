@@ -706,7 +706,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
                     self.victory_label.element.text = msg
                     
-                    self.vdt = 1
+                    self.vdt = 2.5
                 return
 
 
