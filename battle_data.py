@@ -27,3 +27,19 @@ MONSTERS =  {
                         'hit':30,
                         }
             }
+
+LEVELS = {
+    
+              1: {
+                  'nextlevel':10,
+                  'hp':15,
+                  'mp':15,
+                  'hit':6,
+                  'heal':0,
+                  'triangles':0,
+                  'circles':0,
+                  'squares':0,
+                  'halfsquares':0,
+                  'life':0
+                  }
+}
