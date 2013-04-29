@@ -4,7 +4,7 @@ import cocos
 import cocos.scenes
 import pyglet
 
-from data import TITLE, SCREEN_SIZE, KEYBOARD, MAPS
+from data import TITLE, SCREEN_SIZE, KEYBOARD, MAPS, DIALOGS
 from fightScene import FightScene
 from sprite import Character
 from menu import Menu

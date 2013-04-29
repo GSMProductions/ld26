@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from pyglet.window import key
 import pyglet
+import cocos
 from cocos.audio.actions import PlayAction
 from dialog import DialogManager
 
@@ -60,6 +61,16 @@ SFX =   {
         'squares':        pyglet.media.load('sounds/squares.wav', streaming=False),
         'triangles':      pyglet.media.load('sounds/triangles.wav', streaming=False)
         }
+
+SPEAKERS = {
+            'Nod': 'nod1',
+            'Nel': 'nel1',
+            'Nad': 'nad',
+            'N the Wise': 'n_the_wise',
+            'Nuss': 'nuss',
+            'Dude': 'type_mourant'
+           }
+
 
 DIALOGS = DialogManager()
 

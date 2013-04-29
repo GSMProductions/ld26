@@ -1,8 +1,7 @@
 #First villager;;;
 Villageois_A;1;Villager;Hello Nod. Today is a big day for your friends. You should be proud of them.
 #Second villager;;;
-Villageois_B;1;Villager;You're looking for Nus and Nad? They must already be near the grand ceremony hall at this hour.
-Villageois_B;2;Villager;Don't disturb them too long, they should be concentrating.
+Villageois_B;1;Villager;You're looking for Nus and Nad? They must already be near the grand ceremony hall at this hour. Don't disturb them too long, they should be concentrating.
 #Nod meets Nel in the village;;;
 Nod_Nel_A;1;Nod;Nel, hi! Did you find Nus and Nad?
 Nod_Nel_A;2;Nel;Nope, let's go look for them. I bet they must be scared as hell, those two sissies. 
@@ -14,31 +13,24 @@ N_friends_A;4;Nus;Yeah, right. But this time's different, the old guy is really 
 N_friends_A;5;Nod;You mean, N the Wise?
 N_friends_A;6;Nad;Yes. He's talking about how we'll be changed after the ceremony.
 N_friends_A;7;Nad;How everything will seem different to us.
-N_friends_A;8;Nus;And we don't even freaking know what they will do to us in that hall!
-N_friends_A;9;Nus;Man, I sooo don't want to go in there.
+N_friends_A;8;Nus;And we don't even freaking know what they will do to us in that hall! Man, I sooo don't want to go in there.
 N_friends_A;10;Nad;Actually...
 N_friends_A;11;Nod & Nel;What?
-N_friends_A;12;Nad;N the Wise said not to tell you, but...
-N_friends_A;13;Nad;he said we would not get to fool around with you anymore.
-N_friends_A;14;Nel;Come on Nad, don't make that face, it's not like it's the first time the
-N_friends_A;15;Nel;old man tries to threaten us or scare us into being the perfect little villagers.
+N_friends_A;12;Nad;N the Wise said not to tell you, but... he said we would not get to fool around with you anymore.
+N_friends_A;14;Nel;Come on Nad, don't make that face, it's not like it's the first time the old man tries to threaten us or scare us into being the perfect little villagers.
 N_friends_A;16;Nad;I know, but... he said we would not event WANT to do it anymore.
-N_friends_A;17;Nus;But that's just impossible right? I mean, we're friends,
-N_friends_A;18;Nus;we hangout together. We always do! How could that change?
+N_friends_A;17;Nus;But that's just impossible right? I mean, we're friends, we hangout together. We always do! How could that change?
 N_friends_A;19;Nod;Hmm.. That's probably just another pathetic attempt to assert his authority.
 N_friends_A;20;Nel;Nod, we should get going, I think the Wise's coming.
 N_friends_A;21;Nod;Right, see you after the ceremony! In the park, the usual spot. You'll tell us everything then.
 #N the wise enters the building;;;
-N_friends_Wise_A;1;N the Wise;Nod, Nel, outside, now. They need to prepare, and you need to find yourselves a better occupation.
-N_friends_Wise_A;2;N the Wise;Make yourself useful somewhere, for a change.
+N_friends_Wise_A;1;N the Wise;Nod, Nel, outside, now. They need to prepare, and you need to find yourselves a better occupation. Make yourself useful somewhere, for a change.
 #Nod & Nel outside the building;;;
 Nod_Nel_B;1;Nel;Hahaha, they really are.
 Nod_Nel_B;2;Nod;What?
 Nod_Nel_B;3;Nel;Sissies.
-Nod_Nel_B;4;Nod;I hope you're right. To be honest I always thought something about
-Nod_Nel_B;5;Nod;this whole first birthday ceremony was weird.
-Nod_Nel_B;6;Nel;Well, they'll figure it out soon enough, I think it just began.
-Nod_Nel_B;7;Nel;Let's join the crowd to see when they'll get out of the hall.
+Nod_Nel_B;4;Nod;I hope you're right. To be honest I always thought something about this whole first birthday ceremony was weird.
+Nod_Nel_B;6;Nel;Well, they'll figure it out soon enough, I think it just began. Let's join the crowd to see when they'll get out of the hall.
 #Nod & Nel after ceremony;;;
 Nod_Nel_C;1;Nel;Ah, here they come! NUUUUUS, NAAAAAD, wouuuuuuh!
 Nod_Nel_C;2;Nod;Haha, Nel, stop. I can actually feel the glares coming our way.
@@ -48,8 +40,7 @@ Nod_Nel_C;5;Nod;Wait... Somehting's seems off...
 Nod_Nel_C;6;Nod;They look exactly the same !
 Nod_Nel_C;7;Nel;Damn, you're right. Hahaha! That's what's all about this freakin' ceremony, a goddam haircut??
 Nod_Nel_C;8;Nod;No, dummy, it's more than that. They really changed, they look kind of... older.
-Nod_Nel_C;9;Nel;We should head to the park anyway. We'll get our answers when
-Nod_Nel_C;10;Nel;they'll join us after they finish parading.
+Nod_Nel_C;9;Nel;We should head to the park anyway. We'll get our answers when they'll join us after they finish parading.
 #Nod, Nel & N the Wise at the park;;;
 Nod_Nel_Wise_A;1;Nel;Oh hell. Look what's coming our way...
 Nod_Nel_Wise_A;2;N the Wise;I knew I would find you here. You little up-to-no-goods always met in this park.
