@@ -369,6 +369,14 @@
     <property name="passable" value="True"/>
    </properties>
   </tile>
+  <tile id="189">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="13 3"/>
+    <property name="door_map" value="inside_ceremony_hall"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
   <tile id="190">
    <properties>
     <property name="door" value="True"/>
@@ -396,7 +404,7 @@
  </tileset>
  <layer name="ground1" width="48" height="57">
   <data encoding="base64" compression="zlib">
-   eJzt1TEOgzAQRUF3EWeAs6WDc5CbJymQrEgRspHjJUzxCjdf42qnlNIkSZKkw9123tHjl9Sr+dX4UW9TqX/NegQwlfqHrDmAif888fOfyf/eXyqr2eDn5+ffqrXzx/H3rIU/v7/87fzf/sJ/Hf+R+8XPzx/fX7r5S3+L+Pmv3D2AQfrnnnsHocw=
+   eJzt1bEJgDAQRuHrxBnMbHZxDl3HKUVQuEYkF2Iu5hWvSPPzpbogIoGIiIiIshte3t7DTySyOzDkNDkwWIqXXVfblOpfVZsDU6p/VEUHJvzthB9/S/5zfzFm2cCPHz/+O6sdvx9/zUr49f3FX87/9Bf8/fhz7hd+/Pj9+1M3v/SXCD/+npsdGIj+3AHN16JZ
   </data>
  </layer>
  <layer name="ground2" width="48" height="57">

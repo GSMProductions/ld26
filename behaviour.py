@@ -94,13 +94,26 @@ class MoveCharacter(cocos.actions.Move):
             player_rect.x += self.target.velocity[0]*dt
             player_rect.y += self.target.velocity[1]*dt
 
+            if TRIGGERS['found_nel'] and TRIGGERS['village_state'] == 1:
+                TRIGGERS['village_state'] = 2
+                self.target.current_map.char_layer.remove(self.target.current_map.npcs['nel11'])
+                self.target.current_map.npcs['villagera4'].do(cocos.actions.interval_actions.MoveBy((-1000,0),5))
+
             for npc in self.target.current_map.npcs:
                 if player_rect.intersects(self.target.current_map.npcs[npc].get_rect()):
                     self.target.velocity = (0,0)
                     self.target.in_dialog = True
 
                     if TRIGGERS['village_state'] == 1 and not TRIGGERS['found_nel']:
-                        self.target.current_map.displayDialog('Villageois_A')
+                        print 'Name', self.target.current_map.npcs[npc].name
+                        if self.target.current_map.npcs[npc].name == 'nel11':
+                            self.target.current_map.displayDialog('Nod_Nel_A')
+                            TRIGGERS['found_nel'] = True
+                        else:
+                            self.target.current_map.displayDialog('Villageois_A')
+                    elif TRIGGERS['village_state'] == 2:
+                        self.target.current_map.displayDialog('Villageois_B')
+
 
             for item in self.target.current_map.items:
                 if player_rect.intersects(self.target.current_map.items[item].get_rect()):

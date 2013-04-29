@@ -72,7 +72,7 @@ class Map(cocos.scene.Scene):
 
         for character in MAPCHARA[name]:
             chara = Character(character[0][0:-1], (0,0))
-            chara.name = character
+            chara.name = character[0]
             self.placeCharacter(chara, character[1])
 
         cocos.director.director.window.push_handlers(self)

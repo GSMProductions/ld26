@@ -149,9 +149,21 @@ MAPCHARA = {
             ('villagerb5', (43,28)),
             ('villagera3', (5,4)),
             ('villagerb6', (6,4)),
+            ('villagera4', (24,36)),
             ('nel11', (33,34))
             ],
     'village2':[
+            ('villagera1', (5,38)),
+            ('villagerb1', (23,21)),
+            ('villagera2', (30,44)),
+            ('villagerb2', (6,20)),
+            ('villagerb3', (24,21)),
+            ('villagerb4', (25,21)),
+            ('villagerb5', (43,28)),
+            ('villagera3', (5,4)),
+            ('villagerb6', (6,4))
+            ],            
+    'village3':[
             ('villagera1', (22,20)),
             ('villagera2', (21,21)),
             ('villagera3', (28,18)),
@@ -201,6 +213,7 @@ MAPCHARA = {
 
 BGM = {
     'village1': 'ld26village.ogg',
+    'village2': 'ld26village.ogg',
     'inside_ceremony_hall':'ld26villageindoor.ogg',
     'inside_house_nod':'ld26villageindoor.ogg',
     'inside_house_gen_1':'ld26villageindoor.ogg',
