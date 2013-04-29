@@ -76,7 +76,7 @@ SPEAKERS = {
             'Nel': 'nel1',
             'Nad': 'nad',
             'N the Wise': 'n_the_wise',
-            'Nuss': 'nuss',
+            'Nus': 'nuss',
             'Dude': 'type_mourant',
             'Villager': 'villager'
            }
@@ -188,8 +188,8 @@ MAPCHARA = {
             ('villagerb4', (43,28))
             ],
     'inside_ceremony_hall':[
-            ('nad11', (7,8)),
-            ('nus11', (20,6))
+            ('nad1', (7,8)),
+            ('nuss1', (20,6))
             ],
     'inside_house_nod':[
             ],

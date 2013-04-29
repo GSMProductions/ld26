@@ -2,6 +2,8 @@ import cocos
 from pyglet.window import key
 from data import KEYBOARD, TILE_SIZE, MAPS, TRIGGERS
 import random
+from sprite import Character
+
 
 class CheckForBattle(cocos.actions.Action):
     def step(self, dt):
@@ -99,6 +101,13 @@ class MoveCharacter(cocos.actions.Move):
                 self.target.current_map.char_layer.remove(self.target.current_map.npcs['nel11'])
                 self.target.current_map.npcs['villagera4'].do(cocos.actions.interval_actions.MoveBy((-1000,0),5))
 
+            if TRIGGERS['village_state'] == 3 and self.target.current_map.name == 'inside_ceremony_hall':
+                thewise = Character('n_the_wise',(0,0))
+                self.target.current_map.placeCharacter(thewise, (13,2))
+                thewise.do(cocos.actions.interval_actions.MoveBy((0,256),3))
+                self.target.current_map.displayDialog('N_friends_Wise_A')
+                TRIGGERS['village_state'] = 4
+
             for npc in self.target.current_map.npcs:
                 if player_rect.intersects(self.target.current_map.npcs[npc].get_rect()):
                     self.target.velocity = (0,0)
@@ -112,7 +121,11 @@ class MoveCharacter(cocos.actions.Move):
                         else:
                             self.target.current_map.displayDialog('Villageois_A')
                     elif TRIGGERS['village_state'] == 2:
-                        self.target.current_map.displayDialog('Villageois_B')
+                        if self.target.current_map.name == 'inside_ceremony_hall':
+                            self.target.current_map.displayDialog('N_friends_A')
+                            TRIGGERS['village_state'] = 3
+                        else:
+                            self.target.current_map.displayDialog('Villageois_B')
 
 
             for item in self.target.current_map.items:

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import cocos
 import pyglet
-import behaviour
 
 from data import NEL_SKILLS,NOD_SKILLS
 from battle_data import LEVELS, MONSTERS

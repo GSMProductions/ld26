@@ -2,6 +2,16 @@
 <map version="1.0" orientation="orthogonal" width="25" height="19" tilewidth="32" tileheight="32" backgroundcolor="#000000">
  <tileset firstgid="1" name="tileset_village" tilewidth="32" tileheight="32">
   <image source="tileset_village.png" width="640" height="320"/>
+  <tile id="7">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
   <tile id="10">
    <properties>
     <property name="door" value="True"/>
@@ -63,7 +73,7 @@
  </layer>
  <layer name="ground2" width="25" height="19">
   <data encoding="base64" compression="zlib">
-   eJyTY2BgkBvFJGFtINYBYl0g1qKQrY3DDnsgXgLEjkBsB8QOFLDtcdgRDMQhQBwKxEEUsoNx2JEJxDxUwpk47KCW+TCMz45CIC7CgYupZEcJHn0dSOxSIC5Hw6N2YLejE4i7kXAPCXa0AnEbDtxOpTinR9qlpR2kYGqYMRQxAPNtRdA=
+   eJyTY2BgkBvFJGFtINYBYl0g1qKQrY3DDnsgXgLEjkBsB8QOFLDtcdgRDMQhQBwKxEEUsoNx2JEJxDxUwpk47KCW+TCMz45CIC7CgYupZEcJHn0dSOxSIC5Hw6N2YLejE4i7kXAPCXa0AnEbDtxOpTinR9qlpR2kYG4qmDEUMQDydUXP
   </data>
  </layer>
  <layer name="foreground" width="25" height="19">
