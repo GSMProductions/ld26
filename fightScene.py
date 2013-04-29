@@ -5,7 +5,7 @@ import pyglet
 import random
 
 from sprite import Character, Sprite
-from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey, SFX
+from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey, SFX,INVENTORY
 from battle_data import MAGIC, ITEMS, LEVELS, MONSTERS
 
 
@@ -237,7 +237,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.active = 0
 
-        command_l = ['fight','skill','items']
+        command_l = ['fight','skills','items']
 
         self.commands = []
         self.commands.append([])
@@ -345,6 +345,8 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         color = (36,36,36,255)
         selected_color = (197,197,197,255)
+        color_invalid = (80,80,80,255)
+        selected_color_invalid = (153,153,153,255)
 
         self.n_command += n
 
@@ -355,11 +357,50 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             self.n_command = len(self.commands[self.active]) -1
 
 
-        for cmd in self.commands[0]+self.commands[1]:
+        for cmd in self.commands[0]:
+            l = 1
+            action = cmd.element.text.lower()
 
-            cmd.element.color = color
+            if action == 'skills':
+                l = len(self.heros[0].skills)
 
-        self.commands[self.active][self.n_command].element.color = selected_color
+            if action == 'items':
+                l = len(INVENTORY)
+
+            if l > 0:
+                cmd.element.color = color
+            else:
+                cmd.element.color = color_invalid
+
+        for cmd in self.commands[1]:
+            l = 1
+            action = cmd.element.text.lower()
+
+            if action == 'skills':
+                l = len(self.heros[1].skills)
+
+            if action == 'items':
+                l = len(INVENTORY)
+
+            if l > 0:
+                cmd.element.color = color
+            else:
+                cmd.element.color = color_invalid
+
+
+        l = 1
+        action = self.commands[self.active][self.n_command].element.text.lower()
+
+        if action == 'skills':
+            l = len(self.heros[self.active].skills)
+
+        if action =='items':
+            l = len(INVENTORY)
+
+        if l > 0:  
+            self.commands[self.active][self.n_command].element.color = selected_color
+        else:
+            self.commands[self.active][self.n_command].element.color = selected_color_invalid
 
     def next_slot(self,n=1):
 
@@ -380,17 +421,23 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         for cmd in self.sub_list[self.active]:
             action = cmd.element.text.lower()
 
-            if self.heros[self.active].mp[0] < MAGIC[action]:
-                cmd.element.color = color_invalid
-            else:
+            if action == '':
                 cmd.element.color = color
+            else:
+                if self.heros[self.active].mp[0] < MAGIC[action]:
+                    cmd.element.color = color_invalid
+                else:
+                    cmd.element.color = color
 
         action = self.sub_list[self.active][self.n_slot].element.text.lower()
 
-        if self.heros[self.active].mp[0] < MAGIC[action]:
-            self.sub_list[self.active][self.n_slot].element.color = selected_color_invalid
-        else:
+        if action == '':
             self.sub_list[self.active][self.n_slot].element.color = selected_color
+        else:
+            if self.heros[self.active].mp[0] < MAGIC[action]:
+                self.sub_list[self.active][self.n_slot].element.color = selected_color_invalid
+            else:
+                self.sub_list[self.active][self.n_slot].element.color = selected_color
 
 
     def on_key_press(self,key,modifiers):
@@ -411,6 +458,19 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.next_command(1)
 
             if key == pyglet.window.key.ENTER:
+                l = 1
+                action = self.commands[self.active][self.n_command].element.text.lower()
+
+                if action == 'skills':
+                    l = len(self.heros[self.active].skills)
+
+                if action =='items':
+                    l = len(INVENTORY)
+
+                if l <= 0:
+                    SFX['error'].play()
+                    return
+
                 SFX['select'].play()
                 self.setMenuLevel(1)
 
@@ -514,7 +574,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.add(self.choice_arrow,z=6)
                 self.setMenuLevel(2)
 
-            if self.n_command == 1 or self.n_command == 1:
+            if self.n_command == 1 or self.n_command == 2:
                 self.choice_arrow.visible = False
                 menu = self.sub_menu[self.active]
                 menu.visible = True
@@ -533,6 +593,16 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                     for index in range(len(list_skill)):
                         self.sub_list[self.active][index].element.text = list_skill[index]
                         self.sub_list_add[self.active][index].element.text = str(MAGIC[list_skill[index].lower()]) + ' mp'
+                self.next_slot(0)
+
+                if self.n_command == 2:
+
+                    list_items = INVENTORY.items()
+                    list_items.sort()
+
+                    for index in range(len(list_items)):
+                        self.sub_list[self.active][index].element.text = list_items[index][0]
+                        self.sub_list_add[self.active][index].element.text = 'x' + str (list_items[index][1])
                 self.next_slot(0)
 
         elif self.menu_level == 2:
@@ -606,7 +676,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.action_ok = True
         origin = self.parent.active
 
-        if self.action == 'triangle':
+        if self.action == 'triangles':
             pos = self.target.position
             pos = pos[0] -10,  pos[1] - 100
             time = 0.4
@@ -626,7 +696,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 pos = pos[0] + 15, pos[1]
                 time += 0.1
 
-        if self.action == 'circle':
+        if self.action == 'circles':
             pos = self.target.position
             pos = pos[0], pos[1] + self.target.image.height/2
 
@@ -716,7 +786,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 if self.target.is_dead:
                     self.target.hp = 5
 
-        elif self.action == 'square':
+        elif self.action == 'squares':
             pos = self.target.position
             pos = pos[0] ,  pos[1]
             time = 0.2
