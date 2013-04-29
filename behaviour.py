@@ -1,7 +1,9 @@
 import cocos
 from pyglet.window import key
-from data import KEYBOARD, TILE_SIZE, MAPS
+from data import KEYBOARD, TILE_SIZE, MAPS, TRIGGERS
 import random
+from sprite import Character
+import time
 
 class CheckForBattle(cocos.actions.Action):
     def step(self, dt):
@@ -94,11 +96,43 @@ class MoveCharacter(cocos.actions.Move):
             player_rect.x += self.target.velocity[0]*dt
             player_rect.y += self.target.velocity[1]*dt
 
+            if TRIGGERS['found_nel'] and TRIGGERS['village_state'] == 1:
+                TRIGGERS['village_state'] = 2
+                self.target.current_map.char_layer.remove(self.target.current_map.npcs['nel11'])
+                self.target.current_map.npcs.pop('nel11')
+                self.target.current_map.npcs['villagera4'].do(cocos.actions.interval_actions.MoveBy((-1000,0),5))
+
+            if TRIGGERS['village_state'] == 3 and self.target.current_map.name == 'inside_ceremony_hall':
+                thewise = Character('n_the_wise',(0,0))
+                self.target.current_map.placeCharacter(thewise, (13,2))
+                time.sleep(2)
+                thewise.do(cocos.actions.interval_actions.MoveBy((0,256),3))
+                self.target.current_map.displayDialog('N_friends_Wise_A')
+                TRIGGERS['village_state'] = 4
+
+            if TRIGGERS['village_state'] == 4 and self.target.current_map.name == 'village':
+                self.target.current_map.displayDialog('Nod_Nel_B')
+                TRIGGERS['village_state'] = 5
+
             for npc in self.target.current_map.npcs:
                 if player_rect.intersects(self.target.current_map.npcs[npc].get_rect()):
                     self.target.velocity = (0,0)
                     self.target.in_dialog = True
-                    #self.target.current_map.displayDialog()
+
+                    if TRIGGERS['village_state'] == 1 and not TRIGGERS['found_nel']:
+                        print 'Name', self.target.current_map.npcs[npc].name
+                        if self.target.current_map.npcs[npc].name == 'nel11':
+                            self.target.current_map.displayDialog('Nod_Nel_A')
+                            TRIGGERS['found_nel'] = True
+                        else:
+                            self.target.current_map.displayDialog('Villageois_A')
+                    elif TRIGGERS['village_state'] == 2:
+                        if self.target.current_map.name == 'inside_ceremony_hall':
+                            self.target.current_map.displayDialog('N_friends_A')
+                            TRIGGERS['village_state'] = 3
+                        else:
+                            self.target.current_map.displayDialog('Villageois_B')
+
 
             for item in self.target.current_map.items:
                 if player_rect.intersects(self.target.current_map.items[item].get_rect()):

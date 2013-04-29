@@ -48,6 +48,7 @@ def start_game():
     MAPS['inside_house_gen_2'] = Map('inside_house_gen_2')
     MAPS['inside_house_gen_3'] = Map('inside_house_gen_3')
     MAPS['inside_house_gen_4'] = Map('inside_house_gen_4')
+    MAPS['inside_ceremony_hall'] = Map('inside_ceremony_hall')
     MAPS['grassland'] = Map('grassland')
     MAPS['forest'] = Map('forest')
     MAPS['falaise'] = Map('falaise')

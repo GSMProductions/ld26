@@ -76,7 +76,7 @@ SPEAKERS = {
             'Nel': 'nel1',
             'Nad': 'nad',
             'N the Wise': 'n_the_wise',
-            'Nuss': 'nuss',
+            'Nus': 'nuss',
             'Dude': 'type_mourant',
             'Villager': 'villager'
            }
@@ -108,31 +108,31 @@ MAPITEM = {
     'village':[
             ],
     'inside_house_nod':[
-            ('potion', (21,47))
+            ('potion', (17,10))
             ],
     'inside_house_gen_1':[
-            ('potion', (8,48))
+            ('potion', (8,12))
             ],
 
     'inside_house_gen_2':[
-            ('dragon blood', (21,43))
+            ('dragon blood', (21,9))
             ],
     'inside_house_gen_3':[
             ],
     'inside_house_gen_4':[
             ],
     'grassland':[
-            ('honey', (26,23)),
-            ('potion', (37,32)),
-            ('stone', (3,26)),
-            ('dragon blood', (1,52)),
-            ('honey', (22,43))
+            ('honey', (26,16)),
+            ('potion', (37,23)),
+            ('stone', (6,11)),
+            ('dragon blood', (1,43)),
+            ('honey', (22,35))
             ],
     'forest':[
-            ('honey', (37,28)),
-            ('stone', (16,30)),
-            ('dragon blood', (4,45)),
-            ('honey', (29,40))
+            ('honey', (37,21)),
+            ('stone', (14,23)),
+            ('dragon blood', (4,38)),
+            ('honey', (29,33))
             ],
     'falaise':[
             ]
@@ -149,9 +149,21 @@ MAPCHARA = {
             ('villagerb5', (43,28)),
             ('villagera3', (5,4)),
             ('villagerb6', (6,4)),
-            ('nel11', (33,22))
+            ('villagera4', (24,36)),
+            ('nel11', (33,34))
             ],
     'village2':[
+            ('villagera1', (5,38)),
+            ('villagerb1', (23,21)),
+            ('villagera2', (30,44)),
+            ('villagerb2', (6,20)),
+            ('villagerb3', (24,21)),
+            ('villagerb4', (25,21)),
+            ('villagerb5', (43,28)),
+            ('villagera3', (5,4)),
+            ('villagerb6', (6,4))
+            ],            
+    'village3':[
             ('villagera1', (22,20)),
             ('villagera2', (21,21)),
             ('villagera3', (28,18)),
@@ -176,8 +188,8 @@ MAPCHARA = {
             ('villagerb4', (43,28))
             ],
     'inside_ceremony_hall':[
-            ('nad11', (7,49)),
-            ('nus11', (20,46))
+            ('nad1', (7,8)),
+            ('nuss1', (20,6))
             ],
     'inside_house_nod':[
             ],
@@ -188,7 +200,7 @@ MAPCHARA = {
     'inside_house_gen_4':[
             ],
     'inside_house_gen_2':[
-            ('villagerb1', (5,45))
+            ('villagerb1', (5,8))
              ],
     'grassland':[
             ('dude1', (17,47))
@@ -201,6 +213,7 @@ MAPCHARA = {
 
 BGM = {
     'village1': 'ld26village.ogg',
+    'village2': 'ld26village.ogg',
     'inside_ceremony_hall':'ld26villageindoor.ogg',
     'inside_house_nod':'ld26villageindoor.ogg',
     'inside_house_gen_1':'ld26villageindoor.ogg',
@@ -210,4 +223,9 @@ BGM = {
     'grassland':'ld26villageindoor.ogg',
     'forest':'ld26villageindoor.ogg',
     'falaise':'ld26villageindoor.ogg'
+    }
+
+TRIGGERS = {
+    'village_state':1,
+    'found_nel':False
     }
