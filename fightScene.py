@@ -375,6 +375,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 SFX['select'].play()
                 self.setMenuLevel(1)
 
+            if key == pyglet.window.key.ESCAPE:
+                SFX['error'].play()
+
         elif self.menu_level == 1:
 
             if key == pyglet.window.key.UP:
@@ -398,6 +401,11 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
                 self.setMenuLevel(2)
 
+            if key == pyglet.window.key.ESCAPE:
+                memo = self.n_command
+                self.setMenuLevel(0)
+                self.n_command = memo
+
         elif self.menu_level == 2:
 
             if key == pyglet.window.key.LEFT:
@@ -415,6 +423,13 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 else:
                     self.target = self.enemies[self.n_choice]
                 self.run_action()
+
+            if key == pyglet.window.key.ESCAPE:
+                if self.n_command == 0:
+                    self.setMenuLevel(0)
+                else:
+                    self.setMenuLevel(1)
+
 
     def setMenuLevel(self,level):
 
