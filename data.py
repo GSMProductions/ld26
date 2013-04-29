@@ -210,3 +210,8 @@ BGM = {
     'forest':'ld26villageindoor.ogg',
     'falaise':'ld26villageindoor.ogg'
     }
+
+TRIGGERS = {
+    'village_state':1,
+    'found_nel':False
+    }

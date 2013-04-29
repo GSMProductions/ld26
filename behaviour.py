@@ -1,6 +1,6 @@
 import cocos
 from pyglet.window import key
-from data import KEYBOARD, TILE_SIZE, MAPS
+from data import KEYBOARD, TILE_SIZE, MAPS, TRIGGERS
 import random
 
 class CheckForBattle(cocos.actions.Action):
@@ -98,7 +98,9 @@ class MoveCharacter(cocos.actions.Move):
                 if player_rect.intersects(self.target.current_map.npcs[npc].get_rect()):
                     self.target.velocity = (0,0)
                     self.target.in_dialog = True
-                    #self.target.current_map.displayDialog()
+
+                    if TRIGGERS['village_state'] == 1 and not TRIGGERS['found_nel']:
+                        self.target.current_map.displayDialog('Villageois_A')
 
             for item in self.target.current_map.items:
                 if player_rect.intersects(self.target.current_map.items[item].get_rect()):
