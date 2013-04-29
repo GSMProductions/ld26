@@ -197,3 +197,10 @@ MAGIC = {
     'heal':         5,
     'life':         25
   }
+
+DROPS = {
+      'fly':      'honey',
+      'ogre':     'stone',
+      'kraken':   'potion',
+      'dragon':   'dragon blood'
+}
