@@ -54,7 +54,7 @@ Nod_Nel_Wise_A2;N the Wise;After all, your coming-of-age is only one week away.
 #N the wise leaves the screen;
 Nod_Nel_C2;Nel;GOD, I hate him !!! That guy's so full of himself!
 Nod_Nel_C2;Nod;Yeah... even more than usual. What if he was telling the truth?
-Nod_Nel_C2;Nel;We just have to go meet Nus and Nad and prove him wrong!
+Nod_Nel_C2;Nel;We just have to ask Nus and Nad and prove him wrong!
 #Nel & Nod see new Nad & Nus;
 N_friends_B;Nod;Hey ! Nad ! Nus !
 #Nel & Nod approach new Nad & Nus;
@@ -81,12 +81,11 @@ Nod_Nel_D;Nod;You're right. That's why I think we should make a run for it.
 Nod_Nel_D;Nel;Just... go ? Like that ? With potentially deadly monsters out there and all kind of dangers ?
 Nod_Nel_D;Nod;I guess.
 Nod_Nel_D;Nel;Alllright ! I'm in !
-#Nel begins to walk away;
-Nod_Nel_D2;Nod;Nel, wait. Going through the main gate is not an option, we have to go unnoticed.
-Nod_Nel_D2;Nel;Right, right... Oh, I think there's a whole in the west wall large enough for us to slip away.
-Nod_Nel_D2;Nod;You realize we cannot tell Nus and Nad, do you ? It's too late for them..
-Nod_Nel_D2;Nel;I know, I know... Let's go before we see them again... maybe one day we'll come back and they'll have changed ?
-Nod_Nel_D2;Nod;Maybe... I hope so...
+Nod_Nel_D;Nod;Nel, wait. Going through the main gate is not an option, we have to go unnoticed.
+Nod_Nel_D;Nel;Right, right... Well this hole in the wall is large enough for us to slip away.
+Nod_Nel_D;Nod;You realize we cannot tell Nus and Nad, do you ? It's too late for them..
+Nod_Nel_D;Nel;I know, I know... Let's go before we see them again... maybe one day we'll come back and they'll have changed ?
+Nod_Nel_D;Nod;Maybe... I hope so...
 #Villageois A avant escape;
 Villageois_A2;Villager;What are you still doing out there? It's late, you should be home!
 #Villageois B avant escape;

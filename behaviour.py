@@ -110,6 +110,27 @@ class MoveCharacter(cocos.actions.Move):
                 TRIGGERS['village_state'] = 4
 
 
+            if TRIGGERS['village_state'] == 10:
+                self.target.current_map.displayDialog('Nod_Nel_D')
+                TRIGGERS['village_state'] = 11
+
+
+            if TRIGGERS['village_state'] == 9:
+                self.target.current_map = MAPS['village3']
+                self.target.current_map.spawnPlayer(self.target, (6,9))
+                TRIGGERS['village_state'] = 10                
+
+
+            if TRIGGERS['village_state'] == 8:
+                self.target.current_map.displayDialog('Intro')
+                TRIGGERS['village_state'] = 9
+
+
+            if TRIGGERS['village_state'] == 7:
+                self.target.current_map = MAPS['inside_house_nod']
+                self.target.current_map.spawnPlayer(self.target, (5,8))
+                TRIGGERS['village_state'] = 8
+
 
             if TRIGGERS['village_state'] == 6:
                 self.target.current_map.displayDialog('Nod_Nel_C')
