@@ -4,6 +4,7 @@ import pyglet
 import cocos
 from cocos.audio.actions import PlayAction
 from dialog import DialogManager
+from inventory import Inventory
 
 
 TITLE = "Outside The Box"
@@ -36,7 +37,7 @@ ENEMY_PROPERTY =    {
 KEYBOARD = key.KeyStateHandler()
 
 MAPS = {}
-
+INVENTORY = Inventory()
 NOD_SKILLS =    {
                 2: 'Heal',
                 4: 'Circles',
