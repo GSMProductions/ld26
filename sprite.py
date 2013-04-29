@@ -4,7 +4,7 @@ import pyglet
 import behaviour
 
 from data import NEL_SKILLS,NOD_SKILLS
-from battle_data import LEVELS
+from battle_data import LEVELS, MONSTERS
 
 class Sprite(cocos.sprite.Sprite):
 
@@ -48,7 +48,10 @@ class Character(Sprite):
             try:
                 self.dead_image = pyglet.image.load('img/chara/'+str(name)+'-mort-f.png')
             except IOError, e:
-                self.dead_image = self.map_image
+                if self.fight_image != None:
+                    self.dead_image = self.fight_image
+                else:
+                    self.dead_image = self.map_image
 
         Sprite.__init__(self,image,position)
 
@@ -88,6 +91,7 @@ class Character(Sprite):
             
             self.hpl[0] = min(hp, self.hpl[1])
             if self.hpl[0] <= 0:
+                self.hpl[0] = 0
                 
                 self.image = self.dead_image
 
@@ -109,8 +113,15 @@ class Character(Sprite):
         else:
             self.level = lvl
 
-        hp = LEVELS[self.level]['hp']
-        mp = LEVELS[self.level]['mp']
+        mp = 0
+
+        if MONSTERS.has_key(self.name):
+            hp = MONSTERS[self.name]['hp']
+
+        else:
+
+            hp = LEVELS[self.level]['hp']
+            mp = LEVELS[self.level]['mp']
 
         self.hpl = [hp,hp]
         self.mp = [mp,mp] 

@@ -339,6 +339,8 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.n_choice = 0
         self.action_ok =  False
         self.applic_ok = False
+        self.enemies_dead = []
+        self.dt = 0.
 
 
         cocos.director.director.window.push_handlers(self)
@@ -692,6 +694,40 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             else:
                 self.next_command(0)
                 self.next_command(4)
+                self.enemy_attack()
+
+        cp_enemies = []
+        cp_enemies += self.enemies
+
+        for enemy in cp_enemies:
+            if enemy.is_dead():
+                self.enemies.remove(enemy)
+                self.enemies_dead.append(enemy)
+                SFX['death_monster'].play()
+                self.dt = 1.
+
+                fade = cocos.actions.interval_actions.FadeIn(1)
+                scale = cocos.actions.interval_actions.ScaleBy(0.1,1)
+
+                action = fade|scale
+                enemy.do(action)
+
+        if len(self.enemies_dead) > 0:
+            self.dt -= dt
+
+        for enemy in self.enemies_dead:
+            if len(enemy.actions) <= 0 or self.dt <= 0.:
+                self.dt = 0.
+                enemy.kill()
+                self.enemies_dead.remove(enemy)
+
+    def enemy_attack(self):
+        #choose target
+
+        n = random.randint(0,1)
+        self.target = self.heros[n]
+        self.action = 'fight-enemy'
+        self.run_action()
 
     def applic_action(self):
         self.applic_ok = True
@@ -717,7 +753,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         if self.action == 'fight-hero':
             power = LEVELS[self.heros[self.active].level]['hit']
         if self.action == 'fight-enemy':
-            name = self.orgin.name
+            name = self.origin.name
             power = MONSTERS[name]['hit']
 
         #modification de la puissance
@@ -750,6 +786,11 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         else:
             self.target.hp -= power
 
+        if self.action in MAGIC:
+            self.origin.mp[0] -= MAGIC[self.action]
+        elif self.action in ITEMS:
+            INVENTORY.remove(self.action)
+
         #position
 
         pos = self.target.position
@@ -775,12 +816,6 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.add(label)
         self.attacks.append(label)
-
-
-
-
-
-
 
     def run_action(self):
         self.menu_level = 3
@@ -1000,6 +1035,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             self.origin.do(action)
 
         elif self.action == 'fight-enemy':
-            pass
+
+            action = cocos.actions.interval_actions.MoveBy((0,-10),0.2)
+            action = action + cocos.actions.base_actions.Reverse(action)
+            self.origin.do(action)
 
 
