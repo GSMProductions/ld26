@@ -434,6 +434,16 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         elif self.menu_level == 1:
             self.n_slot = 0
             self.parent.active_arrow.visible = True
+            if self.n_command == 0:
+
+                self.action = 'fight-hero'
+
+                self.choice_arrow.kill()
+                self.choice_arrow = Sprite('img/GUI/arrow_enemy.png')
+
+                self.add(self.choice_arrow,z=6)
+                self.setMenuLevel(2)
+
             if self.n_command == 1 or self.n_command == 1:
                 self.choice_arrow.visible = False
                 menu = self.sub_menu[self.active]
@@ -450,8 +460,6 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                     for index in range(len(list_skill)):
                         self.sub_list[self.active][index].element.text = list_skill[index]
                 self.next_slot(0)
-            else:
-                self.menu_level = 0
 
         elif self.menu_level == 2:
             self.choice_arrow.visible = True
@@ -659,6 +667,13 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 pos = pos[0] + 5 , pos[1]
 
                 #time += 0.05 * n%2
+
+        elif self.action == 'fight-hero':
+
+            action = cocos.actions.interval_actions.MoveBy((-10,0),0.2)
+            action = action + cocos.actions.base_actions.Reverse(action)
+
+            origin.do(action)
 
 
 
