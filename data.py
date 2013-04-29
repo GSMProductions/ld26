@@ -78,7 +78,8 @@ SPEAKERS = {
             'N the Wise': 'n_the_wise',
             'Nus': 'nuss',
             'Dude': 'type_mourant',
-            'Villager': 'villager'
+            'Villager': 'villager',
+            'Villagers': 'villager'
            }
 
 

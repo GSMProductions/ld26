@@ -32,7 +32,6 @@ Nod_Nel_B;Nel;Sissies.
 Nod_Nel_B;Nod;I hope you're right. To be honest I always thought something about this whole first birthday ceremony was weird.
 Nod_Nel_B;Nel;Well, they'll figure it out soon enough, I think it just began. Let's join the crowd to see when they'll get out of the hall.
 #Nod & Nel after ceremony + villagers;
-Nod_Nel_C;Villagers;(Begin applauding)
 Nod_Nel_C;Nel;Ah, here they come! NUUUUUS, NAAAAAD, wouuuuuuh!
 Nod_Nel_C;Villagers;so rude... don't respect anything... look at them...
 Nod_Nel_C;Nod;Haha, Nel, stop. I can actually feel the glares coming our way.
@@ -40,7 +39,7 @@ Nod_Nel_C;Nel;WOOOOUUUUH... They're not even looking at us, those bastards!
 Nod_Nel_C;Nod;Well, everyone is applauding, if you hadn't noticed.
 Nod_Nel_C;Villagers;What a beautiful ceremony... they really look at peace..
 Nod_Nel_C;Nod;Wait... Something seems off...
-Nod_Nel_C;Nod;They look exactly the same !
+Nod_Nel_C;Nod;They look exactly the same!
 Nod_Nel_C;Nel;Damn, you're right. Hahaha! That's what's all about this freakin' ceremony, a goddam haircut??
 Nod_Nel_C;Nod;No, dummy, it's more than that. They really changed, they look kind of... older.
 Nod_Nel_C;Nel;We should head to the park anyway. We'll get our answers when they'll join us after they finish parading.
@@ -53,9 +52,9 @@ Nod_Nel_Wise_A2;N the Wise;Show me some respect, young fool!
 Nod_Nel_Wise_A2;N the Wise;They will not come because today's ceremony was a success. Go and talk to them, you'll see. But rejoice, childs. You won't have to wait long before the day of your ceremony.
 Nod_Nel_Wise_A2;N the Wise;After all, your coming-of-age is only one week away.
 #N the wise leaves the screen;
-Nod_Nel_C;Nel;GOD, I hate him !!! That guy's so full of himself !
-Nod_Nel_C;Nod;Yeah... even more than usual. What if he was telling the truth ?
-Nod_Nel_C;Nel;We just have to go meet Nus and Nad and prove him wrong !
+Nod_Nel_C2;Nel;GOD, I hate him !!! That guy's so full of himself!
+Nod_Nel_C2;Nod;Yeah... even more than usual. What if he was telling the truth?
+Nod_Nel_C2;Nel;We just have to go meet Nus and Nad and prove him wrong!
 #Nel & Nod see new Nad & Nus;
 N_friends_B;Nod;Hey ! Nad ! Nus !
 #Nel & Nod approach new Nad & Nus;

@@ -4,17 +4,27 @@ from data import KEYBOARD, TILE_SIZE, MAPS, TRIGGERS
 import random
 from sprite import Character
 import time
+from fightScene import FightScene
+from battle_data import HOOK
+
+
+
 
 class CheckForBattle(cocos.actions.Action):
+
+    zone = 'prairie'
+
     def step(self, dt):
 
         if self.target.battle_timer >= self.target.battle_threshold:
             self.target.battle_timer = 0.0
             self.battle_threshold = random.randint(10,15)
-            print "BATTLE !"
-            pass
+            
             # START THE BATTLE
-
+            heros = [self.target, HOOK['NED']]
+            sf = FightScene(self.zone,heros)
+            sf = cocos.scenes.transitions.ZoomTransition(sf)
+            cocos.director.director.push(sf)
 
 class MoveCharacter(cocos.actions.Move):
     def step(self, dt):
@@ -108,6 +118,8 @@ class MoveCharacter(cocos.actions.Move):
                 thewise.do(cocos.actions.interval_actions.MoveBy((0,256),3))
                 self.target.current_map.displayDialog('N_friends_Wise_A')
                 TRIGGERS['village_state'] = 4
+
+
 
             if TRIGGERS['village_state'] == 6:
                 self.target.current_map.displayDialog('Nod_Nel_C')
