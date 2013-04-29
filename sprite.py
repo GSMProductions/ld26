@@ -4,6 +4,7 @@ import pyglet
 import behaviour
 
 from data import NEL_SKILLS,NOD_SKILLS
+from battle_data import LEVELS
 
 class Sprite(cocos.sprite.Sprite):
 
@@ -18,7 +19,7 @@ class Sprite(cocos.sprite.Sprite):
 
 class Character(Sprite):
 
-    def __init__(self,name,position=(0,0),hp=[0,0],mp=[0,0],lvl=0,code=''):
+    def __init__(self,name,position=(0,0),code='',lvl=1):
 
         self.fight_image = None
         self.map_image = None
@@ -60,12 +61,14 @@ class Character(Sprite):
 
         self.in_dialog = False
 
-        self.hpl = hp
-        self.hp = self.hpl[0]
+        self.hpl = [0,0]
+        self.hp = 0
 
-        self.mp = mp
+        self.mp = 0
 
         self.level = lvl
+        self.set_level(lvl)
+
         self.mapCode(code)
 
     def hp():
@@ -98,6 +101,20 @@ class Character(Sprite):
         return locals()
 
     hp = property(**hp())
+
+    def set_level(self,lvl=None):
+        if lvl == 'None':
+            self.level += 1
+
+        else:
+            self.level = lvl
+
+        hp = LEVELS[self.level]['hp']
+        mp = LEVELS[self.level]['mp']
+
+        self.hpl = [hp,hp]
+        self.mp = [mp,mp] 
+
 
 
     def is_dead(self,):

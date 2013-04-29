@@ -20,8 +20,8 @@ class DialogManager(dict):
 
             data = line.split(';')
             code = data[0]
-            name = data[2] 
-            txt = data[3]
+            name = data[1] 
+            txt = data[2]
 
             if code != '' :
                 if not self.has_key(code):
