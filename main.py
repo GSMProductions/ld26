@@ -32,7 +32,7 @@ def test_combat(zone):
 def start_game():
 
 
-    player = Character('nod1',(0,0),[20,20],[20,20])
+    player = Character('nod1',(0,0))
     player.map_mode()
     player.do(MoveCharacter())
     player.do(CheckForBattle())

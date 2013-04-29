@@ -60,7 +60,7 @@ class Map(cocos.scene.Scene):
         self.speaker_boxes = {}
 
         # Spawn characters
-        player = Character('nod1',(0,0),[20,20],[20,20])
+        player = Character('nod1',(0,0))
         player.map_mode()
 
         self.timer = 0.0
@@ -71,7 +71,7 @@ class Map(cocos.scene.Scene):
             name += str(1)
 
         for character in MAPCHARA[name]:
-            chara = Character(character[0][0:-1], (0,0), [0,0], [0,0])
+            chara = Character(character[0][0:-1], (0,0))
             chara.name = character
             self.placeCharacter(chara, character[1])
 
