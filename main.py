@@ -18,11 +18,13 @@ def push_credit():
 
 
 def test_combat(zone):
-    # INVENTORY.add('potion')
-    # INVENTORY.add('potion')
-    # INVENTORY.add('dragon blood')
+    INVENTORY.add('potion')
+    INVENTORY.add('potion')
+    INVENTORY.add('dragon blood')
+    INVENTORY.add('stone')
+    INVENTORY.add('honey')
 
-    heros = [Character('nod1',(0,0),[20,20],[20,20],1,'NOD'),Character('nel1',(0,0),[15,20],[9,20],10,'NEL')]
+    heros = [Character('nod1',(0,0),[20,20],[20,20],4,'NOD'),Character('nel1',(0,0),[15,20],[9,20],4,'NEL')]
     dummy_scene = FightScene(zone,heros)
     cocos.director.director.push(dummy_scene)
 
