@@ -109,6 +109,7 @@ class FightScene(cocos.scene.Scene):
         self.bgm_player.play()
 
     def on_exit(self):
+        super(FightScene, self).on_exit()
         self.bgm_player.pause()
 
 
