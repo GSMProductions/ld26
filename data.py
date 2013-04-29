@@ -52,7 +52,7 @@ NEL_SKILLS =    {
                 8: 'Life'
                 }
 
-FRIEND_SKILL = ['heal', 'life']
+FRIEND_SKILL = ['heal', 'life', 'honey', 'dragon blood', 'potion']
 
 SFX =   {
         'move-select':      pyglet.media.load('sounds/move-select.wav', streaming=False),
