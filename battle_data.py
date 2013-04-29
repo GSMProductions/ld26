@@ -170,4 +170,31 @@ LEVELS = {
                   'halfsquares':110,
                   'life':70,
                   }
-}
+  }
+
+ITEMS {
+    'potion':  {
+                'healhp':10,
+                'healmp':None,
+                'healdeath':None,
+                'hit':None,
+                }
+    'dragonblood':  {
+                'healhp':15,
+                'healmp':None,
+                'healdeath':1,
+                'hit':None,
+                }
+    'honey':  {
+                'healhp':None,
+                'healmp':10,
+                'healdeath':None,
+                'hit':None,
+                }
+    'stone':  {
+                'healhp':None,
+                'healmp':None,
+                'healdeath':None,
+                'hit':5,
+                }
+  }
