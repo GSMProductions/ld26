@@ -14,12 +14,18 @@ TILE_SIZE = 32
 
 ZONE =  {   
         'prairie':       [
-                            ['ogre','fly','fly'],
-                            ['fly','ogre'],
                             ['fly','fly'],
-                            ['dragon']
+                            ['fly','fly'],
+                            ['ogre'],
+                            ['ogre'],
+                            ['ogre','fly','fly']
                         ],
         'forest':       [
+                            ['ogre','fly','fly'],
+                            ['kraken'],
+                            ['ogre','fly','fly'],
+                            ['kraken'],
+                            ['kraken','fly','fly'],
                             ['dragon']
                         ]  
         }
@@ -59,7 +65,8 @@ SFX =   {
         'hit_on_enemies': pyglet.media.load('sounds/hit_on_enemies.wav', streaming=False),
         'life':           pyglet.media.load('sounds/life.wav', streaming=False),
         'squares':        pyglet.media.load('sounds/squares.wav', streaming=False),
-        'triangles':      pyglet.media.load('sounds/triangles.wav', streaming=False)
+        'triangles':      pyglet.media.load('sounds/triangles.wav', streaming=False),
+        'escape':      pyglet.media.load('sounds/escape.wav', streaming=False)
         }
 
 SPEAKERS = {

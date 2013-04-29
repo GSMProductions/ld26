@@ -43,17 +43,6 @@ class FightScene(cocos.scene.Scene):
             pos = pos[0] - 90, pos[1]
 
         heros.reverse()
-        # BG
-
-        if zone == 'prairie':
-            image = pyglet.image.load('img/GUI/bg_prairie.png')
-            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
-            self.add(sprite,z=0)
-
-        elif zone == 'forest':
-            image = pyglet.image.load('img/GUI/bg_forest.png')
-            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
-            self.add(sprite,z=0)
 
         #Ennemies
 
@@ -84,8 +73,23 @@ class FightScene(cocos.scene.Scene):
             pos = pos[0] + enemy.image.width + 20 , pos[1]
 
             self.layer['battle'].add(enemy)
-            
 
+        # BG
+
+        if zone == 'prairie':
+            image = pyglet.image.load('img/GUI/bg_prairie.png')
+            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
+            self.add(sprite,z=0)
+
+        elif zone == 'forest':
+            if 'kraken' in str_enemies:
+                image = pyglet.image.load('img/GUI/bg_forest_water.png')
+            else:
+                image = pyglet.image.load('img/GUI/bg_forest.png')
+            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
+            self.add(sprite,z=0)
+
+        
         #arrow
 
         self.active_arrow = Sprite('img/GUI/arrow_current_character.png')
@@ -109,6 +113,7 @@ class FightScene(cocos.scene.Scene):
         self.bgm_player.play()
 
     def on_exit(self):
+        super(FightScene, self).on_exit()
         self.bgm_player.pause()
 
 
@@ -375,6 +380,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 SFX['select'].play()
                 self.setMenuLevel(1)
 
+            if key == pyglet.window.key.ESCAPE:
+                SFX['error'].play()
+
         elif self.menu_level == 1:
 
             if key == pyglet.window.key.UP:
@@ -398,6 +406,11 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
                 self.setMenuLevel(2)
 
+            if key == pyglet.window.key.ESCAPE:
+                memo = self.n_command
+                self.setMenuLevel(0)
+                self.n_command = memo
+
         elif self.menu_level == 2:
 
             if key == pyglet.window.key.LEFT:
@@ -415,6 +428,13 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 else:
                     self.target = self.enemies[self.n_choice]
                 self.run_action()
+
+            if key == pyglet.window.key.ESCAPE:
+                if self.n_command == 0:
+                    self.setMenuLevel(0)
+                else:
+                    self.setMenuLevel(1)
+
 
     def setMenuLevel(self,level):
 

@@ -10,6 +10,12 @@ from sprite import Character
 from menu import Menu
 from map import Map
 from behaviour import MoveCharacter, CheckForBattle
+from credits import CreditScene
+
+def push_credit():
+    cr = CreditScene()
+    cocos.director.director.push(cr)
+
 
 def test_combat(zone):
 
@@ -20,7 +26,6 @@ def test_combat(zone):
 def placeNPCs():
 
     MAPS['village'].placeCharacter(Character('nuss', (0,0), [0,0], [0,0]), (35,35))
-
 
 
 def test_map():
@@ -67,7 +72,8 @@ def main():
     main_command =  [
                     ('Battle (Prairie)',test_combat,['prairie']),
                     ('Battle (Forest)',test_combat,['forest']),
-                    ('Map Test',test_map,[])
+                    ('Map Test',test_map,[]),
+                    ('Credits',push_credit,[])
                     ]
 
     main_scene = cocos.scene.Scene()
