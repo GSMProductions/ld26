@@ -105,6 +105,7 @@ class FightScene(cocos.scene.Scene):
         self.bgm_player.eos_action = self.bgm_player.EOS_LOOP
 
     def on_enter(self):
+        super(FightScene, self).on_enter()
         self.bgm_player.play()
 
     def on_exit(self):
