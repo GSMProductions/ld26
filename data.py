@@ -2,6 +2,7 @@
 from pyglet.window import key
 import pyglet
 from cocos.audio.actions import PlayAction
+from dialog import DialogManager
 
 
 TITLE = "Outside The Box"
@@ -59,6 +60,8 @@ SFX =   {
         'squares':        pyglet.media.load('sounds/squares.wav', streaming=False),
         'triangles':      pyglet.media.load('sounds/triangles.wav', streaming=False)
         }
+
+DIALOGS = DialogManager()
 
 def mapKey(key):
 
