@@ -694,6 +694,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             else:
                 self.next_command(0)
                 self.next_command(4)
+                self.enemy_attack()
 
         cp_enemies = []
         cp_enemies += self.enemies
@@ -720,6 +721,13 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 enemy.kill()
                 self.enemies_dead.remove(enemy)
 
+    def enemy_attack(self):
+        #choose target
+
+        n = random.randint(0,1)
+        self.target = self.heros[n]
+        self.action = 'fight-enemy'
+        self.run_action()
 
     def applic_action(self):
         self.applic_ok = True
@@ -745,7 +753,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         if self.action == 'fight-hero':
             power = LEVELS[self.heros[self.active].level]['hit']
         if self.action == 'fight-enemy':
-            name = self.orgin.name
+            name = self.origin.name
             power = MONSTERS[name]['hit']
 
         #modification de la puissance
@@ -1022,6 +1030,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             self.origin.do(action)
 
         elif self.action == 'fight-enemy':
-            pass
+
+            action = cocos.actions.interval_actions.MoveBy((0,-10),0.2)
+            action = action + cocos.actions.base_actions.Reverse(action)
+            self.origin.do(action)
 
 
