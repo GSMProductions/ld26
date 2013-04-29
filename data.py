@@ -136,56 +136,67 @@ MAPITEM = {
 
 MAPCHARA = {
     'village1':[
-            ('villagera', (5,38)),
-            ('villagerb', (23,21)),
-            ('villagera', (30,44)),
-            ('villagerb', (6,20)),
-            ('villagerb', (24,21)),
-            ('villagerb', (25,21)),
-            ('villagerb', (43,28)),
-            ('villagera', (5,4)),
-            ('villagerb', (6,4))
+            ('villagera1', (5,38)),
+            ('villagerb1', (23,21)),
+            ('villagera2', (30,44)),
+            ('villagerb2', (6,20)),
+            ('villagerb3', (24,21)),
+            ('villagerb4', (25,21)),
+            ('villagerb5', (43,28)),
+            ('villagera3', (5,4)),
+            ('villagerb6', (6,4))
             ],
     'village2':[
-            ('villagera', (22,20)),
-            ('villagera', (21,21)),
-            ('villagera', (28,18)),
-            ('villagerb', (23,17)),
-            ('villagerb', (18,19)),
-            ('villagera', (26,17)),
-            ('villagerb', (23,18)),
-            ('villagerb', (25,18)),
-            ('n_the_wise', (23,21)),
-            ('nad2', (24,21)),
-            ('nus2', (25,21)),
-            ('villagera', (5,4)),
-            ('villagerb', (6,4))
+            ('villagera1', (22,20)),
+            ('villagera2', (21,21)),
+            ('villagera3', (28,18)),
+            ('villagerb1', (23,17)),
+            ('villagerb2', (18,19)),
+            ('villagera4', (26,17)),
+            ('villagerb3', (23,18)),
+            ('villagerb4', (25,18)),
+            ('n_the_wise1', (23,21)),
+            ('nad21', (24,21)),
+            ('nus21', (25,21)),
+            ('villagera5', (5,4)),
+            ('villagerb5', (6,4))
             ],
     'village4':[
-            ('villagera', (5,38)),
-            ('villagera', (23,21)),
-            ('villagera', (30,44)),
-            ('villagerb', (6,20)),
-            ('villagerb', (24,21)),
-            ('villagerb', (25,21)),
-            ('villagerb', (43,28))
+            ('villagera1', (5,38)),
+            ('villagera2', (23,21)),
+            ('villagera3', (30,44)),
+            ('villagerb1', (6,20)),
+            ('villagerb2', (24,21)),
+            ('villagerb3', (25,21)),
+            ('villagerb4', (43,28))
             ],
     'inside_ceremony_hall':[
-            ('nad', (7,49)),
-            ('nus', (20,46))
+            ('nad11', (7,49)),
+            ('nus11', (20,46))
             ],
     'inside_house_nod':[
             ],
     'inside_house_gen_1':[
             ],
     'inside_house_gen_2':[
-            ('villagerb', (5,45))
+            ('villagerb1', (5,45))
              ],
     'grassland':[
-            ('dude', (17,47))
+            ('dude1', (17,47))
              ],
     'forest':[
             ],
     'falaise':[
             ]
+    }
+
+BGM = {
+    'village1': 'ld26village.ogg',
+    'inside_ceremony_hall':'ld26villageindoor.ogg',
+    'inside_house_nod':'ld26villageindoor.ogg',
+    'inside_house_gen_1':'ld26villageindoor.ogg',
+    'inside_house_gen_2':'ld26villageindoor.ogg',
+    'grassland':'ld26villageindoor.ogg',
+    'forest':'ld26villageindoor.ogg',
+    'falaise':'ld26villageindoor.ogg'
     }

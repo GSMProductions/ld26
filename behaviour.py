@@ -98,7 +98,7 @@ class MoveCharacter(cocos.actions.Move):
                 if player_rect.intersects(self.target.current_map.npcs[npc].get_rect()):
                     self.target.velocity = (0,0)
                     self.target.in_dialog = True
-                    self.target.current_map.displayDialog()
+                    #self.target.current_map.displayDialog()
 
             for item in self.target.current_map.items:
                 if player_rect.intersects(self.target.current_map.items[item].get_rect()):

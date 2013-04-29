@@ -48,6 +48,9 @@ def start_game():
 
     MAPS['inside_house_nod'].spawnPlayer(player, (7,9))
 
+    MAPS['inside_house_nod'].displayDialog('Intro')
+
+
     cocos.director.director.window.push_handlers(KEYBOARD)
     #cocos.director.director.run(cocos.scenes.FadeTransition(dummy_scene, duration=5))
 
