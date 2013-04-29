@@ -4,6 +4,7 @@ import pyglet
 import cocos
 from cocos.audio.actions import PlayAction
 from dialog import DialogManager
+from inventory import Inventory
 
 
 TITLE = "Outside The Box"
@@ -36,7 +37,7 @@ ENEMY_PROPERTY =    {
 KEYBOARD = key.KeyStateHandler()
 
 MAPS = {}
-
+INVENTORY = Inventory()
 NOD_SKILLS =    {
                 2: 'Heal',
                 4: 'Circles',
@@ -51,22 +52,23 @@ NEL_SKILLS =    {
                 8: 'Life'
                 }
 
-FRIEND_SKILL = ['heal', 'life']
+FRIEND_SKILL = ['heal', 'life', 'honey', 'dragon blood', 'potion']
 
 SFX =   {
-        'move-select':    pyglet.media.load('sounds/move-select.wav', streaming=False),
-        'select':         pyglet.media.load('sounds/select.wav', streaming=False),
-        'circles':        pyglet.media.load('sounds/circles.wav', streaming=False),
-        'death_monster':  pyglet.media.load('sounds/death_monster.wav', streaming=False),
-        'error':          pyglet.media.load('sounds/error.wav', streaming=False),
-        'halfsquares':    pyglet.media.load('sounds/halfsquares.wav', streaming=False),
-        'heal':           pyglet.media.load('sounds/heal.wav', streaming=False),
-        'hit_on_charac':  pyglet.media.load('sounds/hit_on_charac.wav', streaming=False),
-        'hit_on_enemies': pyglet.media.load('sounds/hit_on_enemies.wav', streaming=False),
-        'life':           pyglet.media.load('sounds/life.wav', streaming=False),
-        'squares':        pyglet.media.load('sounds/squares.wav', streaming=False),
-        'triangles':      pyglet.media.load('sounds/triangles.wav', streaming=False),
-        'escape':      pyglet.media.load('sounds/escape.wav', streaming=False)
+        'move-select':      pyglet.media.load('sounds/move-select.wav', streaming=False),
+        'select':           pyglet.media.load('sounds/select.wav', streaming=False),
+        'circles':          pyglet.media.load('sounds/circles.wav', streaming=False),
+        'death_monster':    pyglet.media.load('sounds/death_monster.wav', streaming=False),
+        'error':            pyglet.media.load('sounds/error.wav', streaming=False),
+        'halfsquares':      pyglet.media.load('sounds/halfsquares.wav', streaming=False),
+        'heal':             pyglet.media.load('sounds/heal.wav', streaming=False),
+        'hit_on_charac':    pyglet.media.load('sounds/hit_on_charac.wav', streaming=False),
+        'hit_on_enemies':   pyglet.media.load('sounds/hit_on_enemies.wav', streaming=False),
+        'life':             pyglet.media.load('sounds/life.wav', streaming=False),
+        'mp':               pyglet.media.load('sounds/life.wav', streaming=False),
+        'squares':          pyglet.media.load('sounds/squares.wav', streaming=False),
+        'triangles':        pyglet.media.load('sounds/triangles.wav', streaming=False),
+        'escape':           pyglet.media.load('sounds/escape.wav', streaming=False)
         }
 
 SPEAKERS = {

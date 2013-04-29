@@ -4,7 +4,7 @@ import cocos
 import cocos.scenes
 import pyglet
 
-from data import TITLE, SCREEN_SIZE, KEYBOARD, MAPS, DIALOGS
+from data import TITLE, SCREEN_SIZE, KEYBOARD, MAPS, DIALOGS,INVENTORY
 from fightScene import FightScene
 from sprite import Character
 from menu import Menu
@@ -18,8 +18,13 @@ def push_credit():
 
 
 def test_combat(zone):
+    INVENTORY.add('potion')
+    INVENTORY.add('potion')
+    INVENTORY.add('dragon blood')
+    INVENTORY.add('stone')
+    INVENTORY.add('honey')
 
-    heros = [Character('nod1',(0,0),[20,20],[20,20],10,'NOD'),Character('nel1',(0,0),[15,20],[9,20],10,'NEL')]
+    heros = [Character('nod1',(0,0),[20,20],[20,20],4,'NOD'),Character('nel1',(0,0),[15,20],[9,20],4,'NEL')]
     dummy_scene = FightScene(zone,heros)
     cocos.director.director.push(dummy_scene)
 
