@@ -11,6 +11,7 @@ from menu import Menu
 from map import Map
 from behaviour import MoveCharacter, CheckForBattle
 from credits import ImgScene
+from battle_data import HOOK
 
 def push_credit():
     cr = ImgScene('img/GUI/credits.png')
@@ -28,15 +29,15 @@ def test_combat(zone):
     INVENTORY.add('stone')
     INVENTORY.add('honey')
 
-    heros = [Character('nod1',(0,0),'NOD',10),Character('nel1',(0,0),'NEL',10)]
+    heros = [Character('nod1',(0,0),'NOD',1),Character('nel1',(0,0),'NEL',1)]
     dummy_scene = FightScene(zone,heros)
     cocos.director.director.push(dummy_scene)
 
 
 def start_game():
 
-
-    player = Character('nod1',(0,0))
+    HOOK['NED'] = Character('nel1',(0,0),'NEL',1)
+    player = Character('nod1',(0,0),'NOD',1)
     player.map_mode()
     player.do(MoveCharacter())
     player.do(CheckForBattle())

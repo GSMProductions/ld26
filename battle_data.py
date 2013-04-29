@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
+HOOK = {}
+
 MONSTERS =  {
              'fly':  {
                         'hp':6,

@@ -108,7 +108,7 @@ class Character(Sprite):
     hp = property(**hp())
 
     def set_level(self,lvl=None):
-        if lvl == 'None':
+        if lvl == None:
             self.level += 1
 
         else:
@@ -169,9 +169,5 @@ class Character(Sprite):
     def __repr__(self):
 
         return self.name
-
-
-
-
 
 
