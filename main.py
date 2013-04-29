@@ -28,7 +28,7 @@ def test_combat(zone):
     INVENTORY.add('stone')
     INVENTORY.add('honey')
 
-    heros = [Character('nod1',(0,0),'NOD',1),Character('nel1',(0,0),'NEL',1)]
+    heros = [Character('nod1',(0,0),'NOD',10),Character('nel1',(0,0),'NEL',10)]
     dummy_scene = FightScene(zone,heros)
     cocos.director.director.push(dummy_scene)
 

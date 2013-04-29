@@ -7,7 +7,7 @@ import random
 from sprite import Character, Sprite
 from credits import ImgScene
 from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey, SFX,INVENTORY
-from battle_data import MAGIC, ITEMS, LEVELS, MONSTERS
+from battle_data import MAGIC, ITEMS, LEVELS, MONSTERS, DROPS
 
 
 class FightScene(cocos.scene.Scene):
@@ -342,7 +342,19 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.applic_ok = False
         self.enemies_dead = []
         self.dt = 0.
+        self.vdt = 0.
+        self.victory_box = Sprite('img/GUI/battle_msg.png',position=(400,526))
+        self.add(self.victory_box,z=7)
+        self.victory_label = cocos.text.Label(text='',position = (20,556), font_name = 'Statix', color= (36,36,36,255) , font_size = 20, anchor_x = 'left')
+        self.add(self.victory_label,z=8)
 
+        self.victory_box.visible =  False
+        self.victory_label.visible =  False
+
+        self.victory_ok = False
+        self.xp = 0
+
+        self.items = []
 
         cocos.director.director.window.push_handlers(self)
 
@@ -561,6 +573,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         if self.menu_level == -1:
             self.n_command = 0
+            self.choice_arrow.visible = False
             for menu in self.sub_menu:
                 menu.visible = False
             self.bar_visible = -1
@@ -583,7 +596,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                     label.visible = False
 
             for l in self.sub_list_add:
-                for label in l:
+                for label in l:        
                     label.visible = False
 
             self.choice_arrow.visible = False
@@ -669,6 +682,34 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
 
     def callback(self,dt):
+
+        if self.victory_ok:
+            self.vdt -= dt
+
+            if self.vdt <=0:
+
+                if len(self.dic_victory) <=0:
+                    for hero in self.heros:
+                        hero.map_mode()
+                        cocos.director.director.pop()
+                else:
+                    msg = self.dic_victory.pop(0)
+                    
+                    if msg[0] == 'victory':
+                        msg = 'You win!'
+                    elif msg[0] == 'item':
+                        msg = 'Received ' + msg[1]
+                    elif msg[0] == 'xp':
+                        msg = 'won ' + str(msg[1]) + ' xp'
+                    elif msg[0] == 'next':
+                        msg = 'Level up!'
+
+                    self.victory_label.element.text = msg
+                    
+                    self.vdt = 1
+                return
+
+
         v1 = False
         v2 = False
 
@@ -705,7 +746,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.next_command(0)
             else:
                 self.next_command(0)
-                self.next_command(4)
+                self.next_command(-1)
                 self.enemy_attack()
 
         cp_enemies = []
@@ -713,6 +754,8 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         for enemy in cp_enemies:
             if enemy.is_dead():
+                self.xp += MONSTERS[enemy.name]['xp']
+                self.items.append(DROPS[enemy.name])
                 self.enemies.remove(enemy)
                 self.enemies_dead.append(enemy)
                 SFX['death_monster'].play()
@@ -723,6 +766,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
                 action = fade|scale
                 enemy.do(action)
+
+        if len(self.enemies) <= 0 and not self.victory_ok:
+            self.victory()
 
         if len(self.enemies_dead) > 0:
             self.dt -= dt
@@ -1066,5 +1112,31 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             action = action + cocos.actions.base_actions.Reverse(action)
             self.origin.do(action)
             self.dt = 0.5
+
+    def victory(self):
+
+        self.victory_box.visible =  True
+        self.victory_label.visible =  True
+        self.victory_ok =  True
+        self.setMenuLevel(-1)
+
+        self.parent.bgm = pyglet.media.load("bgm/ld26victory.ogg", streaming=False)
+        self.parent.bgm_player.queue(self.parent.bgm)
+        self.parent.bgm_player.eos_action = self.parent.bgm_player.EOS_LOOP
+        self.parent.bgm_player.next()
+
+        self.dic_victory =  []
+        item = self.items[random.randint(0,len(self.items)-1)]
+       
+        self.dic_victory.append(('victory',True))
+        self.dic_victory.append(('item',item))
+        self.dic_victory.append(('xp',self.xp))
+        
+        if self.heros[0].level < 10:
+            if self.xp + self.heros[0].xp >= LEVELS[self.heros[0].level]['xp']:
+                self.dic_victory.append(('next',True))
+
+        
+
 
 
