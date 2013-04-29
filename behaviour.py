@@ -44,7 +44,9 @@ class MoveCharacter(cocos.actions.Move):
 
             if cell is not None and cell.tile is not None:
                 if not ('passable' in cell and cell['passable'] == 'True'):
-                    next_cell = None            
+                    next_cell = None
+                if 'door' in cell:
+                    next_cell = cell            
 
 
             if next_cell is not None and 'passable' in next_cell and next_cell['passable'] == 'True':
@@ -69,5 +71,9 @@ class MoveCharacter(cocos.actions.Move):
                 if player_rect.intersects(self.target.current_map.npcs[npc].get_rect()):
                     print "TALKY!"
                     self.target.velocity = (0,0)
+
+            for item in self.target.current_map.items:
+                if player_rect.intersects(self.target.current_map.items[item].get_rect()):
+                    print "ITEMY!"
 
         super(MoveCharacter, self).step(dt)

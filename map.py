@@ -29,6 +29,7 @@ class Map(cocos.scene.Scene):
         #self.player = None
 
         self.npcs = {}
+        self.items = []
 
         cocos.scene.Scene.__init__(self, self.scroller)
 
@@ -43,6 +44,16 @@ class Map(cocos.scene.Scene):
         if character.name[0:3] != "nod":
             self.npcs[character.name] = character
 
+    def placeItem(self, item, position):
+
+        self.char_layer.add(item)
+        item.current_map = self
+        item.map_position = [position[0], position[1]]
+        item.position = (position[0]*data.TILE_SIZE + data.TILE_SIZE/2, position[1]*data.TILE_SIZE+2)        
+
+        self.npcs.append(item)
+
+
     def spawnPlayer(self, player, position, transition=True):
 
         if transition:
@@ -51,4 +62,5 @@ class Map(cocos.scene.Scene):
         self.placeCharacter(player, position)
 
         self.scroller.set_focus(position[0]*data.TILE_SIZE, position[1]*data.TILE_SIZE)
+
 
