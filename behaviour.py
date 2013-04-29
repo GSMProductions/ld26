@@ -109,6 +109,8 @@ class MoveCharacter(cocos.actions.Move):
                 self.target.current_map.displayDialog('N_friends_Wise_A')
                 TRIGGERS['village_state'] = 4
 
+
+
             if TRIGGERS['village_state'] == 6:
                 self.target.current_map.displayDialog('Nod_Nel_C')
                 TRIGGERS['village_state'] = 7
