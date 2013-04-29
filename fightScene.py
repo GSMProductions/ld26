@@ -339,6 +339,8 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.n_choice = 0
         self.action_ok =  False
         self.applic_ok = False
+        self.enemies_dead = []
+        self.dt = 0.
 
 
         cocos.director.director.window.push_handlers(self)
@@ -693,6 +695,32 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.next_command(0)
                 self.next_command(4)
 
+        cp_enemies = []
+        cp_enemies += self.enemies
+
+        for enemy in cp_enemies:
+            if enemy.is_dead():
+                self.enemies.remove(enemy)
+                self.enemies_dead.append(enemy)
+                SFX['death_monster'].play()
+                self.dt = 1.
+
+                fade = cocos.actions.interval_actions.FadeIn(1)
+                scale = cocos.actions.interval_actions.ScaleBy(0.1,1)
+
+                action = fade|scale
+                enemy.do(action)
+
+        if len(self.enemies_dead) > 0:
+            self.dt -= dt
+
+        for enemy in self.enemies_dead:
+            if len(enemy.actions) <= 0 or self.dt <= 0.:
+                self.dt = 0.
+                enemy.kill()
+                self.enemies_dead.remove(enemy)
+
+
     def applic_action(self):
         self.applic_ok = True
         color_heal = (0,255,0,255)
@@ -775,12 +803,6 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         self.add(label)
         self.attacks.append(label)
-
-
-
-
-
-
 
     def run_action(self):
         self.menu_level = 3
