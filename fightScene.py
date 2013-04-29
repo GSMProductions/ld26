@@ -15,7 +15,7 @@ class FightScene(cocos.scene.Scene):
     def __init__(self,zone,heros=[]):
 
         cocos.scene.Scene.__init__(self)
-
+        
         self.layer = {}
 
         # battle zone
@@ -1133,8 +1133,10 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.dic_victory.append(('xp',self.xp))
         
         if self.heros[0].level < 10:
-            if self.xp + self.heros[0].xp >= LEVELS[self.heros[0].level]['xp']:
+            if self.xp + self.heros[0].xp >= LEVELS[self.heros[0].level]['nextlevel']:
                 self.dic_victory.append(('next',True))
+                for hero in self.heros:
+                    hero.set_level()
 
         
 
