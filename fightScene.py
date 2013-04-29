@@ -354,6 +354,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.sub_list[self.active][self.n_slot].element.color = selected_color
 
 
+    def on_key_press(self,key,modifiers):
+        return True
+
     def on_key_release(self,key,modifiers):
 
         key = mapKey(key)
@@ -412,7 +415,6 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 else:
                     self.target = self.enemies[self.n_choice]
                 self.run_action()
-
 
     def setMenuLevel(self,level):
 
