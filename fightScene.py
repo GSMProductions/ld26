@@ -786,6 +786,11 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         else:
             self.target.hp -= power
 
+        if self.action in MAGIC:
+            self.origin.mp[0] -= MAGIC[self.action]
+        elif self.action in ITEMS:
+            INVENTORY.remove(self.action)
+
         #position
 
         pos = self.target.position
