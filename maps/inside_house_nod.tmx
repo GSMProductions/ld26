@@ -2,6 +2,24 @@
 <map version="1.0" orientation="orthogonal" width="25" height="19" tilewidth="32" tileheight="32" backgroundcolor="#000000">
  <tileset firstgid="1" name="tileset_village" tilewidth="32" tileheight="32">
   <image source="tileset_village.png" width="640" height="320"/>
+  <tile id="6">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="6 9"/>
+    <property name="door_map" value="village"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
   <tile id="11">
    <properties>
     <property name="passable" value="True"/>
@@ -10,6 +28,11 @@
   <tile id="12">
    <properties>
     <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="passable" value="True"/>
    </properties>
   </tile>
   <tile id="112">
@@ -55,17 +78,17 @@
  </tileset>
  <layer name="ground1" width="25" height="19">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BoAxkqY3x2cBHAo3YMPzvoka6Gux3sSJhcO4Y6AABkehLS
+   eJyTZ2BgkB/Fo5hGWIbKGJ8dXATwqB3Dzw56pKvhbgc7EibXDkJYDmq+HJn6aY3l6IABfkEz7A==
   </data>
  </layer>
  <layer name="ground2" width="25" height="19">
   <data encoding="base64" compression="zlib">
-   eJzjZWBg4B3Fgw5rA7EOEOsCsRaFbG0cdtgD8RIgdgRiOyB2oIBtj8OOYCAOAeJQIA6ikB2Mww4eIM6E0tTAuOwA4UIgLsKBi/GYWQbEFUTaUYLHnA48cp1A3ENjO0gJK3rY0QrEbThwO5XsoEe6Gs52gPImLN8UMxCXVwe6/KUFBgAmRjFg
+   eJyTY2BgkBvFJGFtINYBYl0g1qKQrY3DDnsgXgLEjkBsB8QOFLDtcdgRDMQhQBwKxEEUsoNx2MEDxJlQmhoYlx0gXAjERThwMR4zy4C4gkg7SvCY04FHrhOIe2hsBylhRQ87WoG4DQdup5Id9EhXw9kOUN6E5ZtiBuLyKrnlJjcFeocDBgDpaD+U
   </data>
  </layer>
  <layer name="foreground" width="25" height="19">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AU0ANkDrQDRsEoGAUDBgCrewBq
+   eJxjYBgFo2AUZA60A0bBKBgFwxoAANR/AGo=
   </data>
  </layer>
 </map>
