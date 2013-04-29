@@ -63,6 +63,10 @@ class Map(cocos.scene.Scene):
         player = Character('nod1',(0,0),[20,20],[20,20])
         player.map_mode()
 
+        self.timer = 0.0
+
+        self.in_transition = True
+
         if name == 'village':
             name += str(1)
 
@@ -71,6 +75,15 @@ class Map(cocos.scene.Scene):
 
         cocos.director.director.window.push_handlers(self)
 
+    def on_enter(self):
+        super(Map, self).on_enter()
+        print "arriving" + self.name
+        self.in_transition = False
+
+    def on_exit(self):
+        super(Map, self).on_exit()
+        print "exiting" + self.name
+        self.in_transition = True
 
     def on_key_press(self, key, modifiers):
 
@@ -118,6 +131,9 @@ class Map(cocos.scene.Scene):
 
     def spawnPlayer(self, player, position, transition=True):
 
+
+        self.timer = 0.0
+        player.visible = False
         if transition:
             cocos.director.director.replace(cocos.scenes.FadeTransition( self, duration=2 ) )
 

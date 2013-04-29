@@ -16,6 +16,14 @@ class CheckForBattle(cocos.actions.Action):
 
 class MoveCharacter(cocos.actions.Move):
     def step(self, dt):
+
+        if self.target.current_map.timer < 2.0:
+            self.target.visible = False
+            self.target.current_map.timer += dt
+            return
+        else:
+            self.target.visible = True
+
         # handle input and move the character
         if self.target.current_map.dialog_layer.visible == True:
             return

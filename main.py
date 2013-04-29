@@ -23,31 +23,25 @@ def test_combat(zone):
     dummy_scene = FightScene(zone,heros)
     cocos.director.director.push(dummy_scene)
 
-def placeNPCs():
 
-    MAPS['village'].placeCharacter(Character('nuss', (0,0), [0,0], [0,0]), (35,35))
+def start_game():
 
 
-def test_map():
     player = Character('nod1',(0,0),[20,20],[20,20])
     player.map_mode()
     player.do(MoveCharacter())
     player.do(CheckForBattle())
 
 
-
+    MAPS['inside_house_nod'] = Map('inside_house_nod')
     MAPS['village'] = Map('village')
     MAPS['inside_house_gen_1'] = Map('inside_house_gen_1')
-    MAPS['inside_house_nod'] = Map('inside_house_nod')
     MAPS['grassland'] = Map('grassland')
     MAPS['forest'] = Map('forest')
     MAPS['falaise'] = Map('falaise')
 
-    placeNPCs()
 
-
-    dummy_scene = MAPS['village']
-    dummy_scene.spawnPlayer(player, (30,30))
+    MAPS['inside_house_nod'].spawnPlayer(player, (7,9))
 
     cocos.director.director.window.push_handlers(KEYBOARD)
     #cocos.director.director.run(cocos.scenes.FadeTransition(dummy_scene, duration=5))
@@ -70,10 +64,10 @@ def main():
     pyglet.resource.add_font('Statix.ttf')
 
     main_command =  [
+                    ('Start game',start_game,[]),
+                    ('Credits',push_credit,[]),
                     ('Battle (Prairie)',test_combat,['prairie']),
-                    ('Battle (Forest)',test_combat,['forest']),
-                    ('Map Test',test_map,[]),
-                    ('Credits',push_credit,[])
+                    ('Battle (Forest)',test_combat,['forest'])
                     ]
 
     main_scene = cocos.scene.Scene()
