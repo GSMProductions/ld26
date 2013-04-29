@@ -132,7 +132,7 @@ class MoveCharacter(cocos.actions.Move):
 
 
             if TRIGGERS['village_state'] == 8:
-                self.target.current_map.displayDialog('Intro')
+                self.target.current_map.displayDialog('Ellipse')
                 TRIGGERS['village_state'] = 9
 
 
