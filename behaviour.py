@@ -17,6 +17,8 @@ class CheckForBattle(cocos.actions.Action):
 class MoveCharacter(cocos.actions.Move):
     def step(self, dt):
         # handle input and move the character
+        if self.target.current_map.dialog_layer.visible == True:
+            return
         self.target.velocity = ((KEYBOARD[key.RIGHT] - KEYBOARD[key.LEFT]) * 150,(KEYBOARD[key.UP] - KEYBOARD[key.DOWN]) * 150 )
         if self.target.current_map is not None:
 
@@ -69,8 +71,9 @@ class MoveCharacter(cocos.actions.Move):
 
             for npc in self.target.current_map.npcs:
                 if player_rect.intersects(self.target.current_map.npcs[npc].get_rect()):
-                    print "TALKY!"
                     self.target.velocity = (0,0)
+                    self.target.in_dialog = True
+                    self.target.current_map.displayDialog()
 
             for item in self.target.current_map.items:
                 if player_rect.intersects(self.target.current_map.items[item].get_rect()):

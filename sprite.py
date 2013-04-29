@@ -58,6 +58,8 @@ class Character(Sprite):
         self.battle_timer = 0.0
         self.battle_threshold = 5.0
 
+        self.in_dialog = False
+
         self.hpl = hp
         self.hp = self.hpl[0]
 

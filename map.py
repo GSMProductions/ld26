@@ -2,8 +2,11 @@
 import cocos
 import cocos.scenes
 
+import pyglet
+
 import data
 
+from data import DIALOGS, mapKey
     
 class Map(cocos.scene.Scene):
 
@@ -32,6 +35,54 @@ class Map(cocos.scene.Scene):
         self.items = []
 
         cocos.scene.Scene.__init__(self, self.scroller)
+
+        self.dialog_layer = cocos.layer.Layer()
+        self.dialog_box = cocos.sprite.Sprite(pyglet.image.load('img/GUI/dialog_box.png'), anchor=(0,0))
+        self.dialog_layer.add(self.dialog_box,z=0)
+        self.dialog_layer.visible = False
+        self.add(self.dialog_layer, z = 4)
+        self.dialog_line1 = cocos.text.Label(anchor_x = 'left',font_name='Statix',position=(100,90), color=(36,36,36,255), font_size=30)
+        self.dialog_line2 = cocos.text.Label(anchor_x = 'left',font_name='Statix',position=(100,46), color=(36,36,36,255), font_size=30)
+
+        self.dialog_arrow = cocos.sprite.Sprite(pyglet.image.load('img/GUI/dialog_arrow.png'), anchor=(0,0))
+        self.dialog_arrow.position = (690,15)
+        self.dialog_arrow.visible = False
+        self.dialog_layer.add(self.dialog_arrow, z = 5)
+
+        self.dialog_layer.add(self.dialog_line1, z = 5)
+        self.dialog_layer.add(self.dialog_line2, z = 5)
+
+        self.current_dialog = []
+        self.current_dialog_speaker = []
+        self.current_dialog_counter = 0
+        self.speaker_boxes = {}
+
+        cocos.director.director.window.push_handlers(self)
+
+
+    def on_key_press(self, key, modifiers):
+
+        if mapKey(key) == pyglet.window.key.ENTER and self.dialog_layer.visible:
+            print len(self.current_dialog), self.current_dialog_counter
+            if len(self.current_dialog) > self.current_dialog_counter + 2:
+                self.current_dialog_counter += 2
+                self.dialog_line1.element.text = self.current_dialog[self.current_dialog_counter]
+                for box in self.speaker_boxes:
+                    self.speaker_boxes[box].visible = False
+                self.speaker_boxes[self.current_dialog_speaker[self.current_dialog_counter]].visible = True
+
+                if len(self.current_dialog) > self.current_dialog_counter:
+                    self.dialog_line2.element.text = self.current_dialog[self.current_dialog_counter+1]
+
+                if len(self.current_dialog) > self.current_dialog_counter + 2 and\
+                   self.current_dialog_speaker[self.current_dialog_counter] == self.current_dialog_speaker[self.current_dialog_counter+2]:
+                    self.dialog_arrow.visible = True
+                else:
+                    self.dialog_arrow.visible = False
+            else:
+                self.dialog_arrow.visible = False
+                self.dialog_layer.visible = False
+
 
 
     def placeCharacter(self, character, position):
@@ -63,4 +114,46 @@ class Map(cocos.scene.Scene):
 
         self.scroller.set_focus(position[0]*data.TILE_SIZE, position[1]*data.TILE_SIZE)
 
+    def displayDialog(self):
+        self.dialog_layer.visible = True
+        diag = DIALOGS['Nod_Nel_B']
 
+        self.current_dialog = []
+        self.current_dialog_speaker = []
+        self.current_dialog_counter = 0
+
+        for d in diag:
+            tokens = ['- '+d[0]+' -']
+            tokens.extend(d[1].split())
+            
+            self.current_dialog.append(tokens[0])
+            self.current_dialog_speaker.append(d[0])
+            counter = 1
+            while counter < len(tokens):
+                line = ""    
+                while len(line) + len(tokens[counter]) +1 < 36:
+                    line += tokens[counter] + ' '
+                    counter += 1
+                    if counter == len(tokens):
+                        break
+
+                self.current_dialog.append(line)
+                self.current_dialog_speaker.append(d[0])
+
+            if (len(self.current_dialog) % 2 != 0):
+                self.current_dialog.append('')
+                self.current_dialog_speaker.append(d[0])
+
+        self.speaker_boxes = {}
+        for s in self.current_dialog_speaker:
+            if s not in self.speaker_boxes:
+                self.speaker_boxes[s] = cocos.sprite.Sprite(pyglet.image.load('img/chara/'+data.SPEAKERS[s]+'-b.png'), position=(50,90))
+                self.dialog_layer.add(self.speaker_boxes[s], z =5   )
+                self.speaker_boxes[s].visible = False
+
+        self.dialog_line1.element.text = self.current_dialog[0]
+        self.speaker_boxes[self.current_dialog_speaker[0]].visible = True
+        if len(self.current_dialog) > 1:
+            self.dialog_line2.element.text = self.current_dialog[1]
+        if len(self.current_dialog) > 2 and self.current_dialog_speaker[0] == self.current_dialog_speaker[2]:
+            self.dialog_arrow.visible = True
