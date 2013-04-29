@@ -740,7 +740,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         if self.heros[0].is_dead() and self.heros[1].is_dead():
             #mettre si l'ecran de game over
             sc = ImgScene('img/GUI/game_over.png','ld26gameover')
-            sc = cocos.scenes.transitions.FadeTRTransition(sc,duration=2)
+            sc = cocos.scenes.transitions.ZoomTransition(sc,duration=2)
             cocos.director.director.replace(sc)
             return
 
