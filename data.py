@@ -149,7 +149,7 @@ MAPCHARA = {
             ('villagerb5', (43,28)),
             ('villagera3', (5,4)),
             ('villagerb6', (6,4)),
-            ('nel11', (33,22))
+            ('nel11', (33,34))
             ],
     'village2':[
             ('villagera1', (22,20)),
