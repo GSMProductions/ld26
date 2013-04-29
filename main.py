@@ -54,8 +54,7 @@ def main():
 
     #instancification de la fenêtre
     cocos.director.director.init(width=SCREEN_SIZE[0], height=SCREEN_SIZE[1], caption=TITLE, do_not_scale=True)
-
-    
+    cocos.director.director.window.pop_handlers()
 
     logo = pyglet.image.load('img/GUI/icone.png')
     cocos.director.director.window.set_icon(logo)
