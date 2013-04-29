@@ -38,14 +38,14 @@ MAPS = {}
 
 NOD_SKILLS =    {
                 2: 'Heal',
-                4: 'Circle',
+                4: 'Circles',
                 6: 'Halfsquares',
                 8: 'Life'
                 }
 
 NEL_SKILLS =    {
-                2: 'Triangle',
-                4: 'Square',
+                2: 'Triangles',
+                4: 'Squares',
                 6: 'Heal',
                 8: 'Life'
                 }

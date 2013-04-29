@@ -173,38 +173,17 @@ LEVELS = {
   }
 
 ITEMS = {
-    'potion':  {
-                'healhp':10,
-                },
-    'dragon blood':  {
-                'healhp':15,
-                'healdeath':1,
-                },
-    'honey':  {
-                'healmp':10,
-                },
-    'stone':  {
-                'hit':5,
-                }
+    'potion':10,
+    'dragon blood': 15,
+    'honey': 10,
+    'stone': 5
   }
 
 MAGIC = {
-    'triangles':  {
-                'mp':5,
-                },
-    'circles':  {
-                'mp':10,
-                },
-    'squares':  {
-                'mp':10,
-                },
-    'halfsquares':  {
-                'mp':15,
-                },
-    'heal':  {
-                'mp':5,
-                },
-    'life':  {
-                'mp':25,
-                }
+    'triangles':    5,
+    'circles':      10,
+    'squares':      10,
+    'halfsquares':  15,
+    'heal':         5,
+    'life':         25
   }
