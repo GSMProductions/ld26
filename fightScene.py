@@ -397,6 +397,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             if key == pyglet.window.key.ENTER:
                 SFX['select'].play()
                 self.action = self.sub_list[self.active][self.n_slot].element.text.lower()
+                self.action = self.get_name(self.action)
 
                 self.choice_arrow.kill()
                 if self.action in FRIEND_SKILL:
@@ -549,6 +550,19 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             else:
                 self.next_command(0)
                 self.next_command(4)
+
+    def get_name(self,name):
+        add = ''
+        if name in MAGIC:
+            add = MAGIC[name]
+
+
+        pos = 17
+
+        name += pos(len(name))*' ' + add
+        return name
+
+
 
     def run_action(self):
         self.menu_level = 3
