@@ -37,7 +37,7 @@ def test_map():
 
 
     MAPS['village'] = Map('village')
-    MAPS['inside_house_gen'] = Map('inside_house_gen')
+    MAPS['inside_house_gen_1'] = Map('inside_house_gen_1')
     MAPS['inside_house_nod'] = Map('inside_house_nod')
     MAPS['grassland'] = Map('grassland')
     MAPS['forest'] = Map('forest')

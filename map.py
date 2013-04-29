@@ -6,7 +6,9 @@ import pyglet
 
 import data
 
-from data import DIALOGS, mapKey
+from sprite import Character
+
+from data import DIALOGS, mapKey, MAPCHARA
     
 class Map(cocos.scene.Scene):
 
@@ -56,6 +58,16 @@ class Map(cocos.scene.Scene):
         self.current_dialog_speaker = []
         self.current_dialog_counter = 0
         self.speaker_boxes = {}
+
+        # Spawn characters
+        player = Character('nod1',(0,0),[20,20],[20,20])
+        player.map_mode()
+
+        if name == 'village':
+            name += str(1)
+
+        for character in MAPCHARA[name]:
+            self.placeCharacter(Character(character[0], (0,0), [0,0], [0,0]), character[1])
 
         cocos.director.director.window.push_handlers(self)
 
