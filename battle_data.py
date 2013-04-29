@@ -175,26 +175,15 @@ LEVELS = {
 ITEMS {
     'potion':  {
                 'healhp':10,
-                'healmp':None,
-                'healdeath':None,
-                'hit':None,
                 }
-    'dragonblood':  {
+    'dragon blood':  {
                 'healhp':15,
-                'healmp':None,
                 'healdeath':1,
-                'hit':None,
                 }
     'honey':  {
-                'healhp':None,
                 'healmp':10,
-                'healdeath':None,
-                'hit':None,
                 }
     'stone':  {
-                'healhp':None,
-                'healmp':None,
-                'healdeath':None,
                 'hit':5,
                 }
   }
