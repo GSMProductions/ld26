@@ -64,15 +64,16 @@ class Character(Sprite):
 
         self.in_dialog = False
 
-        self.hpl = [0,0]
-        self.hp = 0
+        self.hpl = [1,1]
+        self.hp = 1
 
-        self.mp = 0
+        self.mp = 1
 
         self.level = lvl
         self.set_level(lvl)
 
         self.mapCode(code)
+        self.map_mode()
 
     def hp():
        
@@ -92,7 +93,7 @@ class Character(Sprite):
             self.hpl[0] = min(hp, self.hpl[1])
             if self.hpl[0] <= 0:
                 self.hpl[0] = 0
-                
+                print self.hpl
                 self.image = self.dead_image
 
             else:
@@ -156,10 +157,12 @@ class Character(Sprite):
     def battle_mode(self):
         
         self.image = self.fight_image
+        self.anchor = self.image.width/2, self.image.height/2
 
     def map_mode(self):
 
         self.image = self.map_image
+        self.anchor = self.image.width/2, self.image.height/2
 
     def __repr__(self):
 
