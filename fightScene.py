@@ -332,11 +332,13 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
         self.attacks = []
         self.action = ''
         self.target =  None
+        self.origin = None
         self.choice_arrow = Sprite('img/GUI/arrow_friend.png')
         self.add(self.choice_arrow,z=6)
         self.choice_arrow.visible = False
         self.n_choice = 0
         self.action_ok =  False
+        self.applic_ok = False
 
 
         cocos.director.director.window.push_handlers(self)
@@ -678,6 +680,10 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         if ok and self.action_ok:
             self.action_ok = False
+            self.applic_action()
+
+        if ok and self.applic_ok:
+            self.applic_ok = False
             self.parent.next()
             if self.parent.n_active < 2:
                 self.active = self.parent.n_active
@@ -687,11 +693,99 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 self.next_command(0)
                 self.next_command(4)
 
+    def applic_action(self):
+        self.applic_ok = True
+        color_heal = (0,255,0,255)
+        color_hit = (255,0,0,255)
+        color_mp = (0,255,0,255)
+
+        power = 0
+        modif = 1.
+        rnd = 1.
+
+        if self.action not in ('fight-enemy','fight-hero') and self.action not in ITEMS:
+            power = LEVELS[self.heros[self.active].level][self.action]
+            name = self.target.name
+            if self.action not in FRIEND_SKILL:
+                modif = MONSTERS[name][self.action]
+
+        if self.action in ITEMS:
+            power = ITEMS[self.action]
+            if self.action == 'stone':
+                power += LEVELS[self.heros[self.active].level]['hit']
+
+        if self.action == 'fight-hero':
+            power = LEVELS[self.heros[self.active].level]['hit']
+        if self.action == 'fight-enemy':
+            name = self.orgin.name
+            power = MONSTERS[name]['hit']
+
+        #modification de la puissance
+        if self.action not in ITEMS:
+            rnd = random.randint(5,15) * 0.1
+
+        power = int(power * rnd * modif)
+
+        #effet
+
+        if self.action in FRIEND_SKILL:
+            if self.action == 'honey':
+                self.target.mp[0] += power
+                if self.target.mp[0] > self.target.mp[1]:
+                    self.target.mp[0] = self.target.mp[1]
+
+            else:
+                ok = True
+                if self.action in ('life','dragon blood'):
+                    if not self.target.is_dead():
+                        ok = False
+                if self.action in ('potion','heal'):
+                    if self.target.is_dead():
+                        ok = False
+
+                if not ok:
+                    power = 0
+                self.target.hp += power
+
+        else:
+            self.target.hp -= power
+
+        #position
+
+        pos = self.target.position
+        pos = pos[0], pos[1] + self.target.height - 20
+
+        #couleur du texte
+
+        if self.action in FRIEND_SKILL:
+            if self.action == 'honey':
+                color = color_mp
+            else:
+                color = color_heal
+
+        else:
+            color = color_hit
+
+        label = cocos.text.Label(text = str(power),position = pos, font_name = 'Statix', color= color , font_size = 30, anchor_x = 'center')
+
+        to = pos[0], pos[1] + 30
+        action = cocos.actions.interval_actions.MoveTo(to, 0.5)
+
+        label.do(action)
+
+        self.add(label)
+        self.attacks.append(label)
+
+
+
+
+
+
 
     def run_action(self):
         self.menu_level = 3
         self.action_ok = True
-        origin = self.parent.active
+        self.origin = self.parent.active
 
         if self.action == 'triangles':
             pos = self.target.position
@@ -745,9 +839,6 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             SFX['heal'].play()
             heal.do(action)
 
-            if not self.target.is_dead():
-                self.target.hp += 10
-
         elif self.action == 'halfsquares':
 
             pos = self.target.position
@@ -800,9 +891,6 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 pos = pos[0] + 5 , pos[1]
                 time += 0.05 * n%2
 
-                if self.target.is_dead:
-                    self.target.hp = 5
-
         elif self.action == 'squares':
             pos = self.target.position
             pos = pos[0] ,  pos[1]
@@ -826,8 +914,6 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 earth.do(action)
                 pos = pos[0] + 5 , pos[1]
 
-                #time += 0.05 * n%2
-
         elif self.action == 'potion':
             pos = self.target.position
             pos = pos[0], pos[1] + self.target.image.height/2
@@ -844,8 +930,6 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             SFX['heal'].play()
             heal.do(action)
 
-            if not self.target.is_dead():
-                self.target.hp += 10
 
         elif self.action == 'dragon blood':
 
@@ -873,15 +957,13 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 pos = pos[0] + 5 , pos[1]
                 time += 0.05 * n%2
 
-                if self.target.is_dead:
-                    self.target.hp = 5
 
         elif self.action == 'stone':
 
             action = cocos.actions.interval_actions.MoveBy((-10,0),0.2)
             action = action + cocos.actions.base_actions.Reverse(action)
 
-            origin.do(action)
+            self.origin.do(action)
 
         elif self.action == 'honey':
             pos = self.target.position
@@ -915,6 +997,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
             action = cocos.actions.interval_actions.MoveBy((-10,0),0.2)
             action = action + cocos.actions.base_actions.Reverse(action)
 
-            origin.do(action)
+            self.origin.do(action)
+
+        elif self.action == 'fight-enemy':
+            pass
 
 
