@@ -145,18 +145,6 @@ MAPCHARA = {
             ('villageois_b', (6,52))
             ],
     'village2':[
-            ('villageois_a', (5,18)),
-            ('villageois_a', (23,35)),
-            ('villageois_a', (30,12)),
-            ('villageois_b', (6,36)),
-            ('villageois_b', (43,28)),
-            ('villageois_a', (19,34)),
-            ('villageois_b', (19,33)),
-            ('villageois_b', (19,32)),
-            ('villageois_a', (5,52)),
-            ('villageois_b', (6,52))
-            ],
-    'village3':[
             ('villageois_a', (22,36)),
             ('villageois_a', (21,35)),
             ('villageois_a', (28,38)),
@@ -171,7 +159,7 @@ MAPCHARA = {
             ('villageois_a', (5,52)),
             ('villageois_b', (6,52))
             ],
-    'village4':[
+    'village3':[
             ('villageois_a', (5,18)),
             ('villageois_a', (23,35)),
             ('villageois_a', (30,12)),
