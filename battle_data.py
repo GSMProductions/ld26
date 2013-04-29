@@ -5,26 +5,46 @@ MONSTERS =  {
                         'hp':5,
                         'xp':5,
                         'hit':5,
+                        'triangles':1,
+                        'circles':1,
+                        'squares':0,
+                        'halfsquares':0.3,
                         }
              'ogre':  {
                         'hp':35,
                         'xp':17,
                         'hit':7,
+                        'triangles':1.5,
+                        'circles':1,
+                        'squares':0.3,
+                        'halfsquares':1,
                         }
              'kraken':  {
                         'hp':50,
                         'xp':37,
                         'hit':12,
+                        'triangles':1,
+                        'circles':0.3,
+                        'squares':1,
+                        'halfsquares':1.5,
                         }
              'dragon':  {
                         'hp':100,
                         'xp':50,
                         'hit':25,
+                        'triangles':0.3,
+                        'circles':1.5,
+                        'squares':1,
+                        'halfsquares':1,
                         }
              'boss':  {
                         'hp':300,
                         'xp':150,
                         'hit':30,
+                        'triangles':1,
+                        'circles':1,
+                        'squares':1,
+                        'halfsquares':1,
                         }
             }
 
