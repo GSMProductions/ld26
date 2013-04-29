@@ -91,6 +91,7 @@ class Character(Sprite):
             
             self.hpl[0] = min(hp, self.hpl[1])
             if self.hpl[0] <= 0:
+                self.hpl[0] = 0
                 
                 self.image = self.dead_image
 
