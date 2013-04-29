@@ -198,3 +198,24 @@ ITEMS {
                 'hit':5,
                 }
   }
+
+MAGIC {
+    'triangles':  {
+                'mp':5,
+                }
+    'circles':  {
+                'mp':10,
+                }
+    'squares':  {
+                'mp':10,
+                }
+    'halfsquares':  {
+                'mp':15,
+                }
+    'heal':  {
+                'mp':5,
+                }
+    'life':  {
+                'mp':25,
+                }
+  }
