@@ -6,6 +6,7 @@ import random
 
 from sprite import Character, Sprite
 from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey, SFX
+from battle_data import MAGIC, ITEMS, LEVELS, MONSTERS
 
 
 class FightScene(cocos.scene.Scene):
