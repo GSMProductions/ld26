@@ -10,10 +10,14 @@ from sprite import Character
 from menu import Menu
 from map import Map
 from behaviour import MoveCharacter, CheckForBattle
-from credits import CreditScene
+from credits import ImgScene
 
 def push_credit():
-    cr = CreditScene()
+    cr = ImgScene('img/GUI/credits.png')
+    cocos.director.director.push(cr)
+
+def push_how_to_play():
+    cr = ImgScene('img/GUI/command.png')
     cocos.director.director.push(cr)
 
 
@@ -75,7 +79,8 @@ def main():
                     ('Start game',start_game,[]),
                     ('Credits',push_credit,[]),
                     ('Battle (Prairie)',test_combat,['prairie']),
-                    ('Battle (Forest)',test_combat,['forest'])
+                    ('Battle (Forest)',test_combat,['forest']),
+                    ('How to play',push_how_to_play,[])
                     ]
 
     main_scene = cocos.scene.Scene()

@@ -5,14 +5,14 @@ import pyglet
 from data import mapKey
 
 
-class CreditScene(cocos.scene.Scene):
+class ImgScene(cocos.scene.Scene):
 
-    def __init__(self):
+    def __init__(self,img):
 
         cocos.scene.Scene.__init__(self)
 
         layer = cocos.layer.Layer()
-        image =  pyglet.image.load('img/GUI/credits.png')
+        image =  pyglet.image.load(img)
         sprite = cocos.sprite.Sprite(image,(0,0),anchor=(0,0))
         layer.add(sprite)
         self.add(layer)
