@@ -43,17 +43,6 @@ class FightScene(cocos.scene.Scene):
             pos = pos[0] - 90, pos[1]
 
         heros.reverse()
-        # BG
-
-        if zone == 'prairie':
-            image = pyglet.image.load('img/GUI/bg_prairie.png')
-            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
-            self.add(sprite,z=0)
-
-        elif zone == 'forest':
-            image = pyglet.image.load('img/GUI/bg_forest.png')
-            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
-            self.add(sprite,z=0)
 
         #Ennemies
 
@@ -84,8 +73,23 @@ class FightScene(cocos.scene.Scene):
             pos = pos[0] + enemy.image.width + 20 , pos[1]
 
             self.layer['battle'].add(enemy)
-            
 
+        # BG
+
+        if zone == 'prairie':
+            image = pyglet.image.load('img/GUI/bg_prairie.png')
+            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
+            self.add(sprite,z=0)
+
+        elif zone == 'forest':
+            if 'kraken' in str_enemies:
+                image = pyglet.image.load('img/GUI/bg_forest_water.png')
+            else:
+                image = pyglet.image.load('img/GUI/bg_forest.png')
+            sprite = cocos.sprite.Sprite(image, anchor=(0,0))
+            self.add(sprite,z=0)
+
+        
         #arrow
 
         self.active_arrow = Sprite('img/GUI/arrow_current_character.png')
