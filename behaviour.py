@@ -16,7 +16,7 @@ class CheckForBattle(cocos.actions.Action):
 
     def step(self, dt):
 
-        if self.target.battle_timer >= self.target.battle_threshold:
+        if self.target.battle_timer >= self.target.battle_threshold and self.target.current_map.name in ['grassland', 'forest']:
             self.target.battle_timer = 0.0
             self.battle_threshold = random.randint(10,15)
             
