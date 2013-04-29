@@ -106,27 +106,27 @@ MAPITEM = {
     'village':[
             ],
     'inside_house_nod':[
-            ('potion', (21,9))
+            ('potion', (21,47))
             ],
     'inside_house_gen_1':[
-            ('potion', (8,8))
+            ('potion', (8,48))
             ],
 
     'inside_house_gen_2':[
-            ('dragon blood', (21,13))
+            ('dragon blood', (21,43))
             ],
     'grassland':[
-            ('honey', (26,33)),
-            ('potion', (37,24)),
-            ('stone', (3,30)),
-            ('dragon blood', (1,4)),
-            ('honey', (22,13))
+            ('honey', (26,23)),
+            ('potion', (37,32)),
+            ('stone', (3,26)),
+            ('dragon blood', (1,52)),
+            ('honey', (22,43))
             ],
     'forest':[
             ('honey', (37,28)),
-            ('stone', (16,26)),
-            ('dragon blood', (4,11)),
-            ('honey', (29,16))
+            ('stone', (16,30)),
+            ('dragon blood', (4,45)),
+            ('honey', (29,40))
             ],
     'falaise':[
             ]
@@ -134,53 +134,53 @@ MAPITEM = {
 
 MAPCHARA = {
     'village1':[
-            ('villagera', (5,18)),
-            ('villagerb', (23,35)),
-            ('villagera', (30,12)),
-            ('villagerb', (6,36)),
-            ('villagerb', (24,35)),
-            ('villagerb', (25,35)),
+            ('villagera', (5,38)),
+            ('villagerb', (23,21)),
+            ('villagera', (30,44)),
+            ('villagerb', (6,20)),
+            ('villagerb', (24,21)),
+            ('villagerb', (25,21)),
             ('villagerb', (43,28)),
-            ('villagera', (5,52)),
-            ('villagerb', (6,52))
+            ('villagera', (5,4)),
+            ('villagerb', (6,4))
             ],
     'village2':[
-            ('villagera', (22,36)),
-            ('villagera', (21,35)),
-            ('villagera', (28,38)),
-            ('villagerb', (23,39)),
-            ('villagerb', (18,37)),
-            ('villagera', (26,39)),
-            ('villagerb', (23,38)),
-            ('villagerb', (25,38)),
-            ('n_the_wise', (23,35)),
-            ('nad2', (24,35)),
-            ('nus2', (25,35)),
-            ('villagera', (5,52)),
-            ('villagerb', (6,52))
+            ('villagera', (22,20)),
+            ('villagera', (21,21)),
+            ('villagera', (28,18)),
+            ('villagerb', (23,17)),
+            ('villagerb', (18,19)),
+            ('villagera', (26,17)),
+            ('villagerb', (23,18)),
+            ('villagerb', (25,18)),
+            ('n_the_wise', (23,21)),
+            ('nad2', (24,21)),
+            ('nus2', (25,21)),
+            ('villagera', (5,4)),
+            ('villagerb', (6,4))
             ],
     'village4':[
-            ('villagera', (5,18)),
-            ('villagera', (23,35)),
-            ('villagera', (30,12)),
-            ('villagerb', (6,36)),
-            ('villagerb', (24,35)),
-            ('villagerb', (25,35)),
+            ('villagera', (5,38)),
+            ('villagera', (23,21)),
+            ('villagera', (30,44)),
+            ('villagerb', (6,20)),
+            ('villagerb', (24,21)),
+            ('villagerb', (25,21)),
             ('villagerb', (43,28))
             ],
     'inside_ceremony_hall':[
-            ('nad', (7,7)),
-            ('nus', (20,10))
+            ('nad', (7,49)),
+            ('nus', (20,46))
             ],
     'inside_house_nod':[
             ],
     'inside_house_gen_1':[
             ],
     'inside_house_gen_2':[
-            ('villagerb', (5,11))
+            ('villagerb', (5,45))
              ],
     'grassland':[
-            ('dude', (17,9))
+            ('dude', (17,47))
              ],
     'forest':[
             ],
