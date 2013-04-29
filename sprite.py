@@ -27,6 +27,8 @@ class Character(Sprite):
 
         self.dead_image =  None
 
+        self.xp = 0
+
         try:
             image = pyglet.image.load('img/chara/' + str(name) + '.png')
             self.map_image = image
@@ -69,9 +71,9 @@ class Character(Sprite):
         self.mp = 1
 
         self.level = lvl
+        self.code = code
         self.set_level(lvl)
-
-        self.mapCode(code)
+        
         self.map_mode()
 
     def hp():
@@ -92,7 +94,6 @@ class Character(Sprite):
             self.hpl[0] = min(hp, self.hpl[1])
             if self.hpl[0] <= 0:
                 self.hpl[0] = 0
-                print self.hpl
                 self.image = self.dead_image
 
             else:
@@ -125,6 +126,8 @@ class Character(Sprite):
 
         self.hpl = [hp,hp]
         self.mp = [mp,mp] 
+
+        self.mapCode(self.code)
 
 
 
