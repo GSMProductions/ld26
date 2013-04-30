@@ -25,6 +25,8 @@ class CheckForBattle(cocos.actions.Action):
             sf = FightScene(self.zone,heros)
             sf = cocos.scenes.transitions.ZoomTransition(sf)
             cocos.director.director.push(sf)
+        elif self.target.current_map.name not in ['grassland', 'forest']:
+            self.target.battle_timer = 0.0
 
 class MoveCharacter(cocos.actions.Move):
     def step(self, dt):
