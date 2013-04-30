@@ -33,3 +33,9 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# Sublime Text
+*.sublime-*
+
+# Photoshop
+*.psd

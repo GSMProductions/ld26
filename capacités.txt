@@ -1,0 +1,49 @@
+CAPACITES
+
+-Soin = Heal
+-Vie = Life
+-Attaque physique = Hit
+-Attaque magique = Magic
+-> triangles (feu) = Triangle
+-> rond (eau) = Round
+-> carré (terre) = Square
+-> deux triangles (foudre) = Halfsquares
+-Fuite = Escape
+-Augmenter la force = Force +
+-Augmenter la défense = Defense +
+
+MAGIE
+
+foudre tue eau tue feu tue terre (tue foudre, etc)
+
+LEVELS
+
+Nel
+1- Attaque
+2- Soin (5MP)
+3- +cote
+4- Magie Eau (10MP)
+5- +cote
+6- Magie Foudre (15MP)
+7- +cote
+8- Vie
+9- +cote
+10- +cote
+
+Nod
+1- Attaque
+2- Magie Feu (5MP)
+3- +cote
+4- Magie Terre (10MP)
+5- +cote
+6- Soin
+7- +cote
+8- Vie (25MP)
+9- +cote
+10- +cote
+
+OBJETS
+-Potion (+HP) (rond)
+-Sang de dragon (vie) (triangle pointant vers le haut)
+-Miel (+MP) (triangle pointant vers le bas)
+-Pierre (lance une attaque physique ++) (carré)

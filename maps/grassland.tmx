@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" source="tileset_grassland.tsx"/>
+ <layer name="ground1" width="40" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2UsKwjAUheE4kEpcQtO4BXUNPlbiIly2E8cGpHIJN22oSXMGZ/CDIC2fnLYD2xljOpEHS9rspr1nyvcC8Gg+RJf0tTbQRx9q9NFHH330YUYfffTRRx9m9P3vmzI+QHzbxH9DTxDfG2DLKR/qdSh9qY1RfLU2PoYOSqeZ41zkq7XxLbRXOs8cZxVfjY0vobvSdYEvd+M1nouaL3fjNZ6LKR/KfZzyaZu3MOf6ZLtMpytQb77vZGq8X7AF6itvQ9+yHLDvd10X8o33yiA+L3WNtpI+LekdEvnoN8XnqOnLyc98X8r3AWqr3Z8=
+  </data>
+ </layer>
+ <layer name="ground2" width="40" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmEtPFEEQxwv1zsvXncCCYjh404gme8GAMSpxfe1BTVT4CCic1JtvD+pNfB7UREF8HpBE4WNZlenK1BbVPd0zK3qwkn9mdra757dV1V3dCwDwFDUPmXWj+p3ovhd1HXUDdRO1p6NVva7Ne8jve41+DTd+P+RG9wPi8ypqDVrtLuojakn04fH5/hHqMeoJqkup5tr8VDy6H4/pM/LFB+P5c9QL1GXUFcMHpDeot6h3Bp9sJ3lqqp/kI1/3uM9bhV9+GXyfUV9QV1HXXJ+a8AuP8cPdW3zcVvMsu34rio98PeD6DRpM0i55/CFjNSg4fP7r9vDIcWrq3eRHjmlTfbfgrlPiXVOQ+07GqgG272T+ca6GcpCNY0J+tGJKtuqus+Jds4LFyh1ffHvAzkE9DpsvrgvGs9uedy5DFiteY9ivlv8GxPdWDtJ1xeMnaeyzCfFs3sNHqkMWt5q7t+Krxb9L5iDnQBlbMt4h524otj5R2wa0rgN6bkgbN57xvOH864R8jkCb+LimcI6kGM8bOX95jpDVDKXwcU2hfpwjsSbXGjl/WQdRh5QmE/hkXMmP9QQ2bXp95jqn37klgU9yQgFfXwGfZuE61w6+rgI2y/RcsVgsHx6H9TFnWbEfc1feV+n6FWtWLH0+9Cnk2xHjnWdR5yL5LA7KSV8epvCR7w4bjNtQB5R2qjYn3VXPD9YD1EP1bCKRj9R0jBxfYtuO2qS0w8M57Rn3Fep1Rf9JxhCb5pSMc26McTXmN9T3AL9sHzO3KdYdBWwWY1GO3QJ7j5PiP863It9ZjEXzlM92ZfliYurTZlhff7X4bFeWbwi1K4FpN2rUaRjs+hujMQjzNSHPuyHxTh8rcw2LMeisELvGlfEf7w20P0cNDRv96ayQUifKxJdrRZlx6axwB7L/EO79Ib5GhXGXUc8g/w/Byq0T4N8XsI4F3tEMfMfa6/lNp1GfIP8PoWqcLVFtizlbWbWTOO+DXWvLaMx4xrW3XtDO8ietnS8hXGtT9qWWn+pgz+MYUT38CnmtDfHpHPFpxPhcho1EaxHVVt8eK9V/Wk3Hp5ljRX6n2hpaY8rynaoQV9Y+yGqrtcZU4eP5MAJx64tUn7g/ApmF1hjfuWjS+YjWqDOQ1wn5rMra3HR8vL+jHKy6zqT6yifOV+KT+7uUPX0op9vByHxyf6fXGXmG03MoNS/7Etszn34mz5Z8Dp6B1jk0XYKvjM6rz3wWkufzGSc5hxYj+GhtuFBB+yGzMr9rLYLPik2Kjiq+TqONnI86fzaaL1UWn6zRG8W3mMD3N/y3Ju5lDvwrfCnx/c/XPj5aW6usfxcd328Hgxs3
+  </data>
+ </layer>
+ <layer name="foreground" width="40" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0MENACAIA0D2dwhXdQMlMSoxd9/yaImYa4v8tZ64qbwh0/+W3S4nt1T6EwAAAAAAAPCnAdXYBDI=
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="maptest" tilewidth="32" tileheight="32">
+  <image source="testing.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="passable" value="False"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="door" value="True"/>
+    <property name="door_destination" value="2 2"/>
+    <property name="door_map" value="maptest"/>
+    <property name="passable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="ground1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztlksSwyAMQ+mk9z9zD1AClixjNdMFi2QM+Fn+cI0xroes14+vP4fXUnNEz7rGtw+ZXFdyIGftbFEeZa0zMVTqy3C/J/scOFjb3bcrB8qV8RGp+4wes31qPaL2aI3vYqTWI7qnYn5E5wE7Q+7O6p7n7NyLnuH8xoz2HLaHdbFke2d1nKP2Kz3UOaWcexGOihhX5ekpDmY+uXIo/jtzZHulE0dWkwyHIt9396J9IaOjgqWLA2VYxV8xm5T1gdytrkcFhyKODhwKFkUuVHKc4jn5vmJigrI7cWR0duVguZnYdPtewaGodxeO1X7El91ZlfVR8VZCtHXkqMorxodVb1/lxikOpqfP7KI1dvKNw+bMTCO273XOguj7w0mP1d3McuPo1iM7vxG7rrzK1qwLhzomT+BAc6DbDxXHE9YHZPAN3A==
+  </data>
+ </layer>
+ <layer name="ground2" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAnEAAB
+  </data>
+ </layer>
+ <layer name="foreground" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAnEAAB
+  </data>
+ </layer>
+</map>
