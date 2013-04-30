@@ -1131,6 +1131,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
        
         self.dic_victory.append(('victory',True))
         self.dic_victory.append(('item',item))
+        INVENTORY.add(item)
         self.dic_victory.append(('xp',self.xp))
         
         if self.heros[0].level < 10:
