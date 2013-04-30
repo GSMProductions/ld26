@@ -692,6 +692,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                         hero.map_mode()
                         #cocos.director.director.window.pop_handlers()
                         cocos.director.director.window.push_handlers(KEYBOARD)
+                        self.heros[0].current_map.spawnPlayer(self.heros[0],self.heros[0].map_position)
                         cocos.director.director.replace(self.heros[0].current_map)
                 else:
                     msg = self.dic_victory.pop(0)
@@ -786,7 +787,7 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
 
         if self.heros[0].is_dead() and self.heros[1].is_dead():
             #mettre si l'ecran de game over
-            sc = ImgScene('img/GUI/game_over.png','ld26gameover')
+            sc = ImgScene('img/GUI/game_over.png','ld26gameover',game_over = True)
             sc = cocos.scenes.transitions.ZoomTransition(sc,duration=2)
             cocos.director.director.replace(sc)
             return
@@ -1131,10 +1132,14 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
        
         self.dic_victory.append(('victory',True))
         self.dic_victory.append(('item',item))
+        INVENTORY.add(item)
         self.dic_victory.append(('xp',self.xp))
         
+        self.heros[0].xp += self.xp
+
         if self.heros[0].level < 10:
-            if self.xp + self.heros[0].xp >= LEVELS[self.heros[0].level]['nextlevel']:
+            if self.heros[0].xp >= LEVELS[self.heros[0].level]['nextlevel']:
+                self.heros[0].xp = 0
                 self.dic_victory.append(('next',True))
                 for hero in self.heros:
                     hero.set_level()

@@ -7,7 +7,7 @@ from data import mapKey
 
 class ImgScene(cocos.scene.Scene):
 
-    def __init__(self,img,music=None):
+    def __init__(self,img,music=None,game_over=False):
 
         cocos.scene.Scene.__init__(self)
 
@@ -18,6 +18,7 @@ class ImgScene(cocos.scene.Scene):
         self.add(layer)
         
         self.music =  False
+        self.game_over = game_over
 
         if music != None:
             self.music =  True
@@ -47,4 +48,6 @@ class ImgScene(cocos.scene.Scene):
 
         if key == pyglet.window.key.ESCAPE:
             cocos.director.director.window.pop_handlers()
+            if self.game_over == True:
+                cocos.director.director.terminate_app = True
             self.end()
