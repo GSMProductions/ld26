@@ -20,6 +20,9 @@ class CheckForBattle(cocos.actions.Action):
             self.target.battle_timer = 0.0
             self.battle_threshold = random.randint(10,15)
             
+            if self.target.current_map.name == 'forest':
+                self.zone = 'forest'
+
             # START THE BATTLE
             heros = [self.target, HOOK['NED']]
             sf = FightScene(self.zone,heros)
