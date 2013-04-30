@@ -690,8 +690,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 if len(self.dic_victory) <=0:
                     for hero in self.heros:
                         hero.map_mode()
-                        #cocos.director.director.window.pop_handlers()
+                        cocos.director.director.window.pop_handlers()
                         cocos.director.director.window.push_handlers(KEYBOARD)
+                        cocos.director.director.window.push_handlers(self.heros[0].current_map)
                         self.heros[0].current_map.spawnPlayer(self.heros[0],self.heros[0].map_position)
                         cocos.director.director.replace(self.heros[0].current_map)
                 else:
