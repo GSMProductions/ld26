@@ -6,7 +6,7 @@ import random
 
 from sprite import Character, Sprite
 from credits import ImgScene
-from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey, SFX,INVENTORY
+from data import ZONE, ENEMY_PROPERTY,FRIEND_SKILL, mapKey, SFX,INVENTORY, KEYBOARD
 from battle_data import MAGIC, ITEMS, LEVELS, MONSTERS, DROPS
 
 
@@ -15,14 +15,13 @@ class FightScene(cocos.scene.Scene):
     def __init__(self,zone,heros=[]):
 
         cocos.scene.Scene.__init__(self)
-        
+
         self.layer = {}
 
         # battle zone
 
         self.layer['battle'] = cocos.layer.base_layers.Layer()
         self.add(self.layer['battle'],z=1)
-
 
         self.heros = heros
 
@@ -691,7 +690,9 @@ class guiFifhtLayer(cocos.layer.base_layers.Layer):
                 if len(self.dic_victory) <=0:
                     for hero in self.heros:
                         hero.map_mode()
-                        cocos.director.director.pop()
+                        #cocos.director.director.window.pop_handlers()
+                        cocos.director.director.window.push_handlers(KEYBOARD)
+                        cocos.director.director.replace(self.heros[0].current_map)
                 else:
                     msg = self.dic_victory.pop(0)
                     
