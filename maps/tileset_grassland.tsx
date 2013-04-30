@@ -74,7 +74,7 @@
  <tile id="300">
   <properties>
    <property name="door" value="True"/>
-   <property name="door_destination" value="4 1"/>
+   <property name="door_destination" value="5 5"/>
    <property name="door_map" value="forest"/>
    <property name="passable" value="True"/>
   </properties>

@@ -9,7 +9,6 @@ from battle_data import HOOK
 
 
 
-
 class CheckForBattle(cocos.actions.Action):
 
     zone = 'prairie'
@@ -107,6 +106,29 @@ class MoveCharacter(cocos.actions.Move):
             player_rect = self.target.get_rect()
             player_rect.x += self.target.velocity[0]*dt
             player_rect.y += self.target.velocity[1]*dt
+
+            if self.target.current_map.name == 'falaise':
+                
+
+                if TRIGGERS['cliff'] == 3:
+                    self.target.current_map.displayDialog('Nod_Nel_Followers')
+                    TRIGGERS['cliff'] = 4
+
+                if TRIGGERS['cliff'] == 2:
+                    for npc in self.target.current_map.npcs:
+                        self.target.current_map.npcs[npc].do(cocos.actions.interval_actions.MoveBy((0,32*14+32*random.randint(-2,2)),random.randint(4,5)))
+                    TRIGGERS['cliff'] = 3
+
+                if TRIGGERS['cliff'] == 1:
+                    self.target.current_map.displayDialog('Nod_Nel_G')
+                    TRIGGERS['cliff'] = 2
+
+            if self.target.current_map.name == 'forest':
+                if TRIGGERS['forest'] == 1:
+                    self.target.current_map.displayDialog('Nod_Nel_Dude')
+                    TRIGGERS['forest'] = 2                
+
+
 
             if TRIGGERS['found_nel'] and TRIGGERS['village_state'] == 1:
                 TRIGGERS['village_state'] = 2

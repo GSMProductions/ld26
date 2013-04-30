@@ -86,7 +86,6 @@ class Map(cocos.scene.Scene):
 
     def on_enter(self):
         super(Map, self).on_enter()
-        print "arriving" + self.name
         self.in_transition = False
         self.ready += 1
         if self.timer > 2.0:  
@@ -94,7 +93,6 @@ class Map(cocos.scene.Scene):
 
     def on_exit(self):
         super(Map, self).on_exit()
-        print "exiting" + self.name
         self.in_transition = True
         self.ready -= 1
         if self.ready < 1:

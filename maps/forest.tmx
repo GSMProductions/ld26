@@ -70,7 +70,7 @@
   <tile id="300">
    <properties>
     <property name="door" value="True"/>
-    <property name="door_destination" value="10 1"/>
+    <property name="door_destination" value="10 12"/>
     <property name="door_map" value="falaise"/>
     <property name="passable" value="True"/>
    </properties>

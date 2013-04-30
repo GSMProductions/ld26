@@ -77,9 +77,10 @@ SPEAKERS = {
             'Nad': 'nad',
             'N the Wise': 'n_the_wise',
             'Nus': 'nuss',
-            'Dude': 'type_mourant',
+            'Dude': 'dude',
             'Villager': 'villager',
-            'Villagers': 'villager'
+            'Villagers': 'villager',
+            'Young villagers': 'friends'
            }
 
 
@@ -192,12 +193,20 @@ MAPCHARA = {
     'inside_house_gen_2':[
             ('villagerb1', (5,8))
              ],
-    'grassland':[
-            ('dude1', (17,47))
-             ],
     'forest':[
+            ('dude1', (7,5))
+             ],
+    'grassland':[
             ],
     'falaise':[
+            ('ami_fin11', (3,-5)),
+            ('ami_fin21', (6,-5)),
+            ('ami_fin31', (7,-5)),
+            ('ami_fin41', (9,-5)),
+            ('ami_fin51', (12,-5)),
+            ('ami_fin61', (16,-5)),
+            ('ami_fin71', (18,-5)),
+            ('ami_fin81', (20,-5))
             ]
     }
 
@@ -218,5 +227,7 @@ BGM = {
 
 TRIGGERS = {
     'village_state':1,
-    'found_nel':False
+    'found_nel':False,
+    'cliff':1,
+    'forest':1
     }
