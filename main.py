@@ -35,8 +35,12 @@ def test_combat(zone):
 
 
 def start_game():
+    INVENTORY.add('potion')
+    INVENTORY.add('potion')
+    INVENTORY.add('dragon blood')
 
     HOOK['NED'] = Character('nel1',(0,0),'NEL',1)
+    
     player = Character('nod1',(0,0),'NOD',1)
     player.map_mode()
     player.do(MoveCharacter())
