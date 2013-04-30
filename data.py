@@ -168,7 +168,7 @@ MAPCHARA = {
             ('villagera5', (5,4)),
             ('villagerb5', (6,4))
             ],
-    'village4':[
+    'village3':[
             ('villagera1', (5,38)),
             ('villagera2', (23,21)),
             ('villagera3', (30,44)),
@@ -204,15 +204,16 @@ MAPCHARA = {
 BGM = {
     'village1': 'ld26village.ogg',
     'village2': 'ld26village.ogg',
+    'village3': 'ld26endtheme.ogg',
     'inside_ceremony_hall':'ld26villageindoor.ogg',
     'inside_house_nod':'ld26villageindoor.ogg',
     'inside_house_gen_1':'ld26villageindoor.ogg',
     'inside_house_gen_2':'ld26villageindoor.ogg',
     'inside_house_gen_3':'ld26villageindoor.ogg',
     'inside_house_gen_4':'ld26villageindoor.ogg',
-    'grassland':'ld26villageindoor.ogg',
-    'forest':'ld26villageindoor.ogg',
-    'falaise':'ld26villageindoor.ogg'
+    'grassland':'ld26village.ogg',
+    'forest':'ld26village.ogg',
+    'falaise':'ld26endtheme.ogg'
     }
 
 TRIGGERS = {
