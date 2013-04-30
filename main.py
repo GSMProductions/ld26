@@ -90,8 +90,8 @@ def main():
     main_command =  [
                     ('Start game',start_game,[]),
                     ('Credits',push_credit,[]),
-                    ('Battle (Prairie)',test_combat,['prairie']),
-                    ('Battle (Forest)',test_combat,['forest']),
+                    # ('Battle (Prairie)',test_combat,['prairie']),
+                    # ('Battle (Forest)',test_combat,['forest']),
                     ('How to play',push_how_to_play,[])
                     ]
 
