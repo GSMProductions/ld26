@@ -10,7 +10,7 @@ from sprite import Character
 from menu import Menu
 from map import Map
 from behaviour import MoveCharacter, CheckForBattle
-from credits import ImgScene
+from credits import ImgScene, LoadingScene
 from battle_data import HOOK
 
 def push_credit():
@@ -34,7 +34,21 @@ def test_combat(zone):
     cocos.director.director.push(dummy_scene)
 
 
-def start_game():
+def start_game(player):
+    MAPS['inside_house_nod'].spawnPlayer(player, (7,9))
+    MAPS['inside_house_nod'].displayDialog('Intro')
+
+    cocos.director.director.window.push_handlers(KEYBOARD)
+    #cocos.director.director.run(cocos.scenes.FadeTransition(dummy_scene, duration=5))
+
+def callback(dt):
+    pyglet.gl.glClearColor(0.85, 0.85, 0.85, 1)
+
+
+def init_game():
+
+    print "Initialising the game..."
+
     INVENTORY.add('potion')
     INVENTORY.add('potion')
     INVENTORY.add('dragon blood')
@@ -61,15 +75,25 @@ def start_game():
     MAPS['forest'] = Map('forest')
     MAPS['falaise'] = Map('falaise')
 
+    main_command =  [
+                    ('Start game',start_game,[player]),
+                    ('Credits',push_credit,[]),
+                    # ('Battle (Prairie)',test_combat,['prairie']),
+                    # ('Battle (Forest)',test_combat,['forest']),
+                    ('How to play',push_how_to_play,[])
+                    ]
 
-    MAPS['inside_house_nod'].spawnPlayer(player, (7,9))
-    MAPS['inside_house_nod'].displayDialog('Intro')
+    menu_scene = cocos.scene.Scene()
+    menu_scene.schedule(callback)
 
-    cocos.director.director.window.push_handlers(KEYBOARD)
-    #cocos.director.director.run(cocos.scenes.FadeTransition(dummy_scene, duration=5))
+    #Title
+    sprite = cocos.sprite.Sprite('img/GUI/titre.png',(400,450))
+    menu_scene.add(sprite)
 
-def callback(dt):
-    pyglet.gl.glClearColor(0.85, 0.85, 0.85, 1)
+    menu =  Menu(main_command)
+    menu_scene.add(menu)
+    print "Going to menu..."
+    cocos.director.director.replace(cocos.scenes.FadeTransition( menu_scene, duration=2 ) )
 
 def main():
 
@@ -85,24 +109,12 @@ def main():
     pyglet.resource.reindex()
     pyglet.resource.add_font('Statix.ttf')
 
-    main_command =  [
-                    ('Start game (loads slow...)',start_game,[]),
-                    ('Credits',push_credit,[]),
-                    # ('Battle (Prairie)',test_combat,['prairie']),
-                    # ('Battle (Forest)',test_combat,['forest']),
-                    ('How to play',push_how_to_play,[])
-                    ]
+    splash_scene = LoadingScene('img/GUI/loading.png', callback=init_game)
 
-    main_scene = cocos.scene.Scene()
-    main_scene.schedule(callback)
+    #splash_scene.schedule(init_game)
 
-    #Title
-    sprite = cocos.sprite.Sprite('img/GUI/titre.png',(400,450))
-    main_scene.add(sprite)
+    cocos.director.director.run(splash_scene)
 
-    menu =  Menu(main_command)
-    main_scene.add(menu)
-    cocos.director.director.run(main_scene)
 
 if __name__ == "__main__":
     main()

@@ -51,3 +51,31 @@ class ImgScene(cocos.scene.Scene):
             if self.game_over == True:
                 cocos.director.director.terminate_app = True
             self.end()
+
+class LoadingScene(ImgScene):
+
+    def __init__(self,img,music=None,game_over=False, callback=None):
+        super(LoadingScene, self).__init__(img, music, game_over)
+        self.callback = callback
+        pyglet.gl.glClearColor(0.85, 0.85, 0.85, 1)
+        self.ready = True
+
+        layer = cocos.layer.Layer()
+        self.label = cocos.text.Label(text='Press any key',position = (400,20), font_name='Statix', color= (127,129,131,255) , font_size = 30, anchor_x = 'center')
+        layer.add(self.label, z=6)
+        self.add(layer, z=5)
+
+
+        cocos.director.director.window.push_handlers(self)
+
+    def on_key_press(self, key, modifiers):
+
+        if self.ready and self.callback is not None:
+            self.label.element.text = "Loading, please wait..."
+
+    def on_key_release(self, key, modifiers):
+
+        if self.ready and self.callback is not None:
+            self.callback()
+            self.label.element.text = "Have fun!"
+            self.ready = False
